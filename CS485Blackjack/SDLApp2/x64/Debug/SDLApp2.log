@@ -1,0 +1,9 @@
+﻿  Color.cpp
+  SDLApp.cpp
+C:\Users\Ethan Hunter\visualStudio\01shapes-group-8-ethan-hung\SDLApp2\SDLApp.cpp(193,29): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  SDLSprite.cpp
+  SDLTextWidget.cpp
+C:\Users\Ethan Hunter\visualStudio\01shapes-group-8-ethan-hung\SDLApp2\SDLTextWidget.cpp(83,35): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Ethan Hunter\visualStudio\01shapes-group-8-ethan-hung\SDLApp2\SDLTextWidget.cpp(85,28): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
+  SDLApp2.vcxproj -> C:\Users\Ethan Hunter\visualStudio\01shapes-group-8-ethan-hung\x64\Debug\SDLApp2.lib
