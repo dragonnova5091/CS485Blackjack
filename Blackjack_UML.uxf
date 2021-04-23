@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>352</x>
+      <y>432</y>
+      <w>184</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>Presenter
+-</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>632</x>
+      <y>416</y>
+      <w>184</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>Model
+-
+-mDecks : Vector&lt;Deck&gt;
+-mPlayers : Vector&lt;Player&gt;
+-mDealer : Dealer
+-</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>64</x>
+      <y>200</y>
+      <w>208</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>TextView
+-</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>72</x>
+      <y>576</y>
+      <w>208</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>SDL View
+-</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>64</x>
+      <y>384</y>
+      <w>184</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>IView
+-</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>712</x>
+      <y>624</y>
+      <w>208</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>Deck
+-
+-mCards : Vector&lt;Card&gt;
+-mUsedCards : Vector&lt;Card&gt;
+-
+Deck()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>632</y>
+      <w>160</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>Card
+-
+-mSuit : char
+-mValue : int
+-
+Card ()
+Card (char, int)
+getSuit () : char
+getValue (): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>0</y>
+      <w>192</w>
+      <h>176</h>
+    </coordinates>
+    <panel_attributes>/Player/
+-
+-mName : string
+-mMoney : Money
+-mHand : Vector&lt;Card&gt;
+-
+getName (): string
+getMoney () : Money
+setName (string) : void
+updateMoney (Money) : void
+addCard (Card) : void
+clearHand () : void
+/doTurn () = 0 : void/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>608</x>
+      <y>232</y>
+      <w>168</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>ComputerPlayer
+-
+ComputerPlayer () 
+ComputerPlayer (string, Money)
+doTurn () : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>792</x>
+      <y>232</y>
+      <w>168</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>HumanPlayer
+-
+HumanPlayer ()
+HumanPlayer (string, Money)
+doTurn () : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>80</x>
+      <y>776</y>
+      <w>184</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>SDL2App
+-</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>80</x>
+      <y>80</y>
+      <w>184</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>TextUI
+-</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>816</x>
+      <y>168</y>
+      <w>64</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>696</x>
+      <y>168</y>
+      <w>32</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>20.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>376</x>
+      <y>232</y>
+      <w>168</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>Dealer
+-
+Dealer ()
+doTurn() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>536</x>
+      <y>296</y>
+      <w>88</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
