@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CS485Blackjack", "CS485Blackjack\CS485Blackjack.vcxproj", "{F75C9BAB-65FA-48F2-B201-BB27B3FF433E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{37A15E10-75C4-4B29-A804-D379613C94F5} = {37A15E10-75C4-4B29-A804-D379613C94F5}
+		{904D4DF3-815A-486F-8F66-4424130DD71A} = {904D4DF3-815A-486F-8F66-4424130DD71A}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SDLApp2", "SDLApp2\SDLApp2.vcxproj", "{904D4DF3-815A-486F-8F66-4424130DD71A}"
 EndProject
