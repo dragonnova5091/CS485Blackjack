@@ -4,36 +4,50 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>352</x>
-      <y>432</y>
-      <w>184</w>
-      <h>144</h>
+      <x>336</x>
+      <y>672</y>
+      <w>232</w>
+      <h>152</h>
     </coordinates>
-    <panel_attributes>Presenter
--</panel_attributes>
+    <panel_attributes>BlackjackPresenter
+-
+-mpcBJView : IBlackjackView
+-mcBJModel : BlackjackModel
+-
++BlackjackPresenter(IBlackjackPresenter*)
+
+/+setMove () : void/
+
+/+~BlackjackPresenter()/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>632</x>
-      <y>416</y>
+      <x>648</x>
+      <y>440</y>
       <w>184</w>
       <h>144</h>
     </coordinates>
-    <panel_attributes>Model
+    <panel_attributes>BlackjackModel
 -
 -mDecks : Vector&lt;Deck&gt;
 -mPlayers : Vector&lt;Player&gt;
--mDealer : Dealer
--</panel_attributes>
+-
++BlackjackModel
++~BlackjackModel ()
++setPlayerName (string&amp;) : void
+
++doTurn () : void
+
++resetGame () : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>64</x>
-      <y>200</y>
+      <x>24</x>
+      <y>216</y>
       <w>208</w>
       <h>144</h>
     </coordinates>
@@ -44,8 +58,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>72</x>
-      <y>576</y>
+      <x>32</x>
+      <y>592</y>
       <w>208</w>
       <h>160</h>
     </coordinates>
@@ -56,38 +70,42 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>64</x>
-      <y>384</y>
+      <x>24</x>
+      <y>400</y>
       <w>184</w>
       <h>112</h>
     </coordinates>
-    <panel_attributes>IView
+    <panel_attributes>IBlackjackView
 -</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>712</x>
-      <y>624</y>
-      <w>208</w>
-      <h>152</h>
+      <x>832</x>
+      <y>648</y>
+      <w>200</w>
+      <h>168</h>
     </coordinates>
     <panel_attributes>Deck
 -
 -mCards : Vector&lt;Card&gt;
 -mUsedCards : Vector&lt;Card&gt;
 -
-Deck()</panel_attributes>
+Deck()
+
+shuffleDeck() : void
+stackDeck () : void
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>480</x>
-      <y>632</y>
-      <w>160</w>
-      <h>136</h>
+      <x>624</x>
+      <y>648</y>
+      <w>176</w>
+      <h>176</h>
     </coordinates>
     <panel_attributes>Card
 -
@@ -96,29 +114,37 @@ Deck()</panel_attributes>
 -
 Card ()
 Card (char, int)
-getSuit () : char
-getValue (): int</panel_attributes>
+
++getSuit () : char
++getValue (): int
+
++setSuit (char) : void
++setValue (int) : int</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
+      <x>608</x>
       <y>0</y>
-      <w>192</w>
-      <h>176</h>
+      <w>256</w>
+      <h>208</h>
     </coordinates>
     <panel_attributes>/Player/
 -
 -mName : string
 -mMoney : Money
 -mHand : Vector&lt;Card&gt;
+-mbSettled : bool
 -
 getName (): string
 getMoney () : Money
+getSettled () : bool
+
 setName (string) : void
 updateMoney (Money) : void
 addCard (Card) : void
+
 clearHand () : void
 /doTurn () = 0 : void/</panel_attributes>
     <additional_attributes/>
@@ -126,8 +152,8 @@ clearHand () : void
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>608</x>
-      <y>232</y>
+      <x>568</x>
+      <y>248</y>
       <w>168</w>
       <h>152</h>
     </coordinates>
@@ -142,8 +168,8 @@ doTurn () : void
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>792</x>
-      <y>232</y>
+      <x>752</x>
+      <y>248</y>
       <w>168</w>
       <h>152</h>
     </coordinates>
@@ -157,8 +183,8 @@ doTurn () : void</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>80</x>
-      <y>776</y>
+      <x>40</x>
+      <y>792</y>
       <w>184</w>
       <h>152</h>
     </coordinates>
@@ -169,8 +195,8 @@ doTurn () : void</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>80</x>
-      <y>80</y>
+      <x>40</x>
+      <y>96</y>
       <w>184</w>
       <h>88</h>
     </coordinates>
@@ -181,30 +207,30 @@ doTurn () : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>816</x>
-      <y>168</y>
+      <x>776</x>
+      <y>200</y>
       <w>64</w>
-      <h>80</h>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;60.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;60.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>696</x>
-      <y>168</y>
+      <x>656</x>
+      <y>200</y>
       <w>32</w>
-      <h>80</h>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>20.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>20.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>376</x>
-      <y>232</y>
+      <x>336</x>
+      <y>248</y>
       <w>168</w>
       <h>144</h>
     </coordinates>
@@ -217,12 +243,40 @@ doTurn() : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>536</x>
-      <y>296</y>
+      <x>496</x>
+      <y>312</y>
       <w>88</w>
       <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>344</x>
+      <y>440</y>
+      <w>168</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>IBlackjackPresenter
+-
+-
+/+~IBlackjackPresenter()/
+
+/+setMove() = 0 : void/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>584</y>
+      <w>32</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;20.0;110.0</additional_attributes>
   </element>
 </diagram>
