@@ -4,36 +4,56 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>352</x>
-      <y>432</y>
-      <w>184</w>
-      <h>144</h>
+      <x>312</x>
+      <y>744</y>
+      <w>232</w>
+      <h>200</h>
     </coordinates>
-    <panel_attributes>Presenter
--</panel_attributes>
+    <panel_attributes>BlackjackPresenter
+-
+-mpcBJView : IBlackjackView
+-mcBJModel : BlackjackModel
+-
++BlackjackPresenter(IBlackjackPresenter*)
+
+/+setMove () : void/
+
+/+~BlackjackPresenter()/
+
+/+setBet(long long) : void/
+
+/+setName(int, string) : void/
+
+/+resetGame(string) : void/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>632</x>
-      <y>416</y>
+      <x>624</x>
+      <y>512</y>
       <w>184</w>
       <h>144</h>
     </coordinates>
-    <panel_attributes>Model
+    <panel_attributes>BlackjackModel
 -
 -mDecks : Vector&lt;Deck&gt;
 -mPlayers : Vector&lt;Player&gt;
--mDealer : Dealer
--</panel_attributes>
+-
++BlackjackModel
++~BlackjackModel ()
++setPlayerName (string&amp;) : void
+
++doTurn () : void
+
++resetGame () : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>64</x>
-      <y>200</y>
+      <x>0</x>
+      <y>288</y>
       <w>208</w>
       <h>144</h>
     </coordinates>
@@ -44,8 +64,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>72</x>
-      <y>576</y>
+      <x>8</x>
+      <y>664</y>
       <w>208</w>
       <h>160</h>
     </coordinates>
@@ -56,38 +76,42 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>64</x>
-      <y>384</y>
+      <x>0</x>
+      <y>472</y>
       <w>184</w>
       <h>112</h>
     </coordinates>
-    <panel_attributes>IView
+    <panel_attributes>IBlackjackView
 -</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>712</x>
-      <y>624</y>
-      <w>208</w>
-      <h>152</h>
+      <x>808</x>
+      <y>720</y>
+      <w>200</w>
+      <h>168</h>
     </coordinates>
     <panel_attributes>Deck
 -
 -mCards : Vector&lt;Card&gt;
 -mUsedCards : Vector&lt;Card&gt;
 -
-Deck()</panel_attributes>
+Deck()
+
+shuffleDeck() : void
+stackDeck () : void
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>480</x>
-      <y>632</y>
-      <w>160</w>
-      <h>136</h>
+      <x>600</x>
+      <y>720</y>
+      <w>176</w>
+      <h>176</h>
     </coordinates>
     <panel_attributes>Card
 -
@@ -96,29 +120,37 @@ Deck()</panel_attributes>
 -
 Card ()
 Card (char, int)
-getSuit () : char
-getValue (): int</panel_attributes>
+
++getSuit () : char
++getValue (): int
+
++setSuit (char) : void
++setValue (int) : int</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
-      <y>0</y>
-      <w>192</w>
-      <h>176</h>
+      <x>584</x>
+      <y>72</y>
+      <w>256</w>
+      <h>208</h>
     </coordinates>
     <panel_attributes>/Player/
 -
 -mName : string
 -mMoney : Money
 -mHand : Vector&lt;Card&gt;
+-mbSettled : bool
 -
 getName (): string
 getMoney () : Money
+getSettled () : bool
+
 setName (string) : void
 updateMoney (Money) : void
 addCard (Card) : void
+
 clearHand () : void
 /doTurn () = 0 : void/</panel_attributes>
     <additional_attributes/>
@@ -126,8 +158,8 @@ clearHand () : void
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>608</x>
-      <y>232</y>
+      <x>544</x>
+      <y>320</y>
       <w>168</w>
       <h>152</h>
     </coordinates>
@@ -142,8 +174,8 @@ doTurn () : void
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>792</x>
-      <y>232</y>
+      <x>728</x>
+      <y>320</y>
       <w>168</w>
       <h>152</h>
     </coordinates>
@@ -157,8 +189,8 @@ doTurn () : void</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>80</x>
-      <y>776</y>
+      <x>16</x>
+      <y>864</y>
       <w>184</w>
       <h>152</h>
     </coordinates>
@@ -169,8 +201,8 @@ doTurn () : void</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>80</x>
-      <y>80</y>
+      <x>16</x>
+      <y>168</y>
       <w>184</w>
       <h>88</h>
     </coordinates>
@@ -181,30 +213,30 @@ doTurn () : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>816</x>
-      <y>168</y>
+      <x>752</x>
+      <y>272</y>
       <w>64</w>
-      <h>80</h>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;60.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;60.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>696</x>
-      <y>168</y>
+      <x>632</x>
+      <y>272</y>
       <w>32</w>
-      <h>80</h>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>20.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>20.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>376</x>
-      <y>232</y>
+      <x>312</x>
+      <y>320</y>
       <w>168</w>
       <h>144</h>
     </coordinates>
@@ -217,12 +249,162 @@ doTurn() : void</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>536</x>
-      <y>296</y>
+      <x>472</x>
+      <y>384</y>
       <w>88</w>
       <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>512</y>
+      <w>168</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>IBlackjackPresenter
+-
+-
+/+~IBlackjackPresenter()/
+
+/+setMove() = 0 : void/
+
+/+setBet(long long) = 0 : void/
+
+/+setName(int, string) = 0 : void/
+
+/+resetGame(string) = 0 : void/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>376</x>
+      <y>656</y>
+      <w>32</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;20.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1312</x>
+      <y>72</y>
+      <w>368</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>CurrencyMismatchException
+--
+-mValue: int
+-mpszMessage: char*
+--
++CurrencyMismatchException(int)
++CurrencyMismatchException(const CurrencyMismatchException&amp;)
+
++~CurrencyMismatchException()
++operator=(CurrencyMismatchException): CurrencyMismatchException&amp;
+
+/+what() const override: const char*/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1008</x>
+      <y>80</y>
+      <w>184</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Money
+--
+-mAmount: long long
+-mCurrency: Currency
+--
++Money()
++Money(long long, char)
++Money(const Money&amp;)
+
++operator=(const Money&amp;): Money
++operator+(const Money&amp;): Money
++operator-(const Money&amp;): Money
+
++getAmount(): long long
++changeAmount(long long): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1048</x>
+      <y>344</y>
+      <w>176</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>Currency
+--
+-mCurrencyType: CurrencyType
+--
++Currency()
++Currency(char)
++Currency(const Currency&amp;)
+
++getCurrencyType(): char</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1336</x>
+      <y>360</y>
+      <w>80</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+CurrencyType
+--
++USD
++GBP
++EUR
++YEN</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1184</x>
+      <y>136</y>
+      <w>144</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;160.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1136</x>
+      <y>272</y>
+      <w>24</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1216</x>
+      <y>400</y>
+      <w>136</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;150.0;10.0</additional_attributes>
   </element>
 </diagram>
