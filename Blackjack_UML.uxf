@@ -7,7 +7,7 @@
       <x>2090</x>
       <y>1440</y>
       <w>290</w>
-      <h>250</h>
+      <h>310</h>
     </coordinates>
     <panel_attributes>BlackjackPresenter - HH
 -
@@ -24,7 +24,9 @@
 
 /+setName(int, string) : void/
 
-/+resetGame(string) : void/</panel_attributes>
+/+resetGame(string) : void/
+
+/removePlayer(int) : void/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -48,6 +50,7 @@
 +~BlackjackModel ()
 +setPlayerName (string&amp;) : void
 +addPlayer(string, Money, int) : void
++removePlayer(int) : void
 
 +setBet(Money) : void
 
@@ -78,7 +81,8 @@
 /+onClickStay() : void/
 /+onClickSplit() : void/
 /+addBet(int) : void/
-/+getCurrentTurn : float/ </panel_attributes>
+/+getCurrentTurn : float/ 
+/removePlayer(int) : void/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -102,7 +106,8 @@
 /+onClickStay() : void/
 /+onClickSplit() : void/
 /+addBet(int) : void/
-/+getCurrentTurn : float/</panel_attributes>
+/+getCurrentTurn : float/
+/removePlayer(int) : void/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -127,7 +132,7 @@ mCurrentTurn : float
 /+onClickSplit() : void/
 /+addBet(int) : void/
 /+getCurrentTurn : float/
-
+/removePlayer(int) : void/
 +reset() : void
 +quit() : void</panel_attributes>
     <additional_attributes/>
@@ -301,7 +306,7 @@ Card (char, int)
       <x>2100</x>
       <y>1150</y>
       <w>210</w>
-      <h>190</h>
+      <h>220</h>
     </coordinates>
     <panel_attributes>IBlackjackPresenter - HH
 -
@@ -314,19 +319,20 @@ Card (char, int)
 /+setName(int, string) = 0 : void/
 
 /+resetGame(string) = 0 : void/
-</panel_attributes>
+
+/removePlayer(int) = 0 : void/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>2170</x>
-      <y>1330</y>
+      <y>1360</y>
       <w>40</w>
-      <h>130</h>
+      <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;20.0;110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;20.0;80.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -498,17 +504,6 @@ CurrencyType - DK
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;230.0;160.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1920</x>
-      <y>1170</y>
-      <w>210</w>
-      <h>290</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;190.0;270.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -1043,5 +1038,27 @@ TextUITextWidget(string, string)
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>100.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1950</x>
+      <y>1440</y>
+      <w>160</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;&gt;&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1940</x>
+      <y>990</y>
+      <w>200</w>
+      <h>470</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;&gt;&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;180.0;450.0</additional_attributes>
   </element>
 </diagram>
