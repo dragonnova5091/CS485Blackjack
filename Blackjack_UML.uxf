@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>9</zoom_level>
+  <zoom_level>10</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1881</x>
-      <y>1296</y>
-      <w>261</w>
-      <h>270</h>
+      <x>2090</x>
+      <y>1440</y>
+      <w>290</w>
+      <h>250</h>
     </coordinates>
     <panel_attributes>BlackjackPresenter - HH
 -
--mpcBJView : BlackjackView
+-mpcBJView : IBlackjackView
 -mcBJModel : BlackjackModel
 -
 +BlackjackPresenter(IBlackjackPresenter*)
@@ -24,33 +24,30 @@
 
 /+setName(int, string) : void/
 
-/+resetGame(string) : void/
-
-/+addPlayer(int) : void/
-/+removePlayer(int) : void/</panel_attributes>
+/+resetGame(string) : void/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2151</x>
-      <y>1071</y>
-      <w>270</w>
-      <h>288</h>
+      <x>2480</x>
+      <y>1150</y>
+      <w>300</w>
+      <h>320</h>
     </coordinates>
     <panel_attributes>BlackjackModel - HH
 -
 -mDecks : Vector&lt;Deck&gt;
 -mPlayers : Vector&lt;Player&gt;
+-mDealer : Dealer
 -mPlayerCount : int
 -MAXPLAYERS : int
 -mCurrentTurn : float
 -
 +BlackjackModel
 +~BlackjackModel ()
-+setPlayerName (int, string&amp;) : void
++setPlayerName (string&amp;) : void
 +addPlayer(string, Money, int) : void
-+removePlayer(int) : void
 
 +setBet(Money) : void
 
@@ -61,74 +58,75 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1557</x>
-      <y>945</y>
-      <w>234</w>
-      <h>216</h>
+      <x>1660</x>
+      <y>790</y>
+      <w>290</w>
+      <h>260</h>
     </coordinates>
     <panel_attributes>TextView - DK, MT
 -
 -mCardstoDraw : vector &lt;Cards&gt;
 -
-/+draw() : Card/
+/+onDraw() : void/
+
+/+onSetPlayerName(int, string) : void /
+/+onSetPlayerNameWidget(SDLTextWidget*) : void/
+
+/+drawCard() : Card/
 /+deal() : void/
 /+onClickHit() : void/
 /+onClickStay() : void/
 /+onClickSplit() : void/
 /+addBet(int) : void/
-/+getCurrentTurn : float/
-/+setPlayerName () : void /
-/+addPlayer(int) : void/
-/+removePlayer(int) : void/</panel_attributes>
+/+getCurrentTurn : float/ </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1629</x>
-      <y>1449</y>
-      <w>234</w>
-      <h>198</h>
+      <x>1700</x>
+      <y>1410</y>
+      <w>260</w>
+      <h>250</h>
     </coordinates>
     <panel_attributes>SDL View - TN, MT
 -
 -mCardstoDraw : vector &lt;SDLSprite&gt;
 -
-/+draw() : Card/
+/+onDraw() : void/
+
+/+onSetPlayerName(int, string) : void /
+/+drawCard() : Card/
 /+deal() : void/
 /+onClickHit() : void/
 /+onClickStay() : void/
 /+onClickSplit() : void/
 /+addBet(int) : void/
-/+getCurrentTurn : float/
-/+setPlayerName () : void /
-/+addPlayer(int) : void/
-/+removePlayer(int) : void/</panel_attributes>
+/+getCurrentTurn : float/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1575</x>
-      <y>1188</y>
-      <w>234</w>
-      <h>243</h>
+      <x>1700</x>
+      <y>1090</y>
+      <w>230</w>
+      <h>260</h>
     </coordinates>
     <panel_attributes>BlackjackView - MT
 -
 mCurrentTurn : float
--mpcBJPresenter : IBlackJackPresenter
 -
-/+draw() : Card/
+/+onDraw() = 0 : void/
+
+/+onSetPlayerName(int, string) = 0 : void /
+/+drawCard() : Card/
 /+deal() : void/
 /+onClickHit() : void/
 /+onClickStay() : void/
 /+onClickSplit() : void/
 /+addBet(int) : void/
 /+getCurrentTurn : float/
-/+setPlayerName () : void /
-/+addPlayer(int) : void/
-/+removePlayer(int) : void/
 
 +reset() : void
 +quit() : void</panel_attributes>
@@ -137,10 +135,10 @@ mCurrentTurn : float
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2448</x>
-      <y>1368</y>
-      <w>261</w>
-      <h>189</h>
+      <x>2720</x>
+      <y>1520</y>
+      <w>290</w>
+      <h>210</h>
     </coordinates>
     <panel_attributes>Deck - TN
 -
@@ -158,10 +156,10 @@ Deck()
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2457</x>
-      <y>1116</y>
-      <w>198</w>
-      <h>198</h>
+      <x>2460</x>
+      <y>1520</y>
+      <w>220</w>
+      <h>220</h>
     </coordinates>
     <panel_attributes>Card - TN
 -
@@ -182,10 +180,10 @@ Card (char, int)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2187</x>
-      <y>378</y>
-      <w>288</w>
-      <h>396</h>
+      <x>2430</x>
+      <y>420</y>
+      <w>320</w>
+      <h>440</h>
     </coordinates>
     <panel_attributes>/Player - EH/
 -
@@ -217,10 +215,10 @@ Card (char, int)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2142</x>
-      <y>747</y>
-      <w>189</w>
-      <h>171</h>
+      <x>2380</x>
+      <y>910</y>
+      <w>210</w>
+      <h>190</h>
     </coordinates>
     <panel_attributes>ComputerPlayer - EH
 -
@@ -234,10 +232,10 @@ Card (char, int)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2349</x>
-      <y>747</y>
-      <w>189</w>
-      <h>171</h>
+      <x>2610</x>
+      <y>910</y>
+      <w>210</w>
+      <h>190</h>
     </coordinates>
     <panel_attributes>HumanPlayer - EH
 -
@@ -251,32 +249,32 @@ Card (char, int)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2376</x>
-      <y>738</y>
-      <w>72</w>
-      <h>54</h>
+      <x>2640</x>
+      <y>850</y>
+      <w>80</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;40.0;60.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;60.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2241</x>
-      <y>738</y>
-      <w>36</w>
-      <h>54</h>
+      <x>2490</x>
+      <y>850</y>
+      <w>40</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>20.0;40.0;10.0;10.0</additional_attributes>
+    <additional_attributes>20.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1755</x>
-      <y>567</y>
-      <w>189</w>
-      <h>162</h>
+      <x>1950</x>
+      <y>630</y>
+      <w>210</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>Dealer - EH
 -
@@ -288,21 +286,21 @@ Card (char, int)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1935</x>
-      <y>639</y>
-      <w>225</w>
-      <h>207</h>
+      <x>2150</x>
+      <y>710</y>
+      <w>250</w>
+      <h>310</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>230.0;210.0;190.0;150.0;30.0;120.0;10.0;10.0</additional_attributes>
+    <additional_attributes>230.0;290.0;190.0;150.0;30.0;120.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1890</x>
-      <y>1035</y>
-      <w>189</w>
-      <h>198</h>
+      <x>2100</x>
+      <y>1150</y>
+      <w>210</w>
+      <h>190</h>
     </coordinates>
     <panel_attributes>IBlackjackPresenter - HH
 -
@@ -315,29 +313,27 @@ Card (char, int)
 /+setName(int, string) = 0 : void/
 
 /+resetGame(string) = 0 : void/
-
-/+addPlayer(int) : void/
-/+removePlayer(int) : void/</panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1953</x>
-      <y>1224</y>
-      <w>36</w>
-      <h>90</h>
+      <x>2170</x>
+      <y>1330</y>
+      <w>40</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;20.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;20.0;110.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>3006</x>
-      <y>540</y>
-      <w>414</w>
-      <h>162</h>
+      <x>3340</x>
+      <y>600</y>
+      <w>460</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>CurrencyMismatchException - DK
 --
@@ -356,10 +352,10 @@ Card (char, int)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2664</x>
-      <y>549</y>
-      <w>207</w>
-      <h>225</h>
+      <x>2960</x>
+      <y>610</y>
+      <w>230</w>
+      <h>250</h>
     </coordinates>
     <panel_attributes>Money - DK
 --
@@ -381,10 +377,10 @@ Card (char, int)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2709</x>
-      <y>846</y>
-      <w>198</w>
-      <h>126</h>
+      <x>3010</x>
+      <y>940</y>
+      <w>220</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes>Currency - DK
 --
@@ -400,10 +396,10 @@ Card (char, int)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>3033</x>
-      <y>864</y>
-      <w>126</w>
-      <h>99</h>
+      <x>3370</x>
+      <y>960</y>
+      <w>140</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>&lt;&lt;enum&gt;&gt;
 CurrencyType - DK
@@ -417,10 +413,10 @@ CurrencyType - DK
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2862</x>
-      <y>612</y>
-      <w>162</w>
-      <h>27</h>
+      <x>3180</x>
+      <y>680</y>
+      <w>180</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;160.0;10.0</additional_attributes>
@@ -428,10 +424,10 @@ CurrencyType - DK
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2808</x>
-      <y>765</y>
-      <w>27</w>
-      <h>99</h>
+      <x>3120</x>
+      <y>850</y>
+      <w>30</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
@@ -439,10 +435,10 @@ CurrencyType - DK
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2898</x>
-      <y>909</y>
-      <w>153</w>
-      <h>27</h>
+      <x>3220</x>
+      <y>1010</y>
+      <w>170</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;150.0;10.0</additional_attributes>
@@ -450,109 +446,109 @@ CurrencyType - DK
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1683</x>
-      <y>1152</y>
-      <w>45</w>
-      <h>54</h>
+      <x>1800</x>
+      <y>1040</y>
+      <w>70</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>30.0;40.0;10.0;10.0</additional_attributes>
+    <additional_attributes>50.0;50.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1683</x>
-      <y>1422</y>
-      <w>81</w>
-      <h>45</h>
+      <x>1820</x>
+      <y>1340</y>
+      <w>30</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;70.0;30.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1206</x>
-      <y>252</y>
-      <w>504</w>
-      <h>711</h>
+      <x>1340</x>
+      <y>280</y>
+      <w>490</w>
+      <h>530</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>540.0;770.0;10.0;260.0;10.0;10.0</additional_attributes>
+    <additional_attributes>470.0;510.0;10.0;260.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>342</x>
-      <y>1269</y>
-      <w>1305</w>
-      <h>333</h>
+      <x>380</x>
+      <y>1410</y>
+      <w>1340</w>
+      <h>170</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>1430.0;350.0;930.0;10.0;10.0;10.0;10.0;120.0</additional_attributes>
+    <additional_attributes>1320.0;150.0;930.0;10.0;10.0;10.0;10.0;120.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2088</x>
-      <y>1125</y>
-      <w>81</w>
-      <h>189</h>
+      <x>2320</x>
+      <y>1210</y>
+      <w>180</w>
+      <h>250</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;190.0;70.0;10.0</additional_attributes>
+    <additional_attributes>10.0;230.0;160.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1854</x>
-      <y>1287</y>
-      <w>45</w>
-      <h>243</h>
+      <x>1920</x>
+      <y>1170</y>
+      <w>210</w>
+      <h>290</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;&gt;&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;250.0;30.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;-&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;190.0;270.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2439</x>
-      <y>1179</y>
-      <w>234</w>
-      <h>279</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;290.0;240.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>2340</x>
-      <y>1350</y>
-      <w>189</w>
-      <h>36</h>
+      <x>2670</x>
+      <y>1590</y>
+      <w>70</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;190.0;20.0</additional_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2412</x>
-      <y>693</y>
-      <w>207</w>
-      <h>432</h>
+      <x>2690</x>
+      <y>1460</y>
+      <w>120</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;460.0;200.0;350.0;210.0;100.0;70.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;100.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2466</x>
-      <y>630</y>
-      <w>216</w>
-      <h>27</h>
+      <x>2740</x>
+      <y>770</y>
+      <w>170</w>
+      <h>440</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>40.0;420.0;140.0;350.0;150.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>2740</x>
+      <y>700</y>
+      <w>240</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;220.0;10.0</additional_attributes>
@@ -561,9 +557,9 @@ CurrencyType - DK
     <id>UMLClass</id>
     <coordinates>
       <x>0</x>
-      <y>1377</y>
-      <w>567</w>
-      <h>621</h>
+      <y>1530</y>
+      <w>630</w>
+      <h>690</h>
     </coordinates>
     <panel_attributes>SDLApp
 --
@@ -620,10 +616,10 @@ CurrencyType - DK
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>621</x>
-      <y>1350</y>
-      <w>378</w>
-      <h>252</h>
+      <x>690</x>
+      <y>1500</y>
+      <w>420</w>
+      <h>280</h>
     </coordinates>
     <panel_attributes>Color
 --
@@ -649,10 +645,10 @@ CurrencyType - DK
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1098</x>
-      <y>1503</y>
-      <w>207</w>
-      <h>162</h>
+      <x>1220</x>
+      <y>1670</y>
+      <w>230</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>ISDLWidget
 --
@@ -669,10 +665,10 @@ CurrencyType - DK
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>990</x>
-      <y>1701</y>
-      <w>423</w>
-      <h>162</h>
+      <x>1100</x>
+      <y>1890</y>
+      <w>470</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>ISDLWidgetClickable
 --
@@ -689,10 +685,10 @@ CurrencyType - DK
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>891</x>
-      <y>1953</y>
-      <w>468</w>
-      <h>279</h>
+      <x>990</x>
+      <y>2170</y>
+      <w>520</w>
+      <h>310</h>
     </coordinates>
     <panel_attributes>ISDLWidgetTextable
 --
@@ -721,10 +717,10 @@ CurrencyType - DK
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>504</x>
-      <y>2034</y>
-      <w>333</w>
-      <h>333</h>
+      <x>560</x>
+      <y>2260</y>
+      <w>370</w>
+      <h>370</h>
     </coordinates>
     <panel_attributes>SDLSprite
 --
@@ -757,10 +753,10 @@ CurrencyType - DK
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1395</x>
-      <y>2007</y>
-      <w>270</w>
-      <h>324</h>
+      <x>1550</x>
+      <y>2230</y>
+      <w>300</w>
+      <h>360</h>
     </coordinates>
     <panel_attributes>SDLTextWidget
 --
@@ -787,10 +783,10 @@ CurrencyType - DK
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1134</x>
-      <y>1854</y>
-      <w>126</w>
-      <h>117</h>
+      <x>1260</x>
+      <y>2060</y>
+      <w>140</w>
+      <h>130</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>120.0;10.0;10.0;110.0</additional_attributes>
@@ -798,10 +794,10 @@ CurrencyType - DK
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>747</x>
-      <y>1818</y>
-      <w>261</w>
-      <h>234</h>
+      <x>830</x>
+      <y>2020</y>
+      <w>290</w>
+      <h>260</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>270.0;10.0;10.0;240.0</additional_attributes>
@@ -809,10 +805,10 @@ CurrencyType - DK
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>747</x>
-      <y>1566</y>
-      <w>369</w>
-      <h>486</h>
+      <x>830</x>
+      <y>1740</y>
+      <w>410</w>
+      <h>540</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>390.0;10.0;210.0;130.0;10.0;520.0</additional_attributes>
@@ -820,10 +816,10 @@ CurrencyType - DK
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1296</x>
-      <y>1611</y>
-      <w>207</w>
-      <h>414</h>
+      <x>1440</x>
+      <y>1790</y>
+      <w>230</w>
+      <h>460</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;200.0;20.0;210.0;440.0</additional_attributes>
@@ -831,10 +827,10 @@ CurrencyType - DK
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1350</x>
-      <y>1989</y>
-      <w>63</w>
-      <h>72</h>
+      <x>1500</x>
+      <y>2210</y>
+      <w>70</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;50.0;60.0</additional_attributes>
@@ -842,10 +838,10 @@ CurrencyType - DK
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>558</x>
-      <y>1782</y>
-      <w>450</w>
-      <h>63</h>
+      <x>620</x>
+      <y>1980</y>
+      <w>500</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;50.0;480.0;10.0</additional_attributes>
@@ -853,10 +849,10 @@ CurrencyType - DK
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>558</x>
-      <y>1854</y>
-      <w>351</w>
-      <h>180</h>
+      <x>620</x>
+      <y>2060</y>
+      <w>390</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;370.0;180.0</additional_attributes>
@@ -864,10 +860,10 @@ CurrencyType - DK
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>558</x>
-      <y>1377</y>
-      <w>81</w>
-      <h>153</h>
+      <x>620</x>
+      <y>1530</y>
+      <w>90</w>
+      <h>170</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;150.0;70.0;10.0</additional_attributes>
@@ -875,10 +871,10 @@ CurrencyType - DK
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>990</x>
-      <y>1359</y>
-      <w>576</w>
-      <h>666</h>
+      <x>1100</x>
+      <y>1510</y>
+      <w>640</w>
+      <h>740</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>620.0;720.0;600.0;130.0;10.0;10.0</additional_attributes>
@@ -886,10 +882,10 @@ CurrencyType - DK
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1008</x>
-      <y>18</y>
-      <w>423</w>
-      <h>243</h>
+      <x>1120</x>
+      <y>20</y>
+      <w>470</w>
+      <h>270</h>
     </coordinates>
     <panel_attributes>TextUI
 --
@@ -914,10 +910,10 @@ registerEvent(string, function&lt;void(string)&gt;) : void
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1476</x>
+      <x>1640</x>
       <y>0</y>
-      <w>225</w>
-      <h>216</h>
+      <w>250</w>
+      <h>240</h>
     </coordinates>
     <panel_attributes>ITextUIWidget
 --
@@ -940,10 +936,10 @@ registerEvent(string, function&lt;void(string)&gt;) : void
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1458</x>
-      <y>261</y>
-      <w>252</w>
-      <h>261</h>
+      <x>1620</x>
+      <y>290</y>
+      <w>280</w>
+      <h>290</h>
     </coordinates>
     <panel_attributes>TextUITextWidget
 --
@@ -966,10 +962,10 @@ TextUITextWidget(string, string)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1530</x>
-      <y>207</y>
-      <w>27</w>
-      <h>72</h>
+      <x>1700</x>
+      <y>230</y>
+      <w>30</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
@@ -977,10 +973,10 @@ TextUITextWidget(string, string)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1422</x>
-      <y>27</y>
-      <w>72</w>
-      <h>27</h>
+      <x>1580</x>
+      <y>30</y>
+      <w>80</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
@@ -988,10 +984,10 @@ TextUITextWidget(string, string)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1962</x>
-      <y>576</y>
-      <w>180</w>
-      <h>144</h>
+      <x>2180</x>
+      <y>640</y>
+      <w>200</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes>Hand - EH
 -
@@ -1007,10 +1003,10 @@ TextUITextWidget(string, string)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2133</x>
-      <y>657</y>
-      <w>72</w>
-      <h>27</h>
+      <x>2370</x>
+      <y>730</y>
+      <w>80</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
@@ -1018,10 +1014,10 @@ TextUITextWidget(string, string)
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1845</x>
-      <y>747</y>
-      <w>252</w>
-      <h>171</h>
+      <x>2010</x>
+      <y>910</y>
+      <w>280</w>
+      <h>190</h>
     </coordinates>
     <panel_attributes>DrunkComputerPlayer - EH
 -
@@ -1039,23 +1035,12 @@ TextUITextWidget(string, string)
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2088</x>
-      <y>828</y>
-      <w>72</w>
-      <h>27</h>
+      <x>2280</x>
+      <y>1000</y>
+      <w>120</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1782</x>
-      <y>1116</y>
-      <w>126</w>
-      <h>198</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;&gt;&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;120.0;200.0</additional_attributes>
+    <additional_attributes>100.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
