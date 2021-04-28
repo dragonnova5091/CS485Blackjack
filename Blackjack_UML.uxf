@@ -7,7 +7,7 @@
       <x>2090</x>
       <y>1440</y>
       <w>290</w>
-      <h>250</h>
+      <h>300</h>
     </coordinates>
     <panel_attributes>BlackjackPresenter - HH
 -
@@ -24,7 +24,9 @@
 
 /+setName(int, string) : void/
 
-/+resetGame(string) : void/</panel_attributes>
+/+resetGame(string) : void/
+
+/+addPlayer(int) : void/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -57,10 +59,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1700</x>
-      <y>870</y>
+      <x>1680</x>
+      <y>810</y>
       <w>260</w>
-      <h>180</h>
+      <h>240</h>
     </coordinates>
     <panel_attributes>TextView - DK, MT
 -
@@ -73,16 +75,17 @@
 /+onClickSplit() : void/
 /+addBet(int) : void/
 /+getCurrentTurn : float/
-/+setPlayerName () : void /</panel_attributes>
+/+setPlayerName () : void /
+/+addPlayer(int) : void/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>1700</x>
-      <y>1370</y>
+      <y>1410</y>
       <w>260</w>
-      <h>200</h>
+      <h>220</h>
     </coordinates>
     <panel_attributes>SDL View - TN, MT
 -
@@ -95,7 +98,8 @@
 /+onClickSplit() : void/
 /+addBet(int) : void/
 /+getCurrentTurn : float/
-/+setPlayerName () : void /</panel_attributes>
+/+setPlayerName () : void /
+/+addPlayer(int) : void/</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -104,7 +108,7 @@
       <x>1700</x>
       <y>1100</y>
       <w>230</w>
-      <h>230</h>
+      <h>270</h>
     </coordinates>
     <panel_attributes>BlackjackView - MT
 -
@@ -118,6 +122,7 @@ mCurrentTurn : float
 /+addBet(int) : void/
 /+getCurrentTurn : float/
 /+setPlayerName () : void /
+/+addPlayer(int) : void/
 
 +reset() : void
 +quit() : void</panel_attributes>
@@ -291,7 +296,7 @@ Card (char, int)
       <x>2100</x>
       <y>1150</y>
       <w>210</w>
-      <h>190</h>
+      <h>220</h>
     </coordinates>
     <panel_attributes>IBlackjackPresenter - HH
 -
@@ -304,19 +309,20 @@ Card (char, int)
 /+setName(int, string) = 0 : void/
 
 /+resetGame(string) = 0 : void/
-</panel_attributes>
+
+/+addPlayer(int) : void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>2170</x>
-      <y>1330</y>
+      <y>1360</y>
       <w>40</w>
-      <h>130</h>
+      <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;20.0;110.0</additional_attributes>
+    <additional_attributes>10.0;10.0;20.0;80.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -437,19 +443,19 @@ CurrencyType - DK
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1840</x>
+      <x>1820</x>
       <y>1040</y>
-      <w>30</w>
+      <w>50</w>
       <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+    <additional_attributes>30.0;60.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1820</x>
-      <y>1320</y>
+      <y>1360</y>
       <w>30</w>
       <h>70</h>
     </coordinates>
@@ -461,11 +467,11 @@ CurrencyType - DK
     <coordinates>
       <x>1340</x>
       <y>280</y>
-      <w>530</w>
-      <h>610</h>
+      <w>510</w>
+      <h>550</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>510.0;590.0;10.0;260.0;10.0;10.0</additional_attributes>
+    <additional_attributes>490.0;530.0;10.0;260.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -473,10 +479,10 @@ CurrencyType - DK
       <x>380</x>
       <y>1410</y>
       <w>1340</w>
-      <h>140</h>
+      <h>170</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>1320.0;110.0;930.0;10.0;10.0;10.0;10.0;120.0</additional_attributes>
+    <additional_attributes>1320.0;150.0;930.0;10.0;10.0;10.0;10.0;120.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
