@@ -81,7 +81,7 @@
 /+onClickStay() : void/
 /+onClickSplit() : void/
 /+addBet(int) : void/
-/+getCurrentTurn : float/ 
+/+getCurrentTurn() : float/
 /removePlayer(int) : void/</panel_attributes>
     <additional_attributes/>
   </element>
@@ -106,7 +106,7 @@
 /+onClickStay() : void/
 /+onClickSplit() : void/
 /+addBet(int) : void/
-/+getCurrentTurn : float/
+/+getCurrentTurn() : float/
 /removePlayer(int) : void/</panel_attributes>
     <additional_attributes/>
   </element>
@@ -131,7 +131,7 @@ mCurrentTurn : float
 /+onClickStay() : void/
 /+onClickSplit() : void/
 /+addBet(int) : void/
-/+getCurrentTurn : float/
+/+getCurrentTurn() : float/
 /removePlayer(int) : void/
 +reset() : void
 +quit() : void</panel_attributes>
