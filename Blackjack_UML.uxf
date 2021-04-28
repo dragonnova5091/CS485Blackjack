@@ -143,13 +143,14 @@ mCurrentTurn : float
     <panel_attributes>Deck - TN
 -
 -mCards : Vector&lt;Card&gt;
--mNumofDecks : int
+-mNumofSets : int
 -
 Deck()
 
 +shuffleDeck() : void
 +stackDeck () : void //put cards in order
 +draw() : Card
++changeNumofSets(int) : void
 </panel_attributes>
     <additional_attributes/>
   </element>
