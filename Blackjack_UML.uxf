@@ -39,7 +39,6 @@
 -
 -mDecks : Vector&lt;Deck&gt;
 -mPlayers : Vector&lt;Player&gt;
--mDealer : Dealer
 -mPlayerCount : int
 -MAXPLAYERS : int
 -mCurrentTurn : float
@@ -58,18 +57,16 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1660</x>
-      <y>790</y>
-      <w>250</w>
-      <h>220</h>
+      <x>1700</x>
+      <y>870</y>
+      <w>260</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>TextView - DK, MT
 -
 -mCardstoDraw : vector &lt;Cards&gt;
 -
-/+onDraw() : void/
-
-/+drawCard() : Card/
+/+draw() : Card/
 /+deal() : void/
 /+onClickHit() : void/
 /+onClickStay() : void/
@@ -82,7 +79,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>1700</x>
-      <y>1410</y>
+      <y>1350</y>
       <w>260</w>
       <h>200</h>
     </coordinates>
@@ -90,9 +87,7 @@
 -
 -mCardstoDraw : vector &lt;SDLSprite&gt;
 -
-/+onDraw() : void/
-
-/+drawCard() : Card/
+/+draw() : Card/
 /+deal() : void/
 /+onClickHit() : void/
 /+onClickStay() : void/
@@ -105,17 +100,15 @@
     <id>UMLClass</id>
     <coordinates>
       <x>1700</x>
-      <y>1090</y>
+      <y>1100</y>
       <w>230</w>
-      <h>260</h>
+      <h>220</h>
     </coordinates>
     <panel_attributes>BlackjackView - MT
 -
 mCurrentTurn : float
 -
-/+onDraw() = 0 : void/
-
-/+drawCard() : Card/
+/+draw() : Card/
 /+deal() : void/
 /+onClickHit() : void/
 /+onClickStay() : void/
@@ -441,35 +434,35 @@ CurrencyType - DK
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1800</x>
-      <y>1000</y>
-      <w>70</w>
-      <h>110</h>
+      <x>1840</x>
+      <y>1040</y>
+      <w>30</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>50.0;90.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1820</x>
-      <y>1340</y>
+      <y>1310</y>
       <w>30</w>
-      <h>90</h>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>1340</x>
       <y>280</y>
-      <w>490</w>
-      <h>530</h>
+      <w>530</w>
+      <h>610</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>470.0;510.0;10.0;260.0;10.0;10.0</additional_attributes>
+    <additional_attributes>510.0;590.0;10.0;260.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -477,10 +470,10 @@ CurrencyType - DK
       <x>380</x>
       <y>1410</y>
       <w>1340</w>
-      <h>170</h>
+      <h>140</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>1320.0;150.0;930.0;10.0;10.0;10.0;10.0;120.0</additional_attributes>
+    <additional_attributes>1320.0;90.0;930.0;10.0;10.0;10.0;10.0;120.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
