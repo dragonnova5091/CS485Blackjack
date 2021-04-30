@@ -147,6 +147,7 @@
     <ClCompile Include="tempDriver.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="IBlackjackView.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="Deck.h" />
   </ItemGroup>
