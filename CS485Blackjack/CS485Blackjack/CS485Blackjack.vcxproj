@@ -143,13 +143,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Card.cpp" />
+    <ClCompile Include="Currency.cpp" />
+    <ClCompile Include="CurrencyMismatchException.cpp" />
     <ClCompile Include="Deck.cpp" />
+    <ClCompile Include="Money.cpp" />
     <ClCompile Include="tempDriver.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Currency.h" />
+    <ClInclude Include="CurrencyMismatchException.h" />
     <ClInclude Include="IBlackjackView.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="Deck.h" />
+    <ClInclude Include="Money.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

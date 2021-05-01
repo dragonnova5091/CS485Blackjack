@@ -24,6 +24,15 @@
     <ClCompile Include="Deck.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Money.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Currency.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CurrencyMismatchException.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Card.h">
@@ -33,6 +42,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IBlackjackView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Money.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Currency.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CurrencyMismatchException.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
