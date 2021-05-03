@@ -147,3 +147,32 @@ void TextView::onSetPlayer5Name(std::string name)
 {
   mpPlayerNames[4]->setData(name);
 }
+
+void TextView::deal()
+{
+
+}
+
+void TextView::onClickHit () {}
+
+void TextView::onClickStay() {}
+
+void TextView::onClickSplit() {}
+
+void TextView::onSetBet(std::string) {}
+
+Card TextView::drawCard () {}
+
+void TextView::addBet (Money bet) {}
+
+float TextView::getCurrentTurn () {}
+
+void TextView::addPlayer(std::string playerName, Money bank) {}
+
+void TextView::removePlayer (int player) {}
+
+void TextView::setNumPlayer (int players) {}
+
+void TextView::resetGame () {}
+
+void TextView::quitGame() {}

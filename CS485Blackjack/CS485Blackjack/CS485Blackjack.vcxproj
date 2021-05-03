@@ -149,6 +149,7 @@
     <ClCompile Include="CurrencyMismatchException.cpp" />
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="Money.cpp" />
+    <ClCompile Include="SDLView.cpp" />
     <ClCompile Include="tempDriver.cpp" />
     <ClCompile Include="TextView.cpp" />
   </ItemGroup>
@@ -161,6 +162,7 @@
     <ClInclude Include="Deck.h" />
     <ClInclude Include="Money.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="SDLView.h" />
     <ClInclude Include="TextView.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
