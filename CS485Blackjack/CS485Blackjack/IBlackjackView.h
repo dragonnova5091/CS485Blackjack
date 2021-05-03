@@ -11,7 +11,7 @@
 #include "Card.h"
 #include "Money.h"
 
-class BlackjackView
+class IBlackjackView
 {
 public:
 	//events from UI

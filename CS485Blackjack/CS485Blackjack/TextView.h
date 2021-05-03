@@ -11,7 +11,7 @@
 #include "IBlackjackPresenter.h"
 #include "Player.h"
 
-class TextView : public BlackjackView, public TextUI 
+class TextView : public IBlackjackView, public TextUI 
 {
 public:
   TextView();
