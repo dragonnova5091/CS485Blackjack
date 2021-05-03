@@ -1,0 +1,11 @@
+﻿  Card.cpp
+  Currency.cpp
+  CurrencyMismatchException.cpp
+  Deck.cpp
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\Deck.cpp(23,2): error C2065: 'mNumOfSets': undeclared identifier
+  Money.cpp
+  tempDriver.cpp
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\tempDriver.cpp(3,10): fatal error C1083: Cannot open include file: 'SDLApp.h': No such file or directory
+  TextView.cpp
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.h(11,10): fatal error C1083: Cannot open include file: 'IBlackjackPresenter.h': No such file or directory
+  Generating Code...

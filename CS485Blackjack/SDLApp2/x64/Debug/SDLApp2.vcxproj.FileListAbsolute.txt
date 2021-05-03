@@ -1,2 +1,4 @@
 C:\Users\Ethan Hunter\visualStudio\01shapes-group-8-ethan-hung\x64\Debug\SDLApp2.pdb
 C:\Users\Ethan Hunter\visualStudio\01shapes-group-8-ethan-hung\SDLApp2\x64\Debug\SDLApp2.pdb
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\x64\Debug\SDLApp2.pdb
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\SDLApp2\x64\Debug\SDLApp2.pdb

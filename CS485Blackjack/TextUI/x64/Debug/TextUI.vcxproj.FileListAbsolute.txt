@@ -1,0 +1,2 @@
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\x64\Debug\TextUI.pdb
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\TextUI\x64\Debug\TextUI.pdb
