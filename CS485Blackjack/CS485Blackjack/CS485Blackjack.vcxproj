@@ -144,6 +144,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BlackjackModel.cpp" />
+    <ClCompile Include="BlackjackPresenter.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="Currency.cpp" />
     <ClCompile Include="CurrencyMismatchException.cpp" />
@@ -156,12 +158,15 @@
   <ItemGroup>
     <ClInclude Include="ActionStay.h" />
     <ClInclude Include="BaseComputerBehavior.h" />
+    <ClInclude Include="BlackjackModel.h" />
+    <ClInclude Include="BlackjackPresenter.h" />
     <ClInclude Include="ComputerPlayer.h" />
     <ClInclude Include="Currency.h" />
     <ClInclude Include="CurrencyMismatchException.h" />
     <ClInclude Include="DealerBehavior.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="HumanPlayer.h" />
+    <ClInclude Include="IBlackjackPresenter.h" />
     <ClInclude Include="IBlackjackView.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="Deck.h" />
