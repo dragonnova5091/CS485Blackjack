@@ -3,6 +3,7 @@
 
 #include "Money.h"
 #include "Hand.h"
+#include "PlayerActionCommand.h"
 #include <string>
 
 class Player
@@ -29,7 +30,7 @@ public:
 	void split();
 
 	void clearHand();
-	virtual int doTurn() = 0;
+	virtual PlayerActionCommand doTurn() = 0;
 	virtual Money returnBet() = 0;
 	virtual void seeCard(Card c) {}
 	virtual void setBet(Money mon);

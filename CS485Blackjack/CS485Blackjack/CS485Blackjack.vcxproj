@@ -154,14 +154,21 @@
     <ClCompile Include="TextView.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActionStay.h" />
+    <ClInclude Include="BaseComputerBehavior.h" />
+    <ClInclude Include="ComputerPlayer.h" />
     <ClInclude Include="Currency.h" />
     <ClInclude Include="CurrencyMismatchException.h" />
+    <ClInclude Include="DealerBehavior.h" />
     <ClInclude Include="Hand.h" />
+    <ClInclude Include="HumanPlayer.h" />
     <ClInclude Include="IBlackjackView.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="Deck.h" />
     <ClInclude Include="Money.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerActionCommand.h" />
+    <ClInclude Include="PlayerBehavior.h" />
     <ClInclude Include="SDLView.h" />
     <ClInclude Include="TextView.h" />
   </ItemGroup>
