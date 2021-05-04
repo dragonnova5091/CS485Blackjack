@@ -144,38 +144,137 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BlackjackModel.cpp" />
-    <ClCompile Include="BlackjackPresenter.cpp" />
-    <ClCompile Include="Card.cpp" />
-    <ClCompile Include="Currency.cpp" />
-    <ClCompile Include="CurrencyMismatchException.cpp" />
-    <ClCompile Include="Deck.cpp" />
-    <ClCompile Include="Money.cpp" />
-    <ClCompile Include="SDLView.cpp" />
-    <ClCompile Include="tempDriver.cpp" />
-    <ClCompile Include="TextView.cpp" />
+    <ClCompile Include="BlackjackModel.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="BlackjackPresenter.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Card.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Currency.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="CurrencyMismatchException.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Deck.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Money.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="SDLView.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="tempDriver.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="TextView.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionStay.h" />
     <ClInclude Include="BaseComputerBehavior.h" />
-    <ClInclude Include="BlackjackModel.h" />
-    <ClInclude Include="BlackjackPresenter.h" />
+    <ClInclude Include="BlackjackModel.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="BlackjackPresenter.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="ComputerPlayer.h" />
-    <ClInclude Include="Currency.h" />
-    <ClInclude Include="CurrencyMismatchException.h" />
+    <ClInclude Include="Currency.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="CurrencyMismatchException.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="DealerBehavior.h" />
-    <ClInclude Include="Hand.h" />
+    <ClInclude Include="Hand.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="HumanPlayer.h" />
-    <ClInclude Include="IBlackjackPresenter.h" />
-    <ClInclude Include="IBlackjackView.h" />
-    <ClInclude Include="Card.h" />
-    <ClInclude Include="Deck.h" />
-    <ClInclude Include="Money.h" />
+    <ClInclude Include="IBlackjackPresenter.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="IBlackjackView.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Card.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Deck.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Money.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerActionCommand.h" />
     <ClInclude Include="PlayerBehavior.h" />
-    <ClInclude Include="SDLView.h" />
-    <ClInclude Include="TextView.h" />
+    <ClInclude Include="SDLView.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="TextView.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="10clubs.GIF" />
+    <Image Include="10diamonds.GIF" />
+    <Image Include="10hearts.GIF" />
+    <Image Include="10spades.GIF" />
+    <Image Include="2clubs.GIF" />
+    <Image Include="2diamonds.GIF" />
+    <Image Include="2hearts.GIF" />
+    <Image Include="2spades.GIF" />
+    <Image Include="3clubs.GIF" />
+    <Image Include="3diamonds.GIF" />
+    <Image Include="3hearts.GIF" />
+    <Image Include="3spades.GIF" />
+    <Image Include="4clubs.GIF" />
+    <Image Include="4diamonds.GIF" />
+    <Image Include="4hearts.GIF" />
+    <Image Include="4spades.GIF" />
+    <Image Include="5clubs.GIF" />
+    <Image Include="5diamonds.GIF" />
+    <Image Include="5hearts.GIF" />
+    <Image Include="5spades.GIF" />
+    <Image Include="6clubs.GIF" />
+    <Image Include="6diamonds.GIF" />
+    <Image Include="6hearts.GIF" />
+    <Image Include="6spades.GIF" />
+    <Image Include="7clubs.GIF" />
+    <Image Include="7diamonds.GIF" />
+    <Image Include="7hearts.GIF" />
+    <Image Include="7spades.GIF" />
+    <Image Include="8clubs.GIF" />
+    <Image Include="8diamonds.GIF" />
+    <Image Include="8hearts.GIF" />
+    <Image Include="8spades.GIF" />
+    <Image Include="9clubs.GIF" />
+    <Image Include="9diamonds.GIF" />
+    <Image Include="9hearts.GIF" />
+    <Image Include="9spades.GIF" />
+    <Image Include="aceclubs.GIF" />
+    <Image Include="acediamonds.GIF" />
+    <Image Include="acehearts.GIF" />
+    <Image Include="acespades.GIF" />
+    <Image Include="BlackjackCardBack.GIF" />
+    <Image Include="jackclubs.GIF" />
+    <Image Include="jackdiamonds.GIF" />
+    <Image Include="jackhearts.GIF" />
+    <Image Include="jackspades.GIF" />
+    <Image Include="kingclubs.GIF" />
+    <Image Include="kingdiamonds.GIF" />
+    <Image Include="kinghearts.GIF" />
+    <Image Include="kingspades.GIF" />
+    <Image Include="queenclubs.GIF" />
+    <Image Include="queendiamonds.GIF" />
+    <Image Include="queenhearts.GIF" />
+    <Image Include="queenspades.GIF" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

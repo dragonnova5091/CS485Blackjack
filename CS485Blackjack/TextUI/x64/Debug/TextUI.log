@@ -1,6 +1,1 @@
-﻿  TextUI.cpp
-  TextUITextWidget.cpp
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\TextUI\TextUITextWidget.cpp(68,35): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\TextUI\TextUITextWidget.cpp(70,28): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
-  Generating Code...
-  TextUI.vcxproj -> C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\x64\Debug\TextUI.lib
+﻿  TextUI.vcxproj -> C:\Users\naka8177\source\repos\CS485Blackjack\CS485Blackjack\x64\Debug\TextUI.lib

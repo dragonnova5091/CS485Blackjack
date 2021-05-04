@@ -19,10 +19,10 @@ enum class CardName {
 };
 
 enum class Suit : char {
-	Diamond,
+	Diamonds,
 	Hearts,
 	Spades,
-	Clover,
+	Clubs,
 };
 
 class Card {

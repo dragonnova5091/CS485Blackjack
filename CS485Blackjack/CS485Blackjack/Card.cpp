@@ -1,16 +1,10 @@
 #include "Card.h"
 
-
-Card::Card(){
-
-	}
-
 Card::Card(int value, Suit suit, CardName cardName) {
 	mValue = value;
 	mSuit = suit;
 	mCardName = cardName;
 }
-
 
 void Card::setSuit(Suit suit) {
 	mSuit = suit;
