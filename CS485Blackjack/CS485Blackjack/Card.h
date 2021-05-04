@@ -3,7 +3,6 @@
 
 
 enum class CardName {
-	Ace,
 	Two,
 	Three,
 	Four,
@@ -16,6 +15,7 @@ enum class CardName {
 	Jack,
 	Queen,
 	King,
+	Ace,
 };
 
 enum class Suit : char {
