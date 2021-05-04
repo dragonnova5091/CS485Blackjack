@@ -9,7 +9,10 @@
 #include "TextUI.h"
 #include "TextUITextWidget.h"
 #include "IBlackjackPresenter.h"
+#include "BlackjackPresenter.h"
 #include "Player.h"
+#include "HumanPlayer.h"
+#include "ComputerPlayer.h"
 
 class TextView : public IBlackjackView, public TextUI 
 {
@@ -22,6 +25,7 @@ public:
 
   //events from UI
   virtual void onAddPlayer(std::string);
+  virtual void onRemovePlayer(std::string);
   virtual void onSetPlayer1Name(std::string);
   virtual void onSetPlayer2Name(std::string);
   virtual void onSetPlayer3Name(std::string);
@@ -37,20 +41,20 @@ public:
   //events from Presenter
   virtual void addBet(Money Bet);
   virtual float getCurrentTurn();
-  virtual void addPlayer(std::string, Money);
+  virtual void addPlayer(char, std::string, Money);
   virtual void removePlayer(int);
   virtual void setNumPlayer(int);
   virtual void resetGame();
   virtual void quitGame();
 
 private:
-  //IBlackjackPresenter* mpcBlackjackPresenter;
+  IBlackjackPresenter* mpcBlackjackPresenter;
 
   std::vector<TextUITextWidget*>mpPlayerNames;
   std::vector<TextUITextWidget*>mpBankAmounts;
-  //std::vector<Player*>mpPlayers;
   TextUITextWidget *mpDealerWidget;
-  //Dealer *mpDealer;
+
+  std::vector<std::vector<Card>> mvCards;
 
   int numPlayers;
 };

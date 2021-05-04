@@ -17,11 +17,9 @@
 TextView::TextView() : TextUI(std::cout, std::cin)
 {
   TextUITextWidget* pcWidget;
-  //mpcBlackjackPresenter = new BlackJackPresenter(this);
+  mpcBlackjackPresenter = new BlackjackPresenter();
 
-  //mpPlayers[0] = new HumanPlayer
   mpPlayerNames.push_back(new TextUITextWidget("Player1", ""));
-  //mpDealer = new Dealer();
   mpDealerWidget = new TextUITextWidget("Dealer", "");
 
   addWidget(0, 7, mpPlayerNames[0]);
@@ -34,6 +32,10 @@ TextView::TextView() : TextUI(std::cout, std::cin)
   registerEvent("ADD PLAYER",
     std::bind
     (&TextView::onAddPlayer, this, std::placeholders::_1));
+
+  registerEvent("REMOVE PLAYER? Y/N",
+    std::bind
+    (&TextView::onRemovePlayer, this, std::placeholders::_1));
 
   registerEvent("SET PLAYER1 NAME",
     std::bind
@@ -63,59 +65,24 @@ void TextView::onAddPlayer(std::string name) {
     std::cin >> playerType;
   } while ('C' == playerType || 'H' == playerType);
 
-  //if (numPlayers + 1 <= 5) {
-    numPlayers++;
-    //mpcBlackjackPresenter.addPlayer(name, cMoney, numPlayers)
-    mpPlayerNames.push_back(new TextUITextWidget("Player" + numPlayers, name));
-    if ('C' == playerType) {
-      //mpPlayers.push_back(new ComputerPlayer(name, cMoney));
-    }
-    else {
-      //mpPlayer.push_bank(new HumanPlayer(name, cMoney));
-    }
-  //}
-  //else {
-    //std::cout << "Alread at max capacity";
-  //}
-
-  if (numPlayers == 2) {
-    addWidget(0, 9, mpPlayerNames[1]);
-
-    registerEvent(("SET PLAYER2 NAME"),
-      std::bind
-      (&TextView::onSetPlayer2Name, this, std::placeholders::_1));
-
-    onSetPlayer2Name(name);
+  if (numPlayers + 1 <= 5) {
+    addPlayer(playerType, name, cMoney);
   }
-  else if (numPlayers == 3) {
-    addWidget(0, 11, mpPlayerNames[2]);
-
-    registerEvent(("SET PLAYER3 NAME"),
-      std::bind
-      (&TextView::onSetPlayer3Name, this, std::placeholders::_1));
-
-    onSetPlayer3Name(name);
+  else {
+    std::cout << "Alread at max capacity";
   }
-  else if (numPlayers == 4) {
-    addWidget(0, 13, mpPlayerNames[3]);
+}
 
-    registerEvent(("SET PLAYER4 NAME"),
-      std::bind
-      (&TextView::onSetPlayer4Name, this, std::placeholders::_1));
 
-    onSetPlayer4Name(name);
-  }
-  else if (numPlayers == 5) {
-    addWidget(0, 15, mpPlayerNames[4]);
+void TextView::onRemovePlayer(std::string yes) {
+  int playerNum;
 
-    registerEvent(("SET PLAYER5 NAME"),
-      std::bind
-      (&TextView::onSetPlayer5Name, this, std::placeholders::_1));
+  do {
+    std::cout << "Which player would you like to remove? (Please enter player number)";
+    std::cin >> playerNum;
+  } while (playerNum > 0 && playerNum <= 5);
 
-    onSetPlayer5Name(name);
-  }
-
-  onDraw();
+  mpcBlackjackPresenter->removePlayer(playerNum);
 }
 
 
@@ -153,26 +120,107 @@ void TextView::deal()
 
 }
 
-void TextView::onClickHit () {}
+void TextView::onClickHit () 
+{
 
-void TextView::onClickStay() {}
+}
 
-void TextView::onClickSplit() {}
+void TextView::onClickStay() 
+{
 
-void TextView::onSetBet(std::string) {}
+}
 
-Card TextView::drawCard () {}
+void TextView::onClickSplit() 
+{
 
-void TextView::addBet (Money bet) {}
+}
 
-float TextView::getCurrentTurn () {}
+void TextView::onSetBet(std::string yes) 
+{
 
-void TextView::addPlayer(std::string playerName, Money bank) {}
+}
 
-void TextView::removePlayer (int player) {}
+Card TextView::drawCard () 
+{
 
-void TextView::setNumPlayer (int players) {}
+}
 
-void TextView::resetGame () {}
+void TextView::addBet (Money bet) 
+{
 
-void TextView::quitGame() {}
+}
+
+float TextView::getCurrentTurn () 
+{
+
+}
+
+void TextView::addPlayer(char playerType, std::string playerName, Money cBank) 
+{
+  numPlayers++;
+  mpcBlackjackPresenter->addPlayer(playerName, cBank, numPlayers);
+  mpPlayerNames.push_back(new TextUITextWidget("Player" + numPlayers, playerName));
+
+
+  if (numPlayers == 2) {
+    addWidget(0, 9, mpPlayerNames[1]);
+
+    registerEvent(("SET PLAYER2 NAME"),
+      std::bind
+      (&TextView::onSetPlayer2Name, this, std::placeholders::_1));
+
+    onSetPlayer2Name(playerName);
+  }
+  else if (numPlayers == 3) {
+    addWidget(0, 11, mpPlayerNames[2]);
+
+    registerEvent(("SET PLAYER3 NAME"),
+      std::bind
+      (&TextView::onSetPlayer3Name, this, std::placeholders::_1));
+
+    onSetPlayer3Name(playerName);
+  }
+  else if (numPlayers == 4) {
+    addWidget(0, 13, mpPlayerNames[3]);
+
+    registerEvent(("SET PLAYER4 NAME"),
+      std::bind
+      (&TextView::onSetPlayer4Name, this, std::placeholders::_1));
+
+    onSetPlayer4Name(playerName);
+  }
+  else if (numPlayers == 5) {
+    addWidget(0, 15, mpPlayerNames[4]);
+
+    registerEvent(("SET PLAYER5 NAME"),
+      std::bind
+      (&TextView::onSetPlayer5Name, this, std::placeholders::_1));
+
+    onSetPlayer5Name(playerName);
+  }
+
+  onDraw();
+}
+
+void TextView::removePlayer (int player) 
+{
+  for (int i = player; i < numPlayers; i++) {
+    mpPlayerNames[i - 1]->setData(mpPlayerNames[i]->getData());
+  }
+
+  numPlayers--;
+}
+
+void TextView::setNumPlayer (int players) 
+{
+  mpcBlackjackPresenter->setNumPlayers(players);
+}
+
+void TextView::resetGame () 
+{
+  mpcBlackjackPresenter->resetGame();
+}
+
+void TextView::quitGame() 
+{
+}

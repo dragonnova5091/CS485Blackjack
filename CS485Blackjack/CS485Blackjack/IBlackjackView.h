@@ -17,6 +17,7 @@ public:
 	//events from UI
 	virtual void onDraw() = 0;
 	virtual void onAddPlayer(std::string) = 0;
+	virtual void onRemovePlayer(std::string) = 0;
 	virtual void onSetPlayer1Name(std::string) = 0;
 	virtual void onSetPlayer2Name(std::string) = 0;
 	virtual void onSetPlayer3Name(std::string) = 0;
@@ -32,7 +33,7 @@ public:
 	//events from Presenter
 	virtual void addBet(Money bet) = 0;
 	virtual float getCurrentTurn() = 0;
-	virtual void addPlayer(std::string playerName, Money bank) = 0;
+	virtual void addPlayer(char playerType, std::string playerName, Money bank) = 0;
 	virtual void removePlayer(int player) = 0;
 	virtual void setNumPlayer(int players) = 0;
 	virtual void resetGame() = 0;
