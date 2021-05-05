@@ -12,7 +12,7 @@ public:
 	HumanPlayer(std::string name, Money mon);
 	~HumanPlayer();
 
-	virtual PlayerActionCommand doTurn();
+	virtual int doTurn(int action);
 	virtual Money returnBet();
 	virtual void setBet(Money mon);
 

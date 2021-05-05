@@ -19,11 +19,11 @@
     <Filter Include="Header Files\Player">
       <UniqueIdentifier>{00e9952f-9128-45f0-92de-f899866168bb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\playerActions">
-      <UniqueIdentifier>{adf8d4a4-4e94-4ae5-99dc-cd35a641f4fc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Behaviors">
       <UniqueIdentifier>{78fdf1bf-220b-4d01-93ea-faefbfb29f51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Player">
+      <UniqueIdentifier>{254eb937-ae4e-4324-a669-3cf7fb8218a6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -56,6 +56,12 @@
     </ClCompile>
     <ClCompile Include="BlackjackModel.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DrunkPlayerBehavior.h">
+      <Filter>Header Files\behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -98,17 +104,11 @@
     <ClInclude Include="ComputerPlayer.h">
       <Filter>Header Files\Player</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerActionCommand.h">
-      <Filter>Header Files\playerActions</Filter>
-    </ClInclude>
     <ClInclude Include="DealerBehavior.h">
       <Filter>Header Files\behaviors</Filter>
     </ClInclude>
     <ClInclude Include="BaseComputerBehavior.h">
       <Filter>Header Files\behaviors</Filter>
-    </ClInclude>
-    <ClInclude Include="ActionStay.h">
-      <Filter>Header Files\playerActions</Filter>
     </ClInclude>
     <ClInclude Include="BlackjackModel.h">
       <Filter>Header Files</Filter>

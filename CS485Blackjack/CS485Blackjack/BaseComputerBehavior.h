@@ -5,6 +5,6 @@
 class BaseComputerBehavior : PlayerBehavior
 {
 public: 
-	virtual PlayerActionCommand doTurn();
+	virtual int doTurn();
 	virtual Money returnBet();
 };

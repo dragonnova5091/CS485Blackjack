@@ -3,7 +3,6 @@
 
 #include "Money.h"
 #include "Hand.h"
-#include "PlayerActionCommand.h"
 #include <string>
 
 class Player
@@ -11,6 +10,7 @@ class Player
 private:
 	std::string mName;
 	Money mBank;
+	Money mBet;
 	std::vector<Hand> mHands;
 	bool mbSettled;
 	bool mbIsSplit;
@@ -25,12 +25,12 @@ public:
 	bool getSettled() { return mbSettled; }
 
 	void updateMoney(Money mon);
-	void addCard(Card c);
-	void finishTurn();
+	void addCard(Card c, int hand = 0);
+	void finishTurn(bool bWin, int hand = 0);
 	void split();
 
 	void clearHand();
-	virtual PlayerActionCommand doTurn() = 0;
+	virtual int doTurn(int action) = 0;
 	virtual Money returnBet() = 0;
 	virtual void seeCard(Card c) {}
 	virtual void setBet(Money mon);
