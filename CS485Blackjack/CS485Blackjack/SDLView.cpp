@@ -1,5 +1,6 @@
 #include "SDLView.h"
 #include "BlackjackPresenter.h"
+#include <math.h>
 #include <sstream>
 
 //***************************************************************************
@@ -116,9 +117,16 @@ void SDLView::onSetBet(std::string) {}
 
 Card SDLView::drawCard() {}
 
-void SDLView::addBet(Money bet) {}
+void SDLView::addBet(Money bet) {
+  int currentTurn;
+  currentTurn = std::floor (getCurrentTurn());
 
-float SDLView::getCurrentTurn() {}
+  mpcBlackjackPresenter->addBet(currentTurn, bet);
+}
+
+float SDLView::getCurrentTurn() {
+  return mpcBlackjackPresenter->getTurn();
+}
 
 void SDLView::addPlayer(char playerType, std::string playerName, Money cBank) {
 
