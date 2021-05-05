@@ -31,7 +31,7 @@ public:
   virtual void onClickHit();
   virtual void onClickStay();
   virtual void onClickSplit();
-  virtual Card drawCard();
+  virtual Card getCard();
 
   //events from Presenter
   virtual void addBet(Money Bet);

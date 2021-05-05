@@ -107,7 +107,10 @@ void SDLView::deal()
 
 }
 
-void SDLView::onClickHit() {}
+void SDLView::onClickHit() {
+  Card drawnCard;
+  drawnCard = getCard();
+}
 
 void SDLView::onClickStay() {}
 
@@ -115,7 +118,11 @@ void SDLView::onClickSplit() {}
 
 void SDLView::onSetBet(std::string) {}
 
-Card SDLView::drawCard() {}
+Card SDLView::getCard() {
+  Card drawnCard;
+  //drawnCard = mpcBlackjackPresenter->getCard();
+  return drawnCard;
+}
 
 void SDLView::addBet(Money bet) {
   int currentTurn;
