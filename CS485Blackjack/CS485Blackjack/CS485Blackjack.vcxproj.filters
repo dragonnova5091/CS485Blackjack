@@ -69,6 +69,15 @@
     <ClCompile Include="BaseComputerBehavior.cpp">
       <Filter>Source Files\Behaviors</Filter>
     </ClCompile>
+    <ClCompile Include="ComputerPlayer.cpp">
+      <Filter>Source Files\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="DealerBehavior.cpp">
+      <Filter>Source Files\Behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="DrunkPlayerBehavior.cpp">
+      <Filter>Source Files\Behaviors</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Card.h">

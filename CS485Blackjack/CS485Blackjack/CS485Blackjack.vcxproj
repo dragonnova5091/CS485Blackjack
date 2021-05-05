@@ -155,15 +155,18 @@
     <ClCompile Include="Card.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="ComputerPlayer.cpp" />
     <ClCompile Include="Currency.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="CurrencyMismatchException.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="DealerBehavior.cpp" />
     <ClCompile Include="Deck.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="DrunkPlayerBehavior.cpp" />
     <ClCompile Include="DrunkPlayerBehavior.h" />
     <ClCompile Include="HumanPlayer.cpp" />
     <ClCompile Include="Money.cpp">
