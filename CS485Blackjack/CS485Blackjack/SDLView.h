@@ -6,7 +6,6 @@
 #include <vector>
 #include "SDLApp.h"
 #include "SDLTextWidget.h"
-#include "SDLTextBoardView.h"
 #include "SDLSprite.h"
 #include "IBlackjackPresenter.h"
 #include "Player.h"
@@ -21,6 +20,7 @@ public:
 
   //events from UI
   virtual void onAddPlayer(std::string);
+  virtual void onRemovePlayer(std::string);
   virtual void onSetPlayer1Name(std::string);
   virtual void onSetPlayer2Name(std::string);
   virtual void onSetPlayer3Name(std::string);
@@ -36,7 +36,7 @@ public:
   //events from Presenter
   virtual void addBet(Money Bet);
   virtual float getCurrentTurn();
-  virtual void addPlayer(std::string, Money);
+  virtual void addPlayer(char, std::string, Money);
   virtual void removePlayer(int);
   virtual void setNumPlayer(int);
   virtual void resetGame();
@@ -48,7 +48,7 @@ public:
 
 private:
 
-  //IBlackjackPresenter* mpcBlackjackPresenter;
+  IBlackjackPresenter* mpcBlackjackPresenter;
 
   // UI control
 
@@ -56,9 +56,7 @@ private:
 
   std::vector<SDLTextWidget*>mpPlayerNames;
   std::vector<SDLTextWidget*>mpBankAmounts;
-  //std::vector<Player*>mpPlayers;
   SDLTextWidget* mpDealerWidget;
-  //Dealer *mpDealer;
 
   int numPlayers;
 };

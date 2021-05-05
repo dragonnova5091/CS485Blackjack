@@ -1,5 +1,5 @@
 #include "SDLView.h"
-//#include "BlackjackPresenter.h"
+#include "BlackjackPresenter.h"
 #include <sstream>
 
 //***************************************************************************
@@ -22,8 +22,38 @@ void SDLView::onDraw() {
 
 
 void SDLView::onAddPlayer(std::string name) {
+  long long amount;
+  char playerType;
+  Money cMoney;
+
+  std::cout << "Initial Bank Amount:";
+  std::cin >> amount;
+  cMoney.setAmount(amount);
+
+  do {
+    std::cout << "Human (H) or Computer (C) player?";
+    std::cin >> playerType;
+  } while ('C' == playerType || 'H' == playerType);
+
+  if (numPlayers + 1 <= 5) {
+    addPlayer(playerType, name, cMoney);
+  }
+  else {
+    std::cout << "Alread at max capacity";
+  }
 }
 
+
+void SDLView::onRemovePlayer(std::string yes) {
+  int playerNum;
+
+  do {
+    std::cout << "Which player would you like to remove? (Please enter player number)";
+    std::cin >> playerNum;
+  } while (playerNum > 0 && playerNum <= 5);
+
+  mpcBlackjackPresenter->removePlayer(playerNum);
+}
 
 void SDLView::onSetPlayer1Name(std::string name)
 {
@@ -73,13 +103,23 @@ void SDLView::addBet(Money bet) {}
 
 float SDLView::getCurrentTurn() {}
 
-void SDLView::addPlayer(std::string playerName, Money bank) {}
+void SDLView::addPlayer(char playerType, std::string playerName, Money bank) {}
 
-void SDLView::removePlayer(int player) {}
+void SDLView::removePlayer(int player) {
+  for (int i = player; i < numPlayers; i++) {
+    mpPlayerNames[i - 1]->setData(mpPlayerNames[i]->getData());
+  }
 
-void SDLView::setNumPlayer(int players) {}
+  numPlayers--;
+}
 
-void SDLView::resetGame() {}
+void SDLView::setNumPlayer(int players) {
+  mpcBlackjackPresenter->setNumPlayers(players);
+}
+
+void SDLView::resetGame() {
+  mpcBlackjackPresenter->resetGame();
+}
 
 void SDLView::quitGame() {}
 
