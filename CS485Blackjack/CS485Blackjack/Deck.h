@@ -11,6 +11,7 @@ private:
 public:
 	Deck(); 
 	Deck(int);
+	~Deck();
 	void shuffleDeck();
 	void stackDeck();
 	Card drawCard();

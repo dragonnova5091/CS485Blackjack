@@ -38,35 +38,38 @@ Deck::Deck(int numSets) {
 	}
 }
 
+Deck::~Deck() {
+	while (!mCards.empty()) {
+		mCards.pop_back();
+	 }
+}
+
 void Deck::shuffleDeck() {
 	int randomInt = rand() % mCards.size();
 	std::random_shuffle(mCards.begin(), mCards.end(), randomInt);
 }
 
 void Deck::stackDeck() {
-	mCards.push_back(Card(10, Suit::Hearts, CardName::King));
-	mCards.push_back(Card(7, Suit::Clubs, CardName::Seven));
-	mCards.push_back(Card(10, Suit::Diamonds, CardName::Ten));
-	mCards.push_back(Card(10, Suit::Hearts, CardName::Ten));
-	mCards.push_back(Card(11, Suit::Spades, CardName::Ace));
+	mCards.push_back(Card(10, Suit::Clubs, CardName::Queen));
+	mCards.push_back(Card(10, Suit::Spades, CardName::Five));
+	mCards.push_back(Card(6, Suit::Spades, CardName::Six));
+	mCards.push_back(Card(5, Suit::Hearts, CardName::Nine));
+	mCards.push_back(Card(5, Suit::Clubs, CardName::Five));
+	mCards.push_back(Card(7, Suit::Diamonds, CardName::Seven));
+	mCards.push_back(Card(8, Suit::Diamonds, CardName::Eight));
 	mCards.push_back(Card(10, Suit::Clubs, CardName::Ten));
+	mCards.push_back(Card(9, Suit::Clubs, CardName::Nine));
 	mCards.push_back(Card(11, Suit::Hearts, CardName::Ace));
 	mCards.push_back(Card(10, Suit::Hearts, CardName::Ten));
-	mCards.push_back(Card(9, Suit::Clubs, CardName::Nine));
-	mCards.push_back(Card(6, Suit::Spades, CardName::Six));
-	mCards.push_back(Card(8, Suit::Diamonds, CardName::Eight));
-	mCards.push_back(Card(7, Suit::Diamonds, CardName::Seven));
-	mCards.push_back(Card(5, Suit::Clubs, CardName::Five));
-	mCards.push_back(Card(5, Suit::Hearts, CardName::Five));
-	mCards.push_back(Card(10, Suit::Clubs, CardName::Queen));
-	//flip this around
-
-	//king seven ten ace ten ace nine ten eight seven
-	//five nine six five queen
+	mCards.push_back(Card(11, Suit::Spades, CardName::Ace));
+	mCards.push_back(Card(10, Suit::Diamonds, CardName::Ten));
+	mCards.push_back(Card(7, Suit::Clubs, CardName::Seven));
+	mCards.push_back(Card(10, Suit::Hearts, CardName::King));
 }
 
 Card Deck::drawCard() {
 	Card temp;
+	temp = mCards.back();
 	mCards.pop_back();
 	return temp;
 }
