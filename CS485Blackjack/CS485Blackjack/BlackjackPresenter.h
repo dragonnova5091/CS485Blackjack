@@ -27,5 +27,6 @@ public:
 	void addBet(int seat, Money cBank);
 
 	void doTurn(int seat, int play, float turn);
+	float getTurn();
 	void resetGame();
 };

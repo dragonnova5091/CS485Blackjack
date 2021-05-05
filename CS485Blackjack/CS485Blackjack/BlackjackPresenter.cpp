@@ -46,6 +46,11 @@ void BlackjackPresenter::doTurn(int seat, int play, float turn)
 {
 	mcBJModel.doTurn(seat, play, turn);
 }
+
+float BlackjackPresenter::getTurn()
+{
+	return mcBJModel.getTurn();
+}
 void BlackjackPresenter::resetGame()
 {
 	mcBJModel.resetGame();

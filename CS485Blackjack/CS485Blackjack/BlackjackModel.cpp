@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "Money.h"
 #include "BlackjackModel.h"
+#include <math.h>
 #include <vector>
 
 BlackjackModel::BlackjackModel()
@@ -67,6 +68,20 @@ void BlackjackModel::doTurn(int seat, int play, float hands)
 		mTotalRounds++;
 	}
 	mCurrentTurn += hands;
+}
+
+float BlackjackModel::getTurn()
+{
+	const int SPLIT = 0.5;
+	float halfTurn = std::floor(mCurrentTurn);
+	if (SPLIT == (mCurrentTurn - halfTurn))
+	{
+		return (halfTurn / mTotalRounds) + SPLIT;
+	}
+	else
+	{
+		return (mCurrentTurn / mTotalRounds);
+	}
 }
 void BlackjackModel::resetGame()
 {
