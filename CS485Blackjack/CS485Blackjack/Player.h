@@ -31,6 +31,11 @@ public:
 
 	void clearHand();
 	virtual int doTurn(int action, int hand = 0) = 0;
+	/* action : -1 computer player
+	*			0 stay
+	*			1 hit
+	*			2 split
+	*/
 	virtual Money returnBet() = 0;
 	virtual void seeCard(Card c) {}
 	virtual void setBet(Money mon);

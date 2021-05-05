@@ -4,6 +4,6 @@
 
 class DealerBehavior : PlayerBehavior
 {
-	virtual int doTurn();
+	virtual int doTurn(Hand hand);
 	virtual Money returnBet();
 };

@@ -38,4 +38,5 @@ public:
 	void setCardName(CardName);
 	CardName getCardName();
 	Suit getSuit();
+	int returnValue() { return mValue; }
 };
