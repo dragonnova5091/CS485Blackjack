@@ -12,7 +12,9 @@ private:
 
 public:
 	ComputerPlayer(PlayerBehavior* newBehavior);
-	virtual int doTurn(int action);
+	~ComputerPlayer();
+	virtual int doTurn(int action, int hand = 0);
 	virtual Money returnBet();
 	virtual void setBet(Money mon);
+	void seeCard(Card c);
 };
