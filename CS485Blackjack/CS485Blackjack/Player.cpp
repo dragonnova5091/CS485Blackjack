@@ -56,8 +56,10 @@ void Player::finishTurn(bool bWin, int hand = 0)
 		}
 		else
 		{
+			//check to make sure the hand is not already handled
 			if (mHands[hand].getHand().size() > 0)
 			{
+				//clear the hand and 
 				mHands[hand].clear();
 				mBank + mBet;
 			}

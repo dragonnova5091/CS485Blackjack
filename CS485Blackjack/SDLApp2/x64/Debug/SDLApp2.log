@@ -1,9 +1,1 @@
-﻿  Color.cpp
-  SDLApp.cpp
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\SDLApp2\SDLApp.cpp(193,29): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  SDLSprite.cpp
-  SDLTextWidget.cpp
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\SDLApp2\SDLTextWidget.cpp(83,35): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\SDLApp2\SDLTextWidget.cpp(85,28): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
-  Generating Code...
-  SDLApp2.vcxproj -> C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\x64\Debug\SDLApp2.lib
+﻿  SDLApp2.vcxproj -> C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\x64\Debug\SDLApp2.lib
