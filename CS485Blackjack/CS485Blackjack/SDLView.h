@@ -34,13 +34,19 @@ public:
   virtual Card drawCard();
 
   //events from Presenter
-  virtual void addBet(Money Bet);
+  virtual void addBet(int, Money Bet);
   virtual float getCurrentTurn();
   virtual void addPlayer(char, std::string, Money);
   virtual void removePlayer(int);
   virtual void setNumPlayer(int);
   virtual void resetGame();
   virtual void quitGame();
+
+  virtual void onSetPlayer1NameWidget(SDLTextWidget* pcWidget);
+  virtual void onSetPlayer2NameWidget(SDLTextWidget* pcWidget);
+  virtual void onSetPlayer3NameWidget(SDLTextWidget* pcWidget);
+  virtual void onSetPlayer4NameWidget(SDLTextWidget* pcWidget);
+  virtual void onSetPlayer5NameWidget(SDLTextWidget* pcWidget);
 
   virtual void handleEvent(SDL_Event event);
   virtual void render();
@@ -57,6 +63,8 @@ private:
   std::vector<SDLTextWidget*>mpPlayerNames;
   std::vector<SDLTextWidget*>mpBankAmounts;
   SDLTextWidget* mpDealerWidget;
+
+  std::vector<std::vector<Card>> mvCards;
 
   int numPlayers;
 };

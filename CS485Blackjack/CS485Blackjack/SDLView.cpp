@@ -12,8 +12,25 @@
 // Returned:    None
 //***************************************************************************
 
-SDLView::SDLView()
-{
+SDLView::SDLView() {
+  mpcBlackjackPresenter = new BlackjackPresenter(this);
+  mpPlayerNames.push_back(new SDLTextWidget("Player1", "", 10, 10, 1, 
+    { 255,255,255,255 }));
+  mpDealerWidget = new SDLTextWidget("Dealer", "", 10, 120, 1,
+    { 255,255,255,255 });
+
+  enableTextInput();
+
+  registerTextWidget(mpPlayerNames[0]);
+  registerTextWidget(mpDealerWidget);
+
+  mcDrawableWidgets.push_back(mpPlayerNames[0]);
+  mcDrawableWidgets.push_back(mpDealerWidget);
+}
+
+SDLView::~SDLView() {
+
+  delete mpcBlackjackPresenter;
 }
 
 
@@ -103,7 +120,42 @@ void SDLView::addBet(Money bet) {}
 
 float SDLView::getCurrentTurn() {}
 
-void SDLView::addPlayer(char playerType, std::string playerName, Money bank) {}
+void SDLView::addPlayer(char playerType, std::string playerName, Money cBank) {
+
+  numPlayers++;
+  mpcBlackjackPresenter->addPlayer(playerName, cBank, numPlayers);
+  mpPlayerNames.push_back(new SDLTextWidget("Player" + numPlayers, "",
+    10, 20 * numPlayers, 1, { 255,255,255,255 }));
+
+  if (numPlayers == 2) {
+
+    mpPlayerNames[1]->registerStateChangeEventHandler
+    (std::bind(&SDLView::onSetPlayer2NameWidget, this, mpPlayerNames[1]));
+
+    onSetPlayer2Name(playerName);
+  }
+  else if (numPlayers == 3) {
+  
+    mpPlayerNames[2]->registerStateChangeEventHandler
+    (std::bind(&SDLView::onSetPlayer2NameWidget, this, mpPlayerNames[2]));
+
+    onSetPlayer3Name(playerName);
+  }
+  else if (numPlayers == 4) {
+
+    mpPlayerNames[3]->registerStateChangeEventHandler
+    (std::bind(&SDLView::onSetPlayer2NameWidget, this, mpPlayerNames[3]));
+
+    onSetPlayer4Name(playerName);
+  }
+  else if (numPlayers == 5) {
+
+    mpPlayerNames[4]->registerStateChangeEventHandler
+    (std::bind(&SDLView::onSetPlayer2NameWidget, this, mpPlayerNames[4]));
+
+    onSetPlayer5Name(playerName);
+  }
+}
 
 void SDLView::removePlayer(int player) {
   for (int i = player; i < numPlayers; i++) {
@@ -123,8 +175,40 @@ void SDLView::resetGame() {
 
 void SDLView::quitGame() {}
 
-void SDLView::handleEvent(SDL_Event event) {}
+void SDLView::onSetPlayer1NameWidget (SDLTextWidget* pcWidget) {
+  onSetPlayer1Name(pcWidget->getData());
+}
+void SDLView::onSetPlayer2NameWidget (SDLTextWidget* pcWidget) {
+  onSetPlayer2Name(pcWidget->getData());
+}
+void SDLView::onSetPlayer3NameWidget (SDLTextWidget* pcWidget) {
+  onSetPlayer3Name(pcWidget->getData());
+}
+void SDLView::onSetPlayer4NameWidget (SDLTextWidget* pcWidget) {
+  onSetPlayer4Name(pcWidget->getData());
+}
+void SDLView::onSetPlayer5NameWidget (SDLTextWidget* pcWidget) {
+  onSetPlayer5Name(pcWidget->getData());
+}
 
-void SDLView::render() {}
+void SDLView::handleEvent(SDL_Event event) {
+  int x, y;
+
+  if (event.type == SDL_MOUSEBUTTONDOWN &&
+    event.button.button == SDL_BUTTON_LEFT)
+  {
+    x = event.button.x;
+    y = event.button.y;
+    // Do something
+  }
+}
+
+void SDLView::render() {
+  for (auto value : mcDrawableWidgets) {
+    if (value->isVisible()) {
+      value->draw(*this);
+    }
+  }
+}
 
 void SDLView::initGame() {}
