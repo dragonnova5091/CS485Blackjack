@@ -17,7 +17,7 @@
 TextView::TextView() : TextUI(std::cout, std::cin)
 {
   TextUITextWidget* pcWidget;
-  mpcBlackjackPresenter = new BlackjackPresenter();
+  mpcBlackjackPresenter = new BlackjackPresenter(this);
 
   mpPlayerNames.push_back(new TextUITextWidget("Player1", ""));
   mpDealerWidget = new TextUITextWidget("Dealer", "");

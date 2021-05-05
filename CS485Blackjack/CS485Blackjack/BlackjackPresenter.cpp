@@ -6,9 +6,10 @@
 #include "BlackjackPresenter.h"
 #include <vector>
 
-BlackjackPresenter::BlackjackPresenter()
+BlackjackPresenter::BlackjackPresenter(IBlackjackView* theView)
 {
-	*mpcBJView = new IBlackjackView*();
+	
+	mpcBJView = theView;
 }
 
 BlackjackPresenter::~BlackjackPresenter()
@@ -36,14 +37,14 @@ void BlackjackPresenter::setNumPlayers(int seats)
 	mcBJModel.setNumPlayers(seats);
 }
 
-void BlackjackPresenter::addBet(Money cBank)
+void BlackjackPresenter::addBet(int seat, Money cBank)
 {
-	mcBJModel.addBet(cBank);
+	mcBJModel.addBet(seat, cBank);
 }
 
-void BlackjackPresenter::doTurn(float turn)
+void BlackjackPresenter::doTurn(int seat, int play, float turn)
 {
-	mcBJModel.doTurn(turn);
+	mcBJModel.doTurn(seat, play, turn);
 }
 void BlackjackPresenter::resetGame()
 {
