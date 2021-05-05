@@ -60,7 +60,7 @@ void BlackjackModel::addBet(int seat, Money cBank)
 void BlackjackModel::doTurn(int seat, int play, float hands)
 {
 
-	mcvPlayers[seat].doTurn(turn);
+	mcvPlayers[seat].doTurn(play);
 
 	if (mTotalRounds == mCurrentTurn)
 	{
