@@ -3,7 +3,8 @@
 
 Player::Player()
 {
-	//yeet
+	mbIsSplit = false;
+	mbSettled = false;
 }
 
 Player::~Player()
@@ -28,7 +29,7 @@ void Player::updateMoney(Money mon)
 	}
 }
 
-void Player::addCard(Card c, int hand = 0)
+void Player::addCard(Card c, int hand )
 {
 	//check that the hand int is within range
 	if (hand >= mHands.size())
@@ -43,7 +44,7 @@ void Player::addCard(Card c, int hand = 0)
 	}
 }
 
-void Player::finishTurn(bool bWin, int hand = 0)
+void Player::finishTurn(bool bWin, int hand )
 {
 	mbSettled = true;
 	if (bWin)
@@ -85,4 +86,36 @@ void Player::finishTurn(bool bWin, int hand = 0)
 			mHands.push_back(h);
 		}
 	}
+}
+
+void Player::split()
+{
+	if (mHands.size() == 1)
+	{
+		Hand h;
+		std::vector<Card> tempHand = mHands[0].getHand();
+		if (tempHand.size() != 2)
+		{
+			throw std::exception::exception("Already Hit, Cannot Split", 69);
+		}
+		mHands[0].clear();
+		mHands[0].addCard(tempHand[0]);
+		mHands.push_back(h);
+		mHands[1].addCard(tempHand[1]);
+	}
+	else
+	{
+		throw std::exception::exception("Hand Already Split", 69);
+	}
+}
+
+void Player::clearHand()
+{
+	mHands.clear();
+}
+
+
+void Player::setBet(Money mon)
+{
+	mBet = mon;
 }

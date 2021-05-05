@@ -7,7 +7,7 @@
 
 class Player
 {
-private:
+protected:
 	std::string mName;
 	Money mBank;
 	Money mBet;
@@ -30,7 +30,7 @@ public:
 	void split();
 
 	void clearHand();
-	virtual int doTurn(int action) = 0;
+	virtual int doTurn(int action, int hand = 0) = 0;
 	virtual Money returnBet() = 0;
 	virtual void seeCard(Card c) {}
 	virtual void setBet(Money mon);
