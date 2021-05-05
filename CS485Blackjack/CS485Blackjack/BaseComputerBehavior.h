@@ -5,6 +5,6 @@
 class BaseComputerBehavior : PlayerBehavior
 {
 public: 
-	virtual int doTurn();
-	virtual Money returnBet();
+	virtual int doTurn(Hand hand, bool isSplit);
+	virtual Money returnBet(Money totalBank);
 };

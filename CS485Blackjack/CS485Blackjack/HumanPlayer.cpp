@@ -44,20 +44,20 @@ int HumanPlayer::doTurn(int action, int hand)
 		case -1:
 			throw std::exception::exception
 			("Human player got request for computer player", 69);
-			return;
+			return toReturn;
 		case 0:
 			mbSettled = true;
 			toReturn = 0;
-			return;
+			return toReturn;
 		case 1:
 			toReturn = 1;
-			return;
+			return toReturn;
 		case 2:
 			split();
 			toReturn = 2;
-			return;
+			return toReturn;
 		}
-		return toReturn;
 	}
+	return toReturn;
 }
 

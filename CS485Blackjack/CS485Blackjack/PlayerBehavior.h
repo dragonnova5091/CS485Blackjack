@@ -8,7 +8,7 @@
 class PlayerBehavior
 {
 public:
-	virtual int doTurn(Hand hand) = 0;
-	virtual Money returnBet() = 0;
+	virtual int doTurn(Hand hand, bool isSplit) = 0;
+	virtual Money returnBet(Money totalBank) = 0;
 	virtual void seeCard(Card c) {}
 };
