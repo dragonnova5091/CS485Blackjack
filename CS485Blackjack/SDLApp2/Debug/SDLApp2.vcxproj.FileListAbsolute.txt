@@ -2,3 +2,5 @@ C:\Users\Ethan Hunter\visualStudio\01shapes-group-8-ethan-hung\Debug\SDLApp2.pdb
 C:\Users\Ethan Hunter\visualStudio\01shapes-group-8-ethan-hung\SDLApp2\Debug\SDLApp2.pdb
 C:\Users\naka8177\source\repos\CS485Blackjack\CS485Blackjack\Debug\SDLApp2.pdb
 C:\Users\naka8177\source\repos\CS485Blackjack\CS485Blackjack\SDLApp2\Debug\SDLApp2.pdb
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\Debug\SDLApp2.pdb
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\SDLApp2\Debug\SDLApp2.pdb

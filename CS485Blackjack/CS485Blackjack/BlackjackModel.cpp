@@ -57,7 +57,7 @@ void BlackjackModel::addBet(int seat, Money cBank)
 	mcvPlayers[seat].setBet(cBank);
 }
 
-void BlackjackModel::doTurn(int seat, int turn, float hands)
+void BlackjackModel::doTurn(int seat, int play, float hands)
 {
 
 	mcvPlayers[seat].doTurn(turn);

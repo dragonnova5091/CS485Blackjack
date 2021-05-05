@@ -3,9 +3,10 @@
 
 #include "IBlackjackView.h"
 #include "BlackjackModel.h"
+#include "IBlackjackPresenter.h"
 #include <vector>
 
-class BlackjackPresenter
+class BlackjackPresenter : IBlackjackPresenter
 {
 private:
 	const int MAXPLAYERS = 6;
@@ -14,7 +15,8 @@ private:
 	BlackjackModel mcBJModel;
 
 public:
-	BlackjackPresenter();
+	BlackjackPresenter(IBlackjackView* theView);
+	BlackjackPresenter(BlackjackPresenter &BlackjackPresenter);
 	~BlackjackPresenter();
 
 	void setPlayerName(int seat, std::string& name);
@@ -22,8 +24,8 @@ public:
 	void removePlayer(int seat);
 	void setNumPlayers(int seats);
 
-	void addBet(Money cBank);
+	void addBet(int seat, Money cBank);
 
-	void doTurn(float turn);
+	void doTurn(int seat, int play, float turn);
 	void resetGame();
 };
