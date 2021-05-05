@@ -6,7 +6,7 @@
 #include "IBlackjackPresenter.h"
 #include <vector>
 
-class BlackjackPresenter : IBlackjackPresenter
+class BlackjackPresenter : public IBlackjackPresenter
 {
 private:
 	const int MAXPLAYERS = 6;
