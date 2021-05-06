@@ -1,3 +1,12 @@
+//***************************************************************************
+// File name:  BaseComputerBehavior.h
+// Author:     Ethan Hunter
+// Date:       5-6-2021
+// Class:      CS485
+// Assignment: BlackJack
+// Purpose:    defines the strategy pattern for base computer behaviors
+//***************************************************************************
+
 #pragma once
 
 #include "PlayerBehavior.h"

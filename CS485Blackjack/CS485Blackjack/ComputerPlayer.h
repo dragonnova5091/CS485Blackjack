@@ -1,3 +1,12 @@
+//***************************************************************************
+// File name:  ComputerPlayer.h
+// Author:     Ethan Hunter
+// Date:       5-6-2021
+// Class:      CS485
+// Assignment: BlackJack
+// Purpose:    subclass for player
+//***************************************************************************
+
 #pragma once
 
 #include "Player.h"
