@@ -62,8 +62,9 @@ void Deck::stackDeck() {
 	mCards.push_back(Card(10, Suit::Clubs, CardName::Queen));
 	mCards.push_back(Card(10, Suit::Spades, CardName::Five));
 	mCards.push_back(Card(6, Suit::Spades, CardName::Six));
-	mCards.push_back(Card(5, Suit::Hearts, CardName::Nine));
+	mCards.push_back(Card(9, Suit::Hearts, CardName::Nine));
 	mCards.push_back(Card(5, Suit::Clubs, CardName::Five));
+	mCards.push_back(Card(5, Suit::Diamonds, CardName::Five));
 	mCards.push_back(Card(7, Suit::Diamonds, CardName::Seven));
 	mCards.push_back(Card(8, Suit::Diamonds, CardName::Eight));
 	mCards.push_back(Card(10, Suit::Clubs, CardName::Ten));
