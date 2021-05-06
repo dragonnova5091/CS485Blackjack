@@ -1,6 +1,8 @@
 #include "Deck.h"
+#include "Card.h"
 #include <algorithm>
-#include <cstdlib>
+#include <ctime>
+
 
 Deck::Deck() {
 	mNumOfSets = 1;
@@ -31,7 +33,7 @@ Deck::Deck(int numSets) {
 					mCards.push_back(Card(11, (Suit)i, (CardName)j));
 				}
 				else {
-					mCards.push_back(Card(j + 1, (Suit)i, (CardName)j));
+					mCards.push_back(Card(j + 2, (Suit)i, (CardName)j));
 				}
 			}
 		}
@@ -41,12 +43,19 @@ Deck::Deck(int numSets) {
 Deck::~Deck() {
 	while (!mCards.empty()) {
 		mCards.pop_back();
-	 }
+	}
 }
 
 void Deck::shuffleDeck() {
-	int randomInt = rand() % mCards.size();
-	std::random_shuffle(mCards.begin(), mCards.end(), randomInt);
+	//std::random_shuffle(mCards.begin(), mCards.end());
+	std::srand(std::time(NULL));
+	for (int i = mCards.size() - 1; i > 0; i--) {
+		int numCards = i;
+		int randPos = (int)std::rand() % numCards;
+		Card temp = mCards.at(i);
+		mCards.at(i) = mCards.at(randPos);
+		mCards.at(randPos) = temp;
+	}
 }
 
 void Deck::stackDeck() {
