@@ -135,4 +135,165 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="TwoSpades.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="TwoHearts.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="TwoDiamonds.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="TwoClubs.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="ThreeSpades.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="ThreeHearts.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="ThreeDiamonds.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="ThreeClubs.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="TenSpades.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="TenHearts.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="TenDiamonds.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="TenClubs.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="SixSpades.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="SixHearts.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="SixDiamonds.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="SixClubs.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="SevenSpades.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="SevenHearts.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="SevenDiamonds.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="SevenClubs.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="QueenSpades.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="QueenHearts.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="QueenDiamonds.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="QueenClubs.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="NineSpades.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="NineHearts.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="NineDiamonds.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="NineClubs.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="KingSpades.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="KingHearts.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="KingDiamonds.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="KingClubs.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="JackSpades.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="JackHearts.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="JackDiamonds.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="JackClubs.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="FourSpades.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="FourHearts.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="FourDiamonds.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="FourClubs.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="FiveSpades.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="FiveHearts.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="FiveDiamonds.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="FiveClubs.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="EightSpades.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="EightHearts.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="EightDiamonds.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="EightClubs.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="CardBack.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="AceSpades.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="AceHearts.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="AceDiamonds.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="AceClubs.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

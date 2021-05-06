@@ -227,6 +227,61 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="AceClubs.png" />
+    <Image Include="AceDiamonds.png" />
+    <Image Include="AceHearts.png" />
+    <Image Include="AceSpades.png" />
+    <Image Include="CardBack.png" />
+    <Image Include="EightClubs.png" />
+    <Image Include="EightDiamonds.png" />
+    <Image Include="EightHearts.png" />
+    <Image Include="EightSpades.png" />
+    <Image Include="FiveClubs.png" />
+    <Image Include="FiveDiamonds.png" />
+    <Image Include="FiveHearts.png" />
+    <Image Include="FiveSpades.png" />
+    <Image Include="FourClubs.png" />
+    <Image Include="FourDiamonds.png" />
+    <Image Include="FourHearts.png" />
+    <Image Include="FourSpades.png" />
+    <Image Include="JackClubs.png" />
+    <Image Include="JackDiamonds.png" />
+    <Image Include="JackHearts.png" />
+    <Image Include="JackSpades.png" />
+    <Image Include="KingClubs.png" />
+    <Image Include="KingDiamonds.png" />
+    <Image Include="KingHearts.png" />
+    <Image Include="KingSpades.png" />
+    <Image Include="NineClubs.png" />
+    <Image Include="NineDiamonds.png" />
+    <Image Include="NineHearts.png" />
+    <Image Include="NineSpades.png" />
+    <Image Include="QueenClubs.png" />
+    <Image Include="QueenDiamonds.png" />
+    <Image Include="QueenHearts.png" />
+    <Image Include="QueenSpades.png" />
+    <Image Include="SevenClubs.png" />
+    <Image Include="SevenDiamonds.png" />
+    <Image Include="SevenHearts.png" />
+    <Image Include="SevenSpades.png" />
+    <Image Include="SixClubs.png" />
+    <Image Include="SixDiamonds.png" />
+    <Image Include="SixHearts.png" />
+    <Image Include="SixSpades.png" />
+    <Image Include="TenClubs.png" />
+    <Image Include="TenDiamonds.png" />
+    <Image Include="TenHearts.png" />
+    <Image Include="TenSpades.png" />
+    <Image Include="ThreeClubs.png" />
+    <Image Include="ThreeDiamonds.png" />
+    <Image Include="ThreeHearts.png" />
+    <Image Include="ThreeSpades.png" />
+    <Image Include="TwoClubs.png" />
+    <Image Include="TwoDiamonds.png" />
+    <Image Include="TwoHearts.png" />
+    <Image Include="TwoSpades.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
