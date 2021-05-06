@@ -1,2 +1,3 @@
-﻿  tempDriver.cpp
+﻿  TextView.cpp
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(211,63): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   CS485Blackjack.vcxproj -> C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\Debug\CS485Blackjack.exe

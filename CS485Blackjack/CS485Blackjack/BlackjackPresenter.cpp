@@ -22,9 +22,9 @@ void BlackjackPresenter::setPlayerName(int seat, std::string& name)
 	mcBJModel.setPlayerName(seat, name);
 }
 
-void BlackjackPresenter::addPlayer(std::string name, Money cBank, int seat) 
+void BlackjackPresenter::addPlayer(std::string name, Money cBank, int seat, char cplayerType)
 {
-	mcBJModel.addPlayer(name, cBank, seat);
+	mcBJModel.addPlayer(name, cBank, seat, cplayerType);
 }
 
 void BlackjackPresenter::removePlayer(int seat)

@@ -5,6 +5,7 @@
 #include "HumanPlayer.h"
 #include "ComputerPlayer.h"
 #include "DealerBehavior.h"
+#include "BaseComputerBehavior.h"
 #include "Money.h"
 #include "BlackjackModel.h"
 #include <math.h>
@@ -56,9 +57,19 @@ void BlackjackModel::setPlayerName(int seat, std::string& name)
 {
 	mcvPlayers[seat]->setName(name);
 }
-void BlackjackModel::addPlayer(std::string name, Money cBank, int seat)
+void BlackjackModel::addPlayer(std::string name, Money cBank, int seat, char cplayerType)
 {
-	HumanPlayer* ptemp = new HumanPlayer(name, cBank);
+	Player* ptemp;
+
+	if (cplayerType == 'C')
+	{
+		ptemp = new ComputerPlayer( new BaseComputerBehavior(), cBank);
+	}
+	else if (cplayerType == 'H')
+	{
+		ptemp = new HumanPlayer(name, cBank);
+	}
+
 	mcvPlayers.push_back(ptemp);
 }
 void BlackjackModel::removePlayer(int seat)

@@ -18,13 +18,13 @@ TextView::TextView() : TextUI(std::cout, std::cin)
 {
   numPlayers = 1;
 
-  TextUITextWidget* pcWidget;
+  //TextUITextWidget* pcWidget;
   mpcBlackjackPresenter = new BlackjackPresenter(this);
 
   mpPlayerNames.push_back(new TextUITextWidget("Computer 1", ""));
 
   Money tempMon(100, "USD");
-  mpcBlackjackPresenter->addPlayer("Computer 1", tempMon, 0);
+  mpcBlackjackPresenter->addPlayer("Computer 1", tempMon, 0, 'C');
 
   mpBankAmounts.push_back(new TextUITextWidget("Bank: ", std::to_string (tempMon.getAmount())));
   mpDealerWidget = new TextUITextWidget("Dealer", "");
@@ -166,7 +166,7 @@ void TextView::onClickHit (std::string yes)
   /*Hung"Sorry i realized i names the params bad. the arguments should go 
   int seat- which plays(index 0-5), int move(stay, split, hit I think), 
   float hands(if they have one hand then 0.0 if they have 2 then pass 0.5."*/
-  mpcBlackjackPresenter->doTurn(turn, 0, 0.0);
+  mpcBlackjackPresenter->doTurn((int)turn, 0, 0.0f);
 }
 
 void TextView::onClickStay(std::string yes) 
@@ -174,7 +174,7 @@ void TextView::onClickStay(std::string yes)
   float turn;
   turn = mpcBlackjackPresenter->getTurn();
 
-  mpcBlackjackPresenter->doTurn(turn, 2, 0.0);
+  mpcBlackjackPresenter->doTurn((int) turn, 2, 0.0f);
 }
 
 void TextView::onClickSplit(std::string yes) 
@@ -182,7 +182,7 @@ void TextView::onClickSplit(std::string yes)
   float turn;
   turn = mpcBlackjackPresenter->getTurn();
 
-  mpcBlackjackPresenter->doTurn(turn, 1, 0.5);
+  mpcBlackjackPresenter->doTurn((int ) turn, 1, 0.5f);
 }
 
 void TextView::onSetBet(std::string yes) 
@@ -219,7 +219,7 @@ float TextView::getCurrentTurn ()
 void TextView::addPlayer(char playerType, std::string playerName, Money cBank) 
 {
   numPlayers++;
-  mpcBlackjackPresenter->addPlayer(playerName, cBank, numPlayers);
+  mpcBlackjackPresenter->addPlayer(playerName, cBank, numPlayers, playerType);
   mpPlayerNames.push_back(new TextUITextWidget("Player" +  std::to_string (numPlayers), playerName));
   mpBankAmounts.push_back(new TextUITextWidget("Bank: ", std::to_string(cBank.getAmount())));
 

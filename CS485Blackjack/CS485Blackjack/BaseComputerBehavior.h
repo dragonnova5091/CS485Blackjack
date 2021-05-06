@@ -11,7 +11,7 @@
 
 #include "PlayerBehavior.h"
 
-class BaseComputerBehavior : PlayerBehavior
+class BaseComputerBehavior : public PlayerBehavior
 {
 public: 
 	virtual int doTurn(Hand hand, bool isSplit);

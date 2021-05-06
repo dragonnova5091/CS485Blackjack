@@ -20,7 +20,7 @@ public:
 	~BlackjackPresenter();
 
 	void setPlayerName(int seat, std::string& name);
-	void addPlayer(std::string name, Money cBank, int seat);
+	void addPlayer(std::string name, Money cBank, int seat, char cplayerType);
 	void removePlayer(int seat);
 	void setNumPlayers(int seats);
 

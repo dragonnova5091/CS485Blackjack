@@ -7,7 +7,7 @@ public:
 	virtual ~IBlackjackPresenter() {}
 
 	virtual void setPlayerName(int seat, std::string& name) = 0;
-	virtual void addPlayer(std::string name, Money cBank, int seat) = 0;
+	virtual void addPlayer(std::string name, Money cBank, int seat, char cplayerType) = 0;
 	virtual void removePlayer(int seat) = 0;
 	virtual void setNumPlayers(int seats) = 0;
 

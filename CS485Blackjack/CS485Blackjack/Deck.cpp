@@ -19,6 +19,8 @@ Deck::Deck() {
 			}
 		}
 	}
+
+	shuffleDeck();
 }
 
 Deck::Deck(int numSets) {
@@ -38,6 +40,7 @@ Deck::Deck(int numSets) {
 			}
 		}
 	}
+	shuffleDeck();
 }
 
 Deck::~Deck() {
