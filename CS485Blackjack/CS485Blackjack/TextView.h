@@ -33,9 +33,9 @@ public:
   virtual void onSetPlayer5Name(std::string);
   virtual void onSetBet(std::string);
   virtual void deal();
-  virtual void onClickHit();
-  virtual void onClickStay();
-  virtual void onClickSplit();
+  virtual void onClickHit(std::string);
+  virtual void onClickStay(std::string);
+  virtual void onClickSplit(std::string);
   virtual Card drawCard();
 
   //events from Presenter

@@ -25,19 +25,19 @@ TextView::TextView() : TextUI(std::cout, std::cin)
   addWidget(0, 7, mpPlayerNames[0]);
   addWidget(0, 5, mpDealerWidget);
 
-  registerEvent("READY TO PLACE BETS?",
+  registerEvent("READYTOPLACEBETS?Y/N",
     std::bind
     (&TextView::onSetBet, this, std::placeholders::_1));
 
-  registerEvent("ADD PLAYER",
+  registerEvent("ADDPLAYER",
     std::bind
     (&TextView::onAddPlayer, this, std::placeholders::_1));
 
-  registerEvent("REMOVE PLAYER? Y/N",
+  registerEvent("REMOVEPLAYER?Y/N",
     std::bind
     (&TextView::onRemovePlayer, this, std::placeholders::_1));
 
-  registerEvent("SET PLAYER1 NAME",
+  registerEvent("SETPLAYER1NAME",
     std::bind
     (&TextView::onSetPlayer1Name, this, std::placeholders::_1));
 
@@ -117,27 +117,57 @@ void TextView::onSetPlayer5Name(std::string name)
 
 void TextView::deal()
 {
+  Card cCard;
+  //cCard = mpcBlackjackPresenter.
 
+  registerEvent("HIT",
+    std::bind
+    (&TextView::onClickHit, this, std::placeholders::_1));
+
+  registerEvent("SPLIT(IFYOUCAN)",
+    std::bind
+    (&TextView::onClickSplit, this, std::placeholders::_1));
+
+  registerEvent("STAY",
+    std::bind
+    (&TextView::onClickStay, this, std::placeholders::_1));
 }
 
-void TextView::onClickHit () 
+void TextView::onClickHit (std::string yes) 
 {
+  float turn;
+  turn = mpcBlackjackPresenter->getTurn();
 
+  mpcBlackjackPresenter->doTurn(turn, 0, 1);
 }
 
-void TextView::onClickStay() 
+void TextView::onClickStay(std::string yes) 
 {
+  float turn;
+  turn = mpcBlackjackPresenter->getTurn();
 
+  mpcBlackjackPresenter->doTurn(turn, 2, 1);
 }
 
-void TextView::onClickSplit() 
+void TextView::onClickSplit(std::string yes) 
 {
+  float turn;
+  turn = mpcBlackjackPresenter->getTurn();
 
+  mpcBlackjackPresenter->doTurn(turn, 1, 2);
 }
 
 void TextView::onSetBet(std::string yes) 
 {
+  Money cMoney;
+  long long bet;
 
+  for (int i = 0; i < numPlayers; i++) {
+    std::cout << "Enter Bet: ";
+    std::cin >> bet;
+    cMoney.setAmount(bet);
+    mpcBlackjackPresenter->addBet(i, cMoney);
+  }
 }
 
 Card TextView::drawCard () 
@@ -147,12 +177,12 @@ Card TextView::drawCard ()
 
 void TextView::addBet (Money bet) 
 {
-
+  mpcBlackjackPresenter->addBet(mpcBlackjackPresenter->getTurn(), bet);
 }
 
 float TextView::getCurrentTurn () 
 {
-
+  return mpcBlackjackPresenter->getTurn();
 }
 
 void TextView::addPlayer(char playerType, std::string playerName, Money cBank) 
