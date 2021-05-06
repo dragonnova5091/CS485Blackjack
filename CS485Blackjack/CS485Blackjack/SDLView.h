@@ -31,7 +31,7 @@ public:
   virtual void onClickHit();
   virtual void onClickStay();
   virtual void onClickSplit();
-  virtual Card getCard();
+  virtual Card drawCard();
 
   //events from Presenter
   virtual void addBet(Money Bet);
@@ -65,6 +65,8 @@ private:
   SDLTextWidget* mpDealerWidget;
 
   std::vector<std::vector<Card>> mvCards;
+
+  std::vector<std::vector<SDLSprite>> mcCards;
 
   int numPlayers;
 };

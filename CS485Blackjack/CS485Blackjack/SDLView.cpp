@@ -15,7 +15,7 @@
 
 SDLView::SDLView() {
   mpcBlackjackPresenter = new BlackjackPresenter(this);
-  mpPlayerNames.push_back(new SDLTextWidget("Player1", "", 10, 10, 1, 
+  mpPlayerNames.push_back(new SDLTextWidget("Player1", "", 10, 20, 1, 
     { 255,255,255,255 }));
   mpDealerWidget = new SDLTextWidget("Dealer", "", 10, 120, 1,
     { 255,255,255,255 });
@@ -104,21 +104,54 @@ void SDLView::onSetPlayer5Name(std::string name)
 
 void SDLView::deal()
 {
-
+  int dealTable = 0;
+  int maxDeal = 2;
+  while (dealTable < maxDeal)
+  {
+    for (int i = 0; i < mpPlayerNames.size() + 1; i++)
+    {
+      mvCards[i].push_back(drawCard());
+      //first time though load the card back
+      if (dealTable == 0)
+      {
+        mcCards[i][0].loadSprite(this, "Sprites//CardBack.PNG", 100, i * 20);
+      }
+      else
+      {
+        //Somehow get sprite of card drawn
+        //mcCards[i][1].loadSprite(this, "Sprites//CardBack.PNG", 200, 400);
+      }
+    }
+    dealTable++;
+  }
 }
 
 void SDLView::onClickHit() {
   Card drawnCard;
-  drawnCard = getCard();
+  drawnCard = drawCard();
+  int currentTurn;
+  currentTurn = std::floor(getCurrentTurn());
+  mvCards[currentTurn].push_back(drawnCard);
+  //Somehow get sprite of card drawn
+  //mcCard.loadSprite (this, "Sprites\\Card.png", 400, 400);
+  mpcBlackjackPresenter->doTurn(currentTurn, 2, 1);
 }
 
-void SDLView::onClickStay() {}
+void SDLView::onClickStay() {
+  int currentTurn;
+  currentTurn = std::floor(getCurrentTurn());
+  mpcBlackjackPresenter->doTurn(currentTurn, 0, 1);
+}
 
-void SDLView::onClickSplit() {}
+void SDLView::onClickSplit() {
+  int currentTurn;
+  currentTurn = std::floor(getCurrentTurn());
+  mpcBlackjackPresenter->doTurn(currentTurn, 1, 0.5);
+}
 
 void SDLView::onSetBet(std::string) {}
 
-Card SDLView::getCard() {
+Card SDLView::drawCard() {
   Card drawnCard;
   //drawnCard = mpcBlackjackPresenter->getCard();
   return drawnCard;
@@ -141,32 +174,38 @@ void SDLView::addPlayer(char playerType, std::string playerName, Money cBank) {
   mpcBlackjackPresenter->addPlayer(playerName, cBank, numPlayers);
   mpPlayerNames.push_back(new SDLTextWidget("Player" + numPlayers, "",
     10, 20 * numPlayers, 1, { 255,255,255,255 }));
+  registerTextWidget(mpPlayerNames[numPlayers]);
+  mcDrawableWidgets.push_back(mpPlayerNames[numPlayers]);
 
   if (numPlayers == 2) {
 
     mpPlayerNames[1]->registerStateChangeEventHandler
-    (std::bind(&SDLView::onSetPlayer2NameWidget, this, mpPlayerNames[1]));
+    (std::bind
+    (&SDLView::onSetPlayer2NameWidget, this, mpPlayerNames[1]));
 
     onSetPlayer2Name(playerName);
   }
   else if (numPlayers == 3) {
   
     mpPlayerNames[2]->registerStateChangeEventHandler
-    (std::bind(&SDLView::onSetPlayer2NameWidget, this, mpPlayerNames[2]));
+    (std::bind
+    (&SDLView::onSetPlayer2NameWidget, this, mpPlayerNames[2]));
 
     onSetPlayer3Name(playerName);
   }
   else if (numPlayers == 4) {
 
     mpPlayerNames[3]->registerStateChangeEventHandler
-    (std::bind(&SDLView::onSetPlayer2NameWidget, this, mpPlayerNames[3]));
+    (std::bind
+    (&SDLView::onSetPlayer2NameWidget, this, mpPlayerNames[3]));
 
     onSetPlayer4Name(playerName);
   }
   else if (numPlayers == 5) {
 
     mpPlayerNames[4]->registerStateChangeEventHandler
-    (std::bind(&SDLView::onSetPlayer2NameWidget, this, mpPlayerNames[4]));
+    (std::bind
+    (&SDLView::onSetPlayer2NameWidget, this, mpPlayerNames[4]));
 
     onSetPlayer5Name(playerName);
   }
@@ -214,7 +253,8 @@ void SDLView::handleEvent(SDL_Event event) {
   {
     x = event.button.x;
     y = event.button.y;
-    // Do something
+    // Check if the rectangle over the textWidget of the action is clicked 
+    //What ever action is clicked call onClick(Action)
   }
 }
 
@@ -224,6 +264,7 @@ void SDLView::render() {
       value->draw(*this);
     }
   }
+  // Draw cards next to player
 }
 
 void SDLView::initGame() {}
