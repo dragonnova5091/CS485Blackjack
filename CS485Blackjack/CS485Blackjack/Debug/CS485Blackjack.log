@@ -1,19 +1,2 @@
-﻿  BaseComputerBehavior.cpp
-  ComputerPlayer.cpp
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\ComputerPlayer.cpp(66,11): warning C4018: '>=': signed/unsigned mismatch
-  HumanPlayer.cpp
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\HumanPlayer.cpp(35,11): warning C4018: '>=': signed/unsigned mismatch
-  Generating Code...
-  BlackjackModel.cpp
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\BlackjackModel.cpp(40,20): warning C4018: '<': signed/unsigned mismatch
-  SDLView.cpp
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\SDLApp2\SDLApp.h(10,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
-  tempDriver.cpp
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\SDLApp2\SDLApp.h(10,10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
-  TextView.cpp
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(19,21): warning C4101: 'pcWidget': unreferenced local variable
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(144,33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(152,33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(160,33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(185,63): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Generating Code...
+﻿  tempDriver.cpp
+  CS485Blackjack.vcxproj -> C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\Debug\CS485Blackjack.exe

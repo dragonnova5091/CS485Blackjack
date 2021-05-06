@@ -2,6 +2,7 @@
 #pragma once
 
 #include "IBlackjackView.h"
+#include <iostream>
 #include <string>
 #include <map>
 #include <functional>
@@ -19,7 +20,7 @@ class TextView : public IBlackjackView, public TextUI
 public:
   TextView();
 
-  virtual ~TextView();
+  virtual ~TextView() {}
 
   virtual void onDraw();
 

@@ -77,10 +77,10 @@ void Deck::stackDeck() {
 }
 
 Card Deck::drawCard() {
-	Card temp;
-	temp = mCards.back();
+	Card c = mCards.back();
 	mCards.pop_back();
-	return temp;
+	return c;
+
 }
 
 //void changeNumOfSets(int numSets) {

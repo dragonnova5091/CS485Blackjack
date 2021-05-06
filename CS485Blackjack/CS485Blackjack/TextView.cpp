@@ -117,7 +117,7 @@ void TextView::onSetPlayer5Name(std::string name)
 
 void TextView::deal()
 {
-  Card cCard;
+  
   //cCard = mpcBlackjackPresenter.
 
   registerEvent("HIT",
@@ -175,8 +175,7 @@ void TextView::onSetBet(std::string yes)
 
 Card TextView::drawCard () 
 {
-    Card drawnCard;
-    drawnCard = mpcBlackjackPresenter->getCard();
+    Card drawnCard = mpcBlackjackPresenter->getCard();
     return drawnCard;
 }
 

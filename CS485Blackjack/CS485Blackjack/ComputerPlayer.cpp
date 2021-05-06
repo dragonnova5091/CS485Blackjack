@@ -91,3 +91,8 @@ Money ComputerPlayer::returnBet()
 {
 	return mpBehavior->returnBet(mBank);
 }
+
+void ComputerPlayer::setBet(Money mon)
+{
+	mBet = mon;
+}
