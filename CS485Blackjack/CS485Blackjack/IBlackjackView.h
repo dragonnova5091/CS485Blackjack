@@ -24,9 +24,9 @@ public:
 	virtual void onSetPlayer4Name(std::string) = 0;
 	virtual void onSetPlayer5Name(std::string) = 0;
 	virtual void deal() = 0;
-	virtual void onClickHit() = 0;
-	virtual void onClickStay() = 0;
-	virtual void onClickSplit() = 0;
+	virtual void onClickHit(std::string) = 0;
+	virtual void onClickStay(std::string) = 0;
+	virtual void onClickSplit(std::string) = 0;
 	virtual void onSetBet(std::string) = 0;
 	virtual Card drawCard() = 0;
 

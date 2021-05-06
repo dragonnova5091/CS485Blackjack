@@ -1,14 +1,15 @@
 
 
 //#include "SDLApp.h"
-//#include "TextUI.h"
-#include "SDLView.h"
+#include "TextUI.h"
+//#include "SDLView.h"
+#include "TextView.h"
 #include "Deck.h"
 
 int main()
 {
 
-  SDLView cTheDisplay;
+  /*SDLView cTheDisplay;
 
   cTheDisplay.createWindow("SDL View",
     100, 100, 640, 640);
@@ -17,6 +18,10 @@ int main()
 
   cTheDisplay.gameLoop();
 
-  cTheDisplay.cleanup();
+  cTheDisplay.cleanup();*/
+  TextView cView;
+
+  cView.UIEventLoop();
+
   return EXIT_SUCCESS;
 }
