@@ -23,6 +23,7 @@ public:
 	std::string getName() { return mName; }
 	Money getMoney() { return mBank; }
 	bool getSettled() { return mbSettled; }
+	bool isSplit() { return mbIsSplit; }
 
 	void updateMoney(Money mon);
 	void addCard(Card c, int hand = 0);

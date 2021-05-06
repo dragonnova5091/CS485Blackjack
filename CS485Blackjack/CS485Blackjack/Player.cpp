@@ -94,16 +94,19 @@ void Player::split()
 {
 	if (mHands.size() == 1)
 	{
-		Hand h;
-		std::vector<Card> tempHand = mHands[0].getHand();
-		if (tempHand.size() != 2)
+		if ((mBank - mBet - mBet).getAmount() >= 0)
 		{
-			throw std::exception::exception("Already Hit, Cannot Split", 69);
+			Hand h;
+			std::vector<Card> tempHand = mHands[0].getHand();
+			if (tempHand.size() != 2)
+			{
+				throw std::exception::exception("Already Hit, Cannot Split", 69);
+			}
+			mHands[0].clear();
+			mHands[0].addCard(tempHand[0]);
+			mHands.push_back(h);
+			mHands[1].addCard(tempHand[1]);
 		}
-		mHands[0].clear();
-		mHands[0].addCard(tempHand[0]);
-		mHands.push_back(h);
-		mHands[1].addCard(tempHand[1]);
 	}
 	else
 	{
