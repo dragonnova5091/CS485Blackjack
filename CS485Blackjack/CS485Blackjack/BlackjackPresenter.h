@@ -30,4 +30,5 @@ public:
 	float getTurn();
 	Card getCard();
 	void resetGame();
+	void deal();
 };

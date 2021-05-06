@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "HumanPlayer.h"
 #include "ComputerPlayer.h"
+#include "DealerBehavior.h"
 #include "Money.h"
 #include "BlackjackModel.h"
 #include <math.h>
@@ -17,6 +18,10 @@ BlackjackModel::BlackjackModel()
 	mPlayerCount = 0;
 	mCurrentTurn = 0.0;
 	mTotalRounds = 0;
+
+	PlayerBehavior* behavior = new DealerBehavior();
+	Money mon(0, "USD");
+	Player* pdealer = new ComputerPlayer(behavior, mon);
 }
 
 BlackjackModel::BlackjackModel(int numPlayers)
@@ -24,12 +29,16 @@ BlackjackModel::BlackjackModel(int numPlayers)
 	mPlayerCount = numPlayers;
 	mCurrentTurn = 0.0;
 	mTotalRounds = 0;
+
+	PlayerBehavior* behavior = new DealerBehavior();
+	Money mon(0, "USD");
+	Player* pdealer = new ComputerPlayer(behavior, mon);
 }
 
 BlackjackModel::BlackjackModel(const BlackjackModel& cBJ)
 {
 	mPlayerCount = (int)cBJ.mcvPlayers.size();
-	mcvDecks = cBJ.mcvDecks;
+	mcDeck = cBJ.mcDeck;
 	mcvPlayers = cBJ.mcvPlayers;
 	mCurrentTurn = 0.0;
 	mTotalRounds = 0;
@@ -50,7 +59,7 @@ void BlackjackModel::setPlayerName(int seat, std::string& name)
 void BlackjackModel::addPlayer(std::string name, Money cBank, int seat)
 {
 	HumanPlayer* ptemp = new HumanPlayer(name, cBank);
-	mcvPlayers.insert(mcvPlayers.begin() + seat, ptemp);
+	mcvPlayers.push_back(ptemp);
 }
 void BlackjackModel::removePlayer(int seat)
 {
@@ -95,13 +104,22 @@ float BlackjackModel::getTurn()
 
 Card BlackjackModel::getCard()
 {
-	int randomDeck;
-	srand(static_cast<unsigned int>(time(NULL)));
-
-	randomDeck = static_cast<int>(rand()) % 6;
-	return mcvDecks[randomDeck].drawCard();
+	return mcDeck.drawCard();
 }
 void BlackjackModel::resetGame()
 {
 
+}
+
+void BlackjackModel::deal()
+{
+	Card c;
+	
+	//two cards per player
+	for (size_t i = 0; i < mcvPlayers.size() * 2; i++)
+	{
+		c = getCard();
+		mcvPlayers[i % mcvPlayers.size()]->addCard(c);
+
+	}
 }

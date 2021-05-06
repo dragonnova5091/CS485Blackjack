@@ -1,5 +1,13 @@
 #include "Card.h"
 
+Card::Card()
+{
+	mValue = 2;
+	mSuit = Suit::Diamonds;
+	mCardName = CardName::Two;
+}
+
+
 Card::Card(int value, Suit suit, CardName cardName) {
 	mValue = value;
 	mSuit = suit;

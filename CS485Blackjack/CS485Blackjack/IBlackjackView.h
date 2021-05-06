@@ -23,7 +23,7 @@ public:
 	virtual void onSetPlayer3Name(std::string) = 0;
 	virtual void onSetPlayer4Name(std::string) = 0;
 	virtual void onSetPlayer5Name(std::string) = 0;
-	virtual void deal() = 0;
+	virtual void onDeal(std::string notused) = 0;
 	virtual void onClickHit(std::string) = 0;
 	virtual void onClickStay(std::string) = 0;
 	virtual void onClickSplit(std::string) = 0;

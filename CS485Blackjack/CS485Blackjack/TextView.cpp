@@ -16,16 +16,24 @@
 
 TextView::TextView() : TextUI(std::cout, std::cin)
 {
+  numPlayers = 1;
+
   TextUITextWidget* pcWidget;
   mpcBlackjackPresenter = new BlackjackPresenter(this);
 
-  mpPlayerNames.push_back(new TextUITextWidget("Player1", ""));
+  mpPlayerNames.push_back(new TextUITextWidget("Computer 1", ""));
+
+  Money tempMon(100, "USD");
+  mpcBlackjackPresenter->addPlayer("Computer 1", tempMon, 0);
+
+  mpBankAmounts.push_back(new TextUITextWidget("Bank: ", std::to_string (tempMon.getAmount())));
   mpDealerWidget = new TextUITextWidget("Dealer", "");
 
-  addWidget(0, 7, mpPlayerNames[0]);
-  addWidget(0, 5, mpDealerWidget);
+  addWidget(0, 6, mpPlayerNames[0]);
+  addWidget(25, 6, mpBankAmounts[0]);
+  addWidget(0, 3, mpDealerWidget);
 
-  registerEvent("READYTOPLACEBETS?Y/N",
+  registerEvent("PLACEBETS",
     std::bind
     (&TextView::onSetBet, this, std::placeholders::_1));
 
@@ -33,15 +41,20 @@ TextView::TextView() : TextUI(std::cout, std::cin)
     std::bind
     (&TextView::onAddPlayer, this, std::placeholders::_1));
 
-  registerEvent("REMOVEPLAYER?Y/N",
+  registerEvent("REMOVEPLAYER",
     std::bind
     (&TextView::onRemovePlayer, this, std::placeholders::_1));
 
   registerEvent("SETPLAYER1NAME",
     std::bind
     (&TextView::onSetPlayer1Name, this, std::placeholders::_1));
+  
+  registerEvent("DEAL",
+    std::bind(&TextView::onDeal, this, std::placeholders::_1));
 
-  onSetPlayer1Name("Player1");
+
+
+  onSetPlayer1Name("Computer 1");
 
 }
 
@@ -63,7 +76,7 @@ void TextView::onAddPlayer(std::string name) {
   do {
     std::cout << "Human (H) or Computer (C) player?";
     std::cin >> playerType;
-  } while ('C' == playerType || 'H' == playerType);
+  } while ('C' != playerType && 'H' != playerType);
 
   if (numPlayers + 1 <= 5) {
     addPlayer(playerType, name, cMoney);
@@ -76,13 +89,20 @@ void TextView::onAddPlayer(std::string name) {
 
 void TextView::onRemovePlayer(std::string yes) {
   int playerNum;
+ 
+  //
+  //if (std::stoi(yes) >= 1 && std::stoi(yes) <= 5)
+  //{
+  //  mpcBlackjackPresenter->removePlayer(std::stoi(yes) - 1);
+  //}
 
   do {
     std::cout << "Which player would you like to remove? (Please enter player number)";
     std::cin >> playerNum;
-  } while (playerNum > 0 && playerNum <= 5);
+  } while (playerNum < 0 && playerNum > 5);
 
-  mpcBlackjackPresenter->removePlayer(playerNum);
+  removePlayer(playerNum);
+  mpcBlackjackPresenter->removePlayer(playerNum - 1);
 }
 
 
@@ -115,7 +135,7 @@ void TextView::onSetPlayer5Name(std::string name)
   mpPlayerNames[4]->setData(name);
 }
 
-void TextView::deal()
+void TextView::onDeal(std::string notused)
 {
   
   //cCard = mpcBlackjackPresenter.
@@ -131,6 +151,11 @@ void TextView::deal()
   registerEvent("STAY",
     std::bind
     (&TextView::onClickStay, this, std::placeholders::_1));
+
+
+
+    mpcBlackjackPresenter->deal();
+
 }
 
 void TextView::onClickHit (std::string yes) 
@@ -141,7 +166,7 @@ void TextView::onClickHit (std::string yes)
   /*Hung"Sorry i realized i names the params bad. the arguments should go 
   int seat- which plays(index 0-5), int move(stay, split, hit I think), 
   float hands(if they have one hand then 0.0 if they have 2 then pass 0.5."*/
-  mpcBlackjackPresenter->doTurn(turn, 0, 1);
+  mpcBlackjackPresenter->doTurn(turn, 0, 0.0);
 }
 
 void TextView::onClickStay(std::string yes) 
@@ -149,7 +174,7 @@ void TextView::onClickStay(std::string yes)
   float turn;
   turn = mpcBlackjackPresenter->getTurn();
 
-  mpcBlackjackPresenter->doTurn(turn, 2, 1);
+  mpcBlackjackPresenter->doTurn(turn, 2, 0.0);
 }
 
 void TextView::onClickSplit(std::string yes) 
@@ -157,7 +182,7 @@ void TextView::onClickSplit(std::string yes)
   float turn;
   turn = mpcBlackjackPresenter->getTurn();
 
-  mpcBlackjackPresenter->doTurn(turn, 1, 2);
+  mpcBlackjackPresenter->doTurn(turn, 1, 0.5);
 }
 
 void TextView::onSetBet(std::string yes) 
@@ -171,6 +196,8 @@ void TextView::onSetBet(std::string yes)
     cMoney.setAmount(bet);
     mpcBlackjackPresenter->addBet(i, cMoney);
   }
+
+
 }
 
 Card TextView::drawCard () 
@@ -193,40 +220,45 @@ void TextView::addPlayer(char playerType, std::string playerName, Money cBank)
 {
   numPlayers++;
   mpcBlackjackPresenter->addPlayer(playerName, cBank, numPlayers);
-  mpPlayerNames.push_back(new TextUITextWidget("Player" + numPlayers, playerName));
+  mpPlayerNames.push_back(new TextUITextWidget("Player" +  std::to_string (numPlayers), playerName));
+  mpBankAmounts.push_back(new TextUITextWidget("Bank: ", std::to_string(cBank.getAmount())));
 
 
   if (numPlayers == 2) {
     addWidget(0, 9, mpPlayerNames[1]);
+    addWidget(25, 9, mpBankAmounts[1]);
 
-    registerEvent(("SET PLAYER2 NAME"),
+    registerEvent(("SETPLAYER2NAME"),
       std::bind
       (&TextView::onSetPlayer2Name, this, std::placeholders::_1));
 
     onSetPlayer2Name(playerName);
   }
   else if (numPlayers == 3) {
-    addWidget(0, 11, mpPlayerNames[2]);
+    addWidget(0, 12, mpPlayerNames[2]);
+    addWidget(25, 12, mpBankAmounts[2]);
 
-    registerEvent(("SET PLAYER3 NAME"),
+    registerEvent(("SETPLAYER3NAME"),
       std::bind
       (&TextView::onSetPlayer3Name, this, std::placeholders::_1));
 
     onSetPlayer3Name(playerName);
   }
   else if (numPlayers == 4) {
-    addWidget(0, 13, mpPlayerNames[3]);
+    addWidget(0, 15, mpPlayerNames[3]);
+    addWidget(25, 15, mpBankAmounts[3]);
 
-    registerEvent(("SET PLAYER4 NAME"),
+    registerEvent(("SETPLAYER4NAME"),
       std::bind
       (&TextView::onSetPlayer4Name, this, std::placeholders::_1));
 
     onSetPlayer4Name(playerName);
   }
   else if (numPlayers == 5) {
-    addWidget(0, 15, mpPlayerNames[4]);
+    addWidget(0, 18, mpPlayerNames[4]);
+    addWidget(25, 18, mpBankAmounts[4]);
 
-    registerEvent(("SET PLAYER5 NAME"),
+    registerEvent(("SETPLAYER5NAME"),
       std::bind
       (&TextView::onSetPlayer5Name, this, std::placeholders::_1));
 
@@ -238,11 +270,21 @@ void TextView::addPlayer(char playerType, std::string playerName, Money cBank)
 
 void TextView::removePlayer (int player) 
 {
-  for (int i = player; i < numPlayers; i++) {
-    mpPlayerNames[i - 1]->setData(mpPlayerNames[i]->getData());
-  }
+  auto it = mpPlayerNames.begin();
+  it += player - 1;
+  delete mpPlayerNames[player - 1];
+  mpPlayerNames.erase(it);
+
+  auto iter = mpBankAmounts.begin();
+  iter += player - 1;
+  delete mpBankAmounts[player - 1];
+  mpBankAmounts.erase(iter);
 
   numPlayers--;
+  
+  /*for (int i = player; i < numPlayers; i++) {
+    mpPlayerNames[i - 1]->setData(mpPlayerNames[i]->getData());
+  }*/
 }
 
 void TextView::setNumPlayer (int players) 

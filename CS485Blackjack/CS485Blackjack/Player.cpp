@@ -5,6 +5,8 @@ Player::Player()
 {
 	mbIsSplit = false;
 	mbSettled = false;
+	Hand baseHand;
+	mHands.push_back(baseHand);
 }
 
 Player::~Player()

@@ -11,7 +11,7 @@ class BlackjackModel
 private:
 	const int MAXPLAYERS = 6;
 
-	std::vector<Deck> mcvDecks;
+	Deck mcDeck;
 	std::vector<Player*>mcvPlayers;
 	int mPlayerCount;
 	float mCurrentTurn;
@@ -34,4 +34,5 @@ public:
 	float getTurn();
 	Card getCard();
 	void resetGame();
+	void deal();
 };

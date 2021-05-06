@@ -12,7 +12,7 @@ public:
 	Deck(); 
 	Deck(int);
 	~Deck();
-	int randomInt(int);
+	int randomInt(int) {};
 	void shuffleDeck();
 	void stackDeck();
 	Card drawCard();

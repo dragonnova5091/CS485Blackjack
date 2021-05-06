@@ -17,4 +17,5 @@ public:
 	virtual float getTurn() = 0;
 	virtual Card getCard() = 0;
 	virtual void resetGame() = 0;
+	virtual void deal() = 0;
 };

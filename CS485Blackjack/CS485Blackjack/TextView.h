@@ -33,7 +33,7 @@ public:
   virtual void onSetPlayer4Name(std::string);
   virtual void onSetPlayer5Name(std::string);
   virtual void onSetBet(std::string);
-  virtual void deal();
+  virtual void onDeal(std::string notused);
   virtual void onClickHit(std::string);
   virtual void onClickStay(std::string);
   virtual void onClickSplit(std::string);
@@ -53,9 +53,10 @@ private:
 
   std::vector<TextUITextWidget*>mpPlayerNames;
   std::vector<TextUITextWidget*>mpBankAmounts;
+  std::vector<TextUITextWidget*>mpBetAmounts;
   TextUITextWidget *mpDealerWidget;
 
-  std::vector<std::vector<Card>> mvCards;
+  std::vector<Hand> mvHands;
 
   int numPlayers;
   int mCurrentTurn;

@@ -60,3 +60,9 @@ void BlackjackPresenter::resetGame()
 {
 	mcBJModel.resetGame();
 }
+
+
+void BlackjackPresenter::deal()
+{
+	mcBJModel.deal();
+}
