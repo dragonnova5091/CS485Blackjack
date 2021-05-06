@@ -57,4 +57,5 @@ private:
   std::vector<std::vector<Card>> mvCards;
 
   int numPlayers;
+  int mCurrentTurn;
 };

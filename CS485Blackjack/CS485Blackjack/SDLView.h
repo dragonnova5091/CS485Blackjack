@@ -69,4 +69,5 @@ private:
   std::vector<std::vector<SDLSprite>> mcCards;
 
   int numPlayers;
+  int mCurrentTurn;
 };

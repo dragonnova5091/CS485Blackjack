@@ -11,14 +11,17 @@ private :
 	int mSum;
 
 public:
-	Hand();
-	~Hand();
+	Hand() { mSum = 0; }
+	~Hand() {}
 
 	void addCard(Card c) { mHand.push_back(c); }
 	std::vector<Card> getHand() { return mHand; }
 	void clear() { mHand.clear(); }
-
-
-
-
+	int getSum() 
+	{
+		for (int i = 0; i < static_cast<int>(mHand.size()); i++)
+		{
+			mSum += mHand[i];
+		}
+	}
 };

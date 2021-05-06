@@ -39,7 +39,5 @@ public:
 	virtual void resetGame() = 0;
 	virtual void quitGame() = 0;
 
-
-private:
-	int mCurrentTurn;
+	/*We cant have a private member here because then it isnt an interface <3. So I put in the subclasses. -Hung*/
 };

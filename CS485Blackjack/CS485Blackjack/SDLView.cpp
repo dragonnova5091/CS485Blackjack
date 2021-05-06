@@ -126,6 +126,9 @@ void SDLView::deal()
   }
 }
 
+/*Hung"Sorry i realized i names the params bad. the arguments should go
+int seat- which plays(index 0-5), int move(stay, split, hit I think),
+float hands(if they have one hand then 0.0 if they have 2 then pass 0.5."*/
 void SDLView::onClickHit() {
   Card drawnCard;
   drawnCard = drawCard();
@@ -137,12 +140,18 @@ void SDLView::onClickHit() {
   mpcBlackjackPresenter->doTurn(currentTurn, 2, 1);
 }
 
+/*Hung"Sorry i realized i names the params bad. the arguments should go
+int seat- which plays(index 0-5), int move(stay, split, hit I think),
+float hands(if they have one hand then 0.0 if they have 2 then pass 0.5."*/
 void SDLView::onClickStay() {
   int currentTurn;
   currentTurn = std::floor(getCurrentTurn());
   mpcBlackjackPresenter->doTurn(currentTurn, 0, 1);
 }
 
+/*Hung"Sorry i realized i names the params bad. the arguments should go
+int seat- which plays(index 0-5), int move(stay, split, hit I think),
+float hands(if they have one hand then 0.0 if they have 2 then pass 0.5."*/
 void SDLView::onClickSplit() {
   int currentTurn;
   currentTurn = std::floor(getCurrentTurn());
@@ -153,7 +162,7 @@ void SDLView::onSetBet(std::string) {}
 
 Card SDLView::drawCard() {
   Card drawnCard;
-  //drawnCard = mpcBlackjackPresenter->getCard();
+  drawnCard = mpcBlackjackPresenter->getCard();
   return drawnCard;
 }
 

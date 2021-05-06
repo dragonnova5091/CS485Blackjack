@@ -138,6 +138,9 @@ void TextView::onClickHit (std::string yes)
   float turn;
   turn = mpcBlackjackPresenter->getTurn();
 
+  /*Hung"Sorry i realized i names the params bad. the arguments should go 
+  int seat- which plays(index 0-5), int move(stay, split, hit I think), 
+  float hands(if they have one hand then 0.0 if they have 2 then pass 0.5."*/
   mpcBlackjackPresenter->doTurn(turn, 0, 1);
 }
 
@@ -172,7 +175,9 @@ void TextView::onSetBet(std::string yes)
 
 Card TextView::drawCard () 
 {
-
+    Card drawnCard;
+    drawnCard = mpcBlackjackPresenter->getCard();
+    return drawnCard;
 }
 
 void TextView::addBet (Money bet) 

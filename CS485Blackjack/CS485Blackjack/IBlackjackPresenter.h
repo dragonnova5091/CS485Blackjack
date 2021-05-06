@@ -13,7 +13,8 @@ public:
 
 	virtual void addBet(int seat, Money cBank) = 0;
 
-	virtual void doTurn(int seat, int play, float turn) = 0;
+	virtual void doTurn(int seat, int move, float hands) = 0;
 	virtual float getTurn() = 0;
+	virtual Card getCard() = 0;
 	virtual void resetGame() = 0;
 };

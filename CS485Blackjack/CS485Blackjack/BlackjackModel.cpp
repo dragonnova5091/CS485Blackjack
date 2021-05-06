@@ -6,6 +6,9 @@
 #include "BlackjackModel.h"
 #include <math.h>
 #include <vector>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 BlackjackModel::BlackjackModel()
 {
@@ -58,10 +61,10 @@ void BlackjackModel::addBet(int seat, Money cBank)
 	mcvPlayers[seat].setBet(cBank);
 }
 
-void BlackjackModel::doTurn(int seat, int play, float hands)
+void BlackjackModel::doTurn(int seat, int move, float hands)
 {
 
-	mcvPlayers[seat].doTurn(play);
+	mcvPlayers[seat].doTurn(move);
 
 	if (mTotalRounds == mCurrentTurn)
 	{
@@ -72,7 +75,7 @@ void BlackjackModel::doTurn(int seat, int play, float hands)
 
 float BlackjackModel::getTurn()
 {
-	const int SPLIT = 0.5;
+	const float SPLIT = 0.5;
 	float halfTurn = std::floor(mCurrentTurn);
 	if (SPLIT == (mCurrentTurn - halfTurn))
 	{
@@ -82,6 +85,15 @@ float BlackjackModel::getTurn()
 	{
 		return (mCurrentTurn / mTotalRounds);
 	}
+}
+
+Card BlackjackModel::getCard()
+{
+	int randomDeck;
+	srand(static_cast<unsigned int>(time(NULL)));
+
+	randomDeck = static_cast<int>(rand()) % 6;
+	return mcvDecks[randomDeck].drawCard();
 }
 void BlackjackModel::resetGame()
 {
