@@ -136,163 +136,163 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="2clubs.GIF">
+    <Image Include="TwoSpades.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="2diamonds.GIF">
+    <Image Include="TwoHearts.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="2hearts.GIF">
+    <Image Include="TwoDiamonds.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="2spades.GIF">
+    <Image Include="TwoClubs.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="3clubs.GIF">
+    <Image Include="ThreeSpades.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="3diamonds.GIF">
+    <Image Include="ThreeHearts.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="3hearts.GIF">
+    <Image Include="ThreeDiamonds.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="3spades.GIF">
+    <Image Include="ThreeClubs.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="4clubs.GIF">
+    <Image Include="TenSpades.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="4diamonds.GIF">
+    <Image Include="TenHearts.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="4hearts.GIF">
+    <Image Include="TenDiamonds.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="4spades.GIF">
+    <Image Include="TenClubs.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="5clubs.GIF">
+    <Image Include="SixSpades.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="5diamonds.GIF">
+    <Image Include="SixHearts.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="5hearts.GIF">
+    <Image Include="SixDiamonds.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="5spades.GIF">
+    <Image Include="SixClubs.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="6clubs.GIF">
+    <Image Include="SevenSpades.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="6diamonds.GIF">
+    <Image Include="SevenHearts.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="6hearts.GIF">
+    <Image Include="SevenDiamonds.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="6spades.GIF">
+    <Image Include="SevenClubs.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="7clubs.GIF">
+    <Image Include="QueenSpades.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="7diamonds.GIF">
+    <Image Include="QueenHearts.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="7hearts.GIF">
+    <Image Include="QueenDiamonds.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="7spades.GIF">
+    <Image Include="QueenClubs.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="8clubs.GIF">
+    <Image Include="NineSpades.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="8diamonds.GIF">
+    <Image Include="NineHearts.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="8hearts.GIF">
+    <Image Include="NineDiamonds.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="8spades.GIF">
+    <Image Include="NineClubs.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="9clubs.GIF">
+    <Image Include="KingSpades.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="9diamonds.GIF">
+    <Image Include="KingHearts.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="9hearts.GIF">
+    <Image Include="KingDiamonds.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="9spades.GIF">
+    <Image Include="KingClubs.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="10clubs.GIF">
+    <Image Include="JackSpades.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="10diamonds.GIF">
+    <Image Include="JackHearts.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="10hearts.GIF">
+    <Image Include="JackDiamonds.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="10spades.GIF">
+    <Image Include="JackClubs.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="aceclubs.GIF">
+    <Image Include="FourSpades.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="acediamonds.GIF">
+    <Image Include="FourHearts.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="acehearts.GIF">
+    <Image Include="FourDiamonds.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="acespades.GIF">
+    <Image Include="FourClubs.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="BlackjackCardBack.GIF">
+    <Image Include="FiveSpades.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="jackclubs.GIF">
+    <Image Include="FiveHearts.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="jackdiamonds.GIF">
+    <Image Include="FiveDiamonds.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="jackhearts.GIF">
+    <Image Include="FiveClubs.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="jackspades.GIF">
+    <Image Include="EightSpades.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="kingclubs.GIF">
+    <Image Include="EightHearts.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="kingdiamonds.GIF">
+    <Image Include="EightDiamonds.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="kinghearts.GIF">
+    <Image Include="EightClubs.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="kingspades.GIF">
+    <Image Include="CardBack.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="queenclubs.GIF">
+    <Image Include="AceSpades.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="queendiamonds.GIF">
+    <Image Include="AceHearts.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="queenhearts.GIF">
+    <Image Include="AceDiamonds.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="queenspades.GIF">
+    <Image Include="AceClubs.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
