@@ -12,7 +12,7 @@ private:
 	const int MAXPLAYERS = 6;
 
 	std::vector<Deck> mcvDecks;
-	std::vector<Player>mcvPlayers;
+	std::vector<Player*>mcvPlayers;
 	int mPlayerCount;
 	float mCurrentTurn;
 	float mTotalRounds;

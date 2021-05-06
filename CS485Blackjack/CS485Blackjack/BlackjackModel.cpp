@@ -2,6 +2,8 @@
 
 #include "Deck.h"
 #include "Player.h"
+#include "HumanPlayer.h"
+#include "ComputerPlayer.h"
 #include "Money.h"
 #include "BlackjackModel.h"
 #include <math.h>
@@ -35,20 +37,24 @@ BlackjackModel::BlackjackModel(const BlackjackModel& cBJ)
 
 BlackjackModel::~BlackjackModel()
 {
-
+	for (int i = 0; i < mcvPlayers.size(); i++)
+	{
+		delete mcvPlayers[i];
+	}
 }
 
 void BlackjackModel::setPlayerName(int seat, std::string& name)
 {
-	mcvPlayers[seat].setName(name);
+	mcvPlayers[seat]->setName(name);
 }
 void BlackjackModel::addPlayer(std::string name, Money cBank, int seat)
 {
-	mcvPlayers[seat].setName(name);
-	mcvPlayers[seat].updateMoney(cBank);
+	HumanPlayer* ptemp = new HumanPlayer(name, cBank);
+	mcvPlayers.insert(mcvPlayers.begin() + seat, ptemp);
 }
 void BlackjackModel::removePlayer(int seat)
 {
+	delete mcvPlayers[seat];
 	mcvPlayers.erase(mcvPlayers.begin() + seat);
 }
 void BlackjackModel::setNumPlayers(int seats)
@@ -58,13 +64,13 @@ void BlackjackModel::setNumPlayers(int seats)
 
 void BlackjackModel::addBet(int seat, Money cBank)
 {
-	mcvPlayers[seat].setBet(cBank);
+	mcvPlayers[seat]->setBet(cBank);
 }
 
 void BlackjackModel::doTurn(int seat, int move, float hands)
 {
 
-	mcvPlayers[seat].doTurn(move);
+	mcvPlayers[seat]->doTurn(move);
 
 	if (mTotalRounds == mCurrentTurn)
 	{

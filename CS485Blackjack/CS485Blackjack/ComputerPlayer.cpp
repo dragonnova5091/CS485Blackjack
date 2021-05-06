@@ -2,9 +2,10 @@
 
 #include "ComputerPlayer.h"
 
-ComputerPlayer::ComputerPlayer(PlayerBehavior* newBehavior)
+ComputerPlayer::ComputerPlayer(PlayerBehavior* newBehavior, Money mon)
 {
 	mpBehavior = newBehavior;
+	mBank = mon;
 }
 
 ComputerPlayer::~ComputerPlayer()
@@ -30,4 +31,9 @@ int ComputerPlayer::doTurn(int action, int hand)
 void ComputerPlayer::seeCard(Card c)
 {
 	mpBehavior->seeCard(c);
+}
+
+Money ComputerPlayer::returnBet()
+{
+	mpBehavior->returnBet(mBank);
 }

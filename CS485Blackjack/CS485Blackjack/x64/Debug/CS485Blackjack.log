@@ -1,75 +1,17 @@
-﻿  BaseComputerBehavior.cpp
-C:\Users\kibah\CS485Blackjack\CS485Blackjack\CS485Blackjack\Hand.h(24,9): error C2677: binary '+=': no global operator found which takes type '_Ty' (or there is no acceptable conversion)
-          with
-          [
-              _Ty=Card
-          ]
-  BlackjackModel.cpp
-C:\Users\kibah\CS485Blackjack\CS485Blackjack\CS485Blackjack\Hand.h(24,9): error C2677: binary '+=': no global operator found which takes type '_Ty' (or there is no acceptable conversion)
-          with
-          [
-              _Ty=Card
-          ]
+﻿  BlackjackModel.cpp
   BlackjackPresenter.cpp
-C:\Users\kibah\CS485Blackjack\CS485Blackjack\CS485Blackjack\Hand.h(24,9): error C2677: binary '+=': no global operator found which takes type '_Ty' (or there is no acceptable conversion)
-          with
-          [
-              _Ty=Card
-          ]
   ComputerPlayer.cpp
-C:\Users\kibah\CS485Blackjack\CS485Blackjack\CS485Blackjack\Hand.h(24,9): error C2677: binary '+=': no global operator found which takes type '_Ty' (or there is no acceptable conversion)
-          with
-          [
-              _Ty=Card
-          ]
-  DealerBehavior.cpp
-C:\Users\kibah\CS485Blackjack\CS485Blackjack\CS485Blackjack\Hand.h(24,9): error C2677: binary '+=': no global operator found which takes type '_Ty' (or there is no acceptable conversion)
-          with
-          [
-              _Ty=Card
-          ]
-  DrunkPlayerBehavior.h
-C:\Users\kibah\CS485Blackjack\CS485Blackjack\CS485Blackjack\Hand.h(24,9): error C2677: binary '+=': no global operator found which takes type '_Ty' (or there is no acceptable conversion)
-          with
-          [
-              _Ty=Card
-          ]
   HumanPlayer.cpp
-C:\Users\kibah\CS485Blackjack\CS485Blackjack\CS485Blackjack\Hand.h(24,9): error C2677: binary '+=': no global operator found which takes type '_Ty' (or there is no acceptable conversion)
-          with
-          [
-              _Ty=Card
-          ]
-  Player.cpp
-C:\Users\kibah\CS485Blackjack\CS485Blackjack\CS485Blackjack\Hand.h(24,9): error C2677: binary '+=': no global operator found which takes type '_Ty' (or there is no acceptable conversion)
-          with
-          [
-              _Ty=Card
-          ]
   SDLView.cpp
-C:\Users\kibah\CS485Blackjack\CS485Blackjack\CS485Blackjack\Hand.h(24,9): error C2677: binary '+=': no global operator found which takes type '_Ty' (or there is no acceptable conversion)
-          with
-          [
-              _Ty=Card
-          ]
-C:\Users\kibah\CS485Blackjack\CS485Blackjack\CS485Blackjack\SDLView.cpp(133,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\kibah\CS485Blackjack\CS485Blackjack\CS485Blackjack\SDLView.cpp(142,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\kibah\CS485Blackjack\CS485Blackjack\CS485Blackjack\SDLView.cpp(148,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\kibah\CS485Blackjack\CS485Blackjack\CS485Blackjack\SDLView.cpp(162,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  tempDriver.cpp
-C:\Users\kibah\CS485Blackjack\CS485Blackjack\CS485Blackjack\Hand.h(24,9): error C2677: binary '+=': no global operator found which takes type '_Ty' (or there is no acceptable conversion)
-          with
-          [
-              _Ty=Card
-          ]
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\SDLView.cpp(136,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\SDLView.cpp(148,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\SDLView.cpp(157,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\SDLView.cpp(171,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   TextView.cpp
-C:\Users\kibah\CS485Blackjack\CS485Blackjack\CS485Blackjack\Hand.h(24,9): error C2677: binary '+=': no global operator found which takes type '_Ty' (or there is no acceptable conversion)
-          with
-          [
-              _Ty=Card
-          ]
-C:\Users\kibah\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(141,33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\kibah\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(149,33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\kibah\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(157,33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\kibah\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(182,63): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(19,21): warning C4101: 'pcWidget': unreferenced local variable
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(144,33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(152,33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(160,33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(185,63): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Generating Code...
+LINK : fatal error LNK1104: cannot open file 'SDL2.lib'

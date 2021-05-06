@@ -3,7 +3,7 @@
 #include "Player.h"
 #include "PlayerBehavior.h"
 
-class ComputerPlayer : Player
+class ComputerPlayer : public Player
 {
 
 private:
@@ -11,7 +11,7 @@ private:
 
 
 public:
-	ComputerPlayer(PlayerBehavior* newBehavior);
+	ComputerPlayer(PlayerBehavior* newBehavior, Money mon);
 	~ComputerPlayer();
 	virtual int doTurn(int action, int hand = 0);
 	virtual Money returnBet();
