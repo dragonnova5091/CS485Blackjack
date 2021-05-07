@@ -386,6 +386,15 @@ void BlackjackModel::resetGame()
 
 }
 
+//***************************************************************************
+// Function:    deal
+//
+// Description: deals two cards to all players
+//
+// Parameters:  None
+//
+// Returned:    NONE
+//***************************************************************************
 void BlackjackModel::deal()
 {
 	Card c;
@@ -404,16 +413,44 @@ void BlackjackModel::deal()
 	}
 }
 
+
+//***************************************************************************
+// Function:    gethand
+//
+// Description: gets a specified players hand
+//
+// Parameters:  None
+//
+// Returned:    std::vector<Hand> the hands of teh player
+//***************************************************************************
 std::vector<Hand> BlackjackModel::getHand(int seat)
 {
 	return mcvPlayers[seat]->getHand();
 }
 
+//***************************************************************************
+// Function:    isPlayerSplit
+//
+// Description: checks if a player is split
+//
+// Parameters:  int player - the player to check
+//
+// Returned:    bool - if the spler is split
+//***************************************************************************
 bool BlackjackModel::isPlayerSplit(int player)
 {
 	return mcvPlayers[player]->isSplit();
 }
 
+//***************************************************************************
+// Function:    getPlayerType
+//
+// Description: gets a specified player's type
+//
+// Parameters:  int player - the player to check
+//
+// Returned:    char - the player type
+//***************************************************************************
 char BlackjackModel::getPlayerType(int player)
 {
 	return mcvPlayers[player]->returnType();
