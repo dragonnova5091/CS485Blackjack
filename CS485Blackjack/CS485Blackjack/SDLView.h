@@ -27,7 +27,7 @@ public:
   virtual void onSetPlayer4Name(std::string);
   virtual void onSetPlayer5Name(std::string);
   virtual void onSetBet(std::string);
-  virtual void deal();
+  virtual void onDeal(std::string notused);
   virtual void onClickHit(std::string);
   virtual void onClickStay(std::string);
   virtual void onClickSplit(std::string);

@@ -1,3 +1,5 @@
+
+
 #include "SDLView.h"
 #include "BlackjackPresenter.h"
 #include <math.h>
@@ -21,7 +23,7 @@ SDLView::SDLView() {
   mpDealerWidget = new SDLTextWidget("Dealer", "", 10, 120, 1,
     { 255,255,255,255 });
 
-  enableTextInput();
+  //enableTextInput();
 
   registerTextWidget(mpPlayerNames[0]);
   registerTextWidget(mpDealerWidget);
@@ -105,7 +107,7 @@ void SDLView::onSetPlayer5Name(std::string name)
   mpPlayerNames[4]->setData(name);
 }
 
-void SDLView::deal()
+void SDLView::onDeal(std::string notused)
 {
   int dealTable = 0;
   int maxDeal = 2;

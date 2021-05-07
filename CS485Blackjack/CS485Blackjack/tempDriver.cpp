@@ -1,12 +1,11 @@
 
 
-//#include "SDLApp.h"
-#include "TextUI.h"
-//#include "SDLView.h"
+
+#include "SDLView.h"
 #include "TextView.h"
 #include "Deck.h"
 
-int main()
+int main(int argc, char* argv[])
 {
 
   /*SDLView cTheDisplay;
@@ -19,9 +18,12 @@ int main()
   cTheDisplay.gameLoop();
 
   cTheDisplay.cleanup();*/
-  TextView cView;
+  /*TextView cView;
 
-  cView.UIEventLoop();
+  cView.UIEventLoop();*/
+
+    SDLView view;
+    view.initGame   ();
 
   return EXIT_SUCCESS;
 }

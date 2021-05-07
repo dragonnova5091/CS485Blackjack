@@ -1,1 +1,4 @@
-﻿  CS485Blackjack.vcxproj -> C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\Debug\CS485Blackjack.exe
+﻿  tempDriver.cpp
+Debug\DrunkPlayerBehavior.obj : warning LNK4042: object specified more than once; extras ignored
+     Creating library C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\Debug\CS485Blackjack.lib and object C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\Debug\CS485Blackjack.exp
+  CS485Blackjack.vcxproj -> C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\Debug\CS485Blackjack.exe
