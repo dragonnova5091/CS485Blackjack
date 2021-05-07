@@ -107,16 +107,16 @@ void Deck::stackDeck() {
 	mCards.push_back(Card(9, Suit::Hearts, CardName::Nine));
 	mCards.push_back(Card(5, Suit::Clubs, CardName::Five));
 	mCards.push_back(Card(5, Suit::Diamonds, CardName::Five));
-	mCards.push_back(Card(7, Suit::Diamonds, CardName::Seven));
 	mCards.push_back(Card(8, Suit::Diamonds, CardName::Eight));
 	mCards.push_back(Card(10, Suit::Clubs, CardName::Ten));
 	mCards.push_back(Card(9, Suit::Clubs, CardName::Nine));
 	mCards.push_back(Card(11, Suit::Hearts, CardName::Ace));
-	mCards.push_back(Card(10, Suit::Hearts, CardName::Ten));
+	mCards.push_back(Card(7, Suit::Diamonds, CardName::Seven));
 	mCards.push_back(Card(11, Suit::Spades, CardName::Ace));
 	mCards.push_back(Card(10, Suit::Diamonds, CardName::Ten));
 	mCards.push_back(Card(7, Suit::Clubs, CardName::Seven));
 	mCards.push_back(Card(10, Suit::Hearts, CardName::King));
+	mCards.push_back(Card(10, Suit::Hearts, CardName::Ten));
 }
 
 //***************************************************************************
