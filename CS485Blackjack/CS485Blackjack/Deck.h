@@ -12,10 +12,8 @@ public:
 	Deck(); 
 	Deck(int);
 	~Deck();
-	int randomInt(int) {};
 	void shuffleDeck();
 	void stackDeck();
 	Card drawCard();
-	void changeNumOfSets(int);
 
 };

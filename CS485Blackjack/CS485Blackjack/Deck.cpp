@@ -1,9 +1,26 @@
+//****************************************************************************
+// File name:	Deck.cpp
+// Author:		Tyler Nakata
+// Date:		  5/7/2021
+// Class:		  CS 485
+// Assignment:Blackjack
+// Purpose:		Deck
+//****************************************************************************
 #include "Deck.h"
 #include "Card.h"
 #include <algorithm>
 #include <ctime>
 
 
+//***************************************************************************
+// Function:    Deck
+//
+// Description: Initialize a Deck with a single set
+//
+// Parameters:  None
+//
+// Returned:    None
+//***************************************************************************
 Deck::Deck() {
 	mNumOfSets = 1;
 	for (int i = 0; i < 4; i++) {
@@ -23,6 +40,15 @@ Deck::Deck() {
 	shuffleDeck();
 }
 
+//***************************************************************************
+// Function:    Deck
+//
+// Description: Initialize a Deck with a given number of sets
+//
+// Parameters:  numSets - number of sets
+//
+// Returned:    None
+//***************************************************************************
 Deck::Deck(int numSets) {
 	mNumOfSets = numSets;
 	for (int h = 0; h < mNumOfSets; h++) {
@@ -43,12 +69,30 @@ Deck::Deck(int numSets) {
 	shuffleDeck();
 }
 
+//***************************************************************************
+// Function:    ~Deck
+//
+// Description: Deck destructor
+//
+// Parameters:  None
+//
+// Returned:    None
+//***************************************************************************
 Deck::~Deck() {
 	while (!mCards.empty()) {
 		mCards.pop_back();
 	}
 }
 
+//***************************************************************************
+// Function:    shuffleDeck
+//
+// Description: Algorithm to randomly shuffle a deck
+//
+// Parameters:  None
+//
+// Returned:    None
+//***************************************************************************
 void Deck::shuffleDeck() {
 	//std::random_shuffle(mCards.begin(), mCards.end());
 	std::srand(std::time(NULL));
@@ -61,6 +105,16 @@ void Deck::shuffleDeck() {
 	}
 }
 
+//***************************************************************************
+// Function:    stackDeck
+//
+// Description: Stacks a deck to have true blackjack, blackjack, lose, win,
+//							and bust for 4 players
+//
+// Parameters:  None
+//
+// Returned:    None
+//***************************************************************************
 void Deck::stackDeck() {
 	mCards.push_back(Card(10, Suit::Clubs, CardName::Queen));
 	mCards.push_back(Card(10, Suit::Spades, CardName::Five));
@@ -80,13 +134,18 @@ void Deck::stackDeck() {
 	mCards.push_back(Card(10, Suit::Hearts, CardName::King));
 }
 
+//***************************************************************************
+// Function:    drawCard
+//
+// Description: Removes a card from the deck and returns it
+//
+// Parameters:  None
+//
+// Returned:    c - card to be dealt
+//***************************************************************************
 Card Deck::drawCard() {
 	Card c = mCards.back();
 	mCards.pop_back();
 	return c;
 
 }
-
-//void changeNumOfSets(int numSets) {
-//	mNumOfSets = numSets;
-//}

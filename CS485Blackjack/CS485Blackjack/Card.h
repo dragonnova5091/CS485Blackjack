@@ -34,9 +34,7 @@ private:
 public: 
 	Card();
 	Card(int, Suit, CardName);
-	void setSuit(Suit);
-	void setCardName(CardName);
-	CardName getCardName();
-	Suit getSuit();
-	int returnValue() { return mValue; }
+	CardName getCardName() { return mCardName; }
+	Suit getSuit() { return mSuit; }
+	int getValue() { return mValue; }
 };
