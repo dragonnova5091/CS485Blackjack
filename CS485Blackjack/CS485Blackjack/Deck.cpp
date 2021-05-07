@@ -13,13 +13,13 @@
 
 
 //***************************************************************************
-// Function:    Deck
+// Constructor:   Deck
 //
-// Description: Initialize a Deck with a single set
+// Description:		Initialize a Deck with a single set
 //
-// Parameters:  None
+// Parameters:		None
 //
-// Returned:    None
+// Returned:			None
 //***************************************************************************
 Deck::Deck() {
 	mNumOfSets = 1;
@@ -41,13 +41,13 @@ Deck::Deck() {
 }
 
 //***************************************************************************
-// Function:    Deck
+// Constructor:   Deck
 //
-// Description: Initialize a Deck with a given number of sets
+// Description:		Initialize a Deck with a given number of sets
 //
-// Parameters:  numSets - number of sets
+// Parameters:		numSets - number of sets
 //
-// Returned:    None
+// Returned:			None
 //***************************************************************************
 Deck::Deck(int numSets) {
 	mNumOfSets = numSets;
@@ -70,21 +70,6 @@ Deck::Deck(int numSets) {
 }
 
 //***************************************************************************
-// Function:    ~Deck
-//
-// Description: Deck destructor
-//
-// Parameters:  None
-//
-// Returned:    None
-//***************************************************************************
-Deck::~Deck() {
-	while (!mCards.empty()) {
-		mCards.pop_back();
-	}
-}
-
-//***************************************************************************
 // Function:    shuffleDeck
 //
 // Description: Algorithm to randomly shuffle a deck
@@ -94,7 +79,6 @@ Deck::~Deck() {
 // Returned:    None
 //***************************************************************************
 void Deck::shuffleDeck() {
-	//std::random_shuffle(mCards.begin(), mCards.end());
 	std::srand(std::time(NULL));
 	for (int i = mCards.size() - 1; i > 0; i--) {
 		int numCards = i;

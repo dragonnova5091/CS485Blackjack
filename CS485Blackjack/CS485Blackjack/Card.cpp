@@ -9,13 +9,13 @@
 #include "Card.h"
 
 //***************************************************************************
-// Function:    Card
+// Constructor:   Card
 //
-// Description: Creates a card with arbitrary values @Ethan
+// Description:		Creates a card with arbitrary values @Ethan
 //
-// Parameters:  None
+// Parameters:		None
 //
-// Returned:    None
+// Returned:			None
 //***************************************************************************
 Card::Card()
 {
@@ -25,15 +25,15 @@ Card::Card()
 }
 
 //***************************************************************************
-// Function:    Card
+// Constructor:   Card
 //
-// Description: Creates a card with given values
+// Description:		Creates a card with given values
 //
-// Parameters:  value			- value of the card
-//							suit			- suit of the card
-//							cardName	- name of the card
+// Parameters:		value			- value of the card
+//								suit			- suit of the card
+//								cardName	- name of the card
 //
-// Returned:    None
+// Returned:			None
 //***************************************************************************
 Card::Card(int value, Suit suit, CardName cardName) {
 	mValue = value;

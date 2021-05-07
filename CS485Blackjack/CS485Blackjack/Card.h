@@ -1,3 +1,11 @@
+//****************************************************************************
+// File name:	Card.h
+// Author:		Tyler Nakata
+// Date:		  5/7/2021
+// Class:		  CS 485
+// Assignment:Blackjack
+// Purpose:		Define a Card class
+//****************************************************************************
 #pragma once
 #include <string>
 
@@ -34,6 +42,7 @@ private:
 public: 
 	Card();
 	Card(int, Suit, CardName);
+	~Card() {}
 	CardName getCardName() { return mCardName; }
 	Suit getSuit() { return mSuit; }
 	int getValue() { return mValue; }
