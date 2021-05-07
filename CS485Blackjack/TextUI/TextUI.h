@@ -21,6 +21,7 @@ public:
   ~TextUI ();
 
   void addWidget (int x, int y, ITextUIWidget *pcWidget);
+  void removeWidget(int x, int y);
 
   void drawScreen () ;
   void clearScreen () const;
