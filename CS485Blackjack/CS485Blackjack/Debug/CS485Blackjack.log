@@ -1,4 +1,10 @@
-﻿  BlackjackModel.cpp
+﻿  Player.cpp
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\Player.cpp(83,11): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\Player.cpp(103,45): warning C4018: '<': signed/unsigned mismatch
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\Player.cpp(105,10): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\Player.cpp(135,12): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\Player.cpp(165,21): warning C4018: '<': signed/unsigned mismatch
+  BlackjackModel.cpp
 C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\BlackjackModel.cpp(88,20): warning C4018: '<': signed/unsigned mismatch
 C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\BlackjackModel.cpp(208,18): warning C4244: 'argument': conversion from 'float' to 'const unsigned int', possible loss of data
 C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\BlackjackModel.cpp(229,18): warning C4244: 'argument': conversion from 'float' to 'const unsigned int', possible loss of data
@@ -8,4 +14,24 @@ C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS4
 C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\BlackjackModel.cpp(248,14): warning C4244: 'argument': conversion from 'float' to 'const unsigned int', possible loss of data
 C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\BlackjackModel.cpp(272,20): warning C4018: '<': signed/unsigned mismatch
 C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\BlackjackModel.cpp(346,42): warning C4244: 'return': conversion from 'int' to 'float', possible loss of data
+  BlackjackPresenter.cpp
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\BlackjackPresenter.cpp(136,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Card.cpp
+  Deck.cpp
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\Deck.cpp(82,22): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  SDLView.cpp
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\SDLView.cpp(200,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\SDLView.cpp(209,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\SDLView.cpp(218,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  TextView.cpp
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(208,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(217,39): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(226,40): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(298,25): warning C4018: '<': signed/unsigned mismatch
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(342,63): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(347,48): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  tempDriver.cpp
+  Generating Code...
+Debug\DrunkPlayerBehavior.obj : warning LNK4042: object specified more than once; extras ignored
+     Creating library C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\Debug\CS485Blackjack.lib and object C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\Debug\CS485Blackjack.exp
   CS485Blackjack.vcxproj -> C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\Debug\CS485Blackjack.exe

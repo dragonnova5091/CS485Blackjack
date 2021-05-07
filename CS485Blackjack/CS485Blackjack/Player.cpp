@@ -91,13 +91,29 @@ void Player::addCard(Card c, int hand )
 		mHands[hand].addCard(c);
 		if (mHands[hand].getSum() > 21)
 		{
-			finishTurn(false, false, hand);
+			bool temp = true;
+			int i = 0;
+			do
+			{
+				if (mHands[hand].getHand()[i].getCardName() == CardName::Ace)
+				{
+					mHands[hand].getHand()[i].setValue(1);
+				}
+				i++;
+			} while (mHands[hand].getSum() > 21 && i < mHands[hand].getHand().size());
+
+			if (i >= mHands[hand].getHand().size())
+			{
+				finishTurn(false, false, hand);
+			}
+
 		}
 		else if (mHands[hand].getSum() == 21)
 		{
 			finishTurn(true, true, hand);
 		}
 	}
+	mbSettled = true;
 }
 
 //***************************************************************************
