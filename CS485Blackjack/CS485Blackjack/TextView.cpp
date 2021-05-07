@@ -81,12 +81,28 @@ TextView::TextView() : TextUI(std::cout, std::cin)
   mbShow.push_back(false);
 }
 
-
+//***************************************************************************
+// Function:    onDraw
+//
+// Description: draws the widgets to the screen
+//
+// Parameters:  None
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::onDraw() {
   drawScreen();
 }
 
-
+//***************************************************************************
+// Function:    onAddPlayer
+//
+// Description: From Presenter: Add Player 
+//
+// Parameters:  name - the name
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::onAddPlayer(std::string name) {
   long long amount;
   char playerType;
@@ -109,7 +125,15 @@ void TextView::onAddPlayer(std::string name) {
   }
 }
 
-
+//***************************************************************************
+// Function:    onRemovePlayer
+//
+// Description: From Presenter: remove player 
+//
+// Parameters:  yes - string to remove player
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::onRemovePlayer(std::string yes) {
   int playerNum;
 
@@ -122,7 +146,15 @@ void TextView::onRemovePlayer(std::string yes) {
   mpcBlackjackPresenter->removePlayer(playerNum);
 }
 
-
+//***************************************************************************
+// Function:    onSetPlayer1Name
+//
+// Description: From Presenter: sets player's 1 name
+//
+// Parameters:  name - the name
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::onSetPlayer1Name(std::string name)
 {
   if (mpPlayerNames[0]->getData() == "NOT IN USE")
@@ -134,7 +166,15 @@ void TextView::onSetPlayer1Name(std::string name)
   }
 }
 
-
+//***************************************************************************
+// Function:    onSetPlayer2Name
+//
+// Description: From Presenter: sets player's 2 name
+//
+// Parameters:  name - the name
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::onSetPlayer2Name(std::string name)
 {
   if (mpBankAmounts[1]->getData() == "NOT IN USE")
@@ -146,7 +186,15 @@ void TextView::onSetPlayer2Name(std::string name)
   }
 }
 
-
+//***************************************************************************
+// Function:    onSetPlayer3Name
+//
+// Description: From Presenter: sets player's 3 name
+//
+// Parameters:  name - the name
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::onSetPlayer3Name(std::string name)
 {
   if (mpBankAmounts[2]->getData() == "NOT IN USE")
@@ -158,7 +206,15 @@ void TextView::onSetPlayer3Name(std::string name)
   }
 }
 
-
+//***************************************************************************
+// Function:    onSetPlayer4Name
+//
+// Description: From Presenter: sets player's 4 name
+//
+// Parameters:  name - the name
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::onSetPlayer4Name(std::string name)
 {
   if (mpBankAmounts[3]->getData() == "NOT IN USE")
@@ -170,7 +226,15 @@ void TextView::onSetPlayer4Name(std::string name)
   }
 }
 
-
+//***************************************************************************
+// Function:    onSetPlayer5Name
+//
+// Description: From Presenter: sets player's 5 name
+//
+// Parameters:  name - the name
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::onSetPlayer5Name(std::string name)
 {
   if (mpBankAmounts[4]->getData() == "NOT IN USE")
@@ -182,6 +246,15 @@ void TextView::onSetPlayer5Name(std::string name)
   }
 }
 
+//***************************************************************************
+// Function:    onDeal
+//
+// Description: From Presenter: deal card
+//
+// Parameters:  notused - not used 
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::onDeal(std::string notused)
 {
   
@@ -201,6 +274,15 @@ void TextView::onDeal(std::string notused)
     displayHands();
 }
 
+//***************************************************************************
+// Function:    onClickHit
+//
+// Description: From Presenter: Action Hit
+//
+// Parameters:  yes - to register Hit move
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::onClickHit (std::string yes) 
 {
   float turn;
@@ -215,7 +297,15 @@ void TextView::onClickHit (std::string yes)
     resetGame();
   }
 }
-
+//***************************************************************************
+// Function:    onClickStay
+//
+// Description: From Presenter: Action Stay
+//
+// Parameters:  yes - to register Stay move
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::onClickStay(std::string yes) 
 {
   float turn;
@@ -230,7 +320,15 @@ void TextView::onClickStay(std::string yes)
     resetGame();
   }
 }
-
+//***************************************************************************
+// Function:    onClickSplit
+//
+// Description: From Presenter: Action Split
+//
+// Parameters:  yes - to register Split move
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::onClickSplit(std::string yes) 
 {
   float turn;
@@ -239,7 +337,15 @@ void TextView::onClickSplit(std::string yes)
   mpcBlackjackPresenter->doTurn((int ) turn, 2, 0.5f);
   displayHands();
 }
-
+//***************************************************************************
+// Function:    onSetBet
+//
+// Description: From Presenter: Action Bet
+//
+// Parameters:  yes - to register Bet move
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::onSetBet(std::string yes) 
 {
   Money cMoney;
@@ -256,17 +362,41 @@ void TextView::onSetBet(std::string yes)
   registerEvent("DEAL",
     std::bind(&TextView::onDeal, this, std::placeholders::_1));
 }
-
+//***************************************************************************
+// Function:    getCard
+//
+// Description: From Presenter: get a card from deck
+//
+// Parameters:  NONE
+//
+// Returned:    Card that was drawn
+//***************************************************************************
 Card TextView::getCard () 
 {
   return mpcBlackjackPresenter->getCard();
 }
-
+//***************************************************************************
+// Function:    getHand
+//
+// Description: From Presenter: Gets player hand
+//
+// Parameters:  player - player's hand to get
+//
+// Returned:    NONE
+//***************************************************************************
 std::vector<Hand> TextView::getHand(int player)
 {
   return mpcBlackjackPresenter->getHand(player);
 }
-
+//***************************************************************************
+// Function:    displayHands
+//
+// Description: Displays all player's hands
+//
+// Parameters:  NONE
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::displayHands()
 {
   const int BASE = 2;
@@ -345,24 +475,60 @@ void TextView::displayHands()
   }
   mFirstRun = false;
 }
-
+//***************************************************************************
+// Function:    displayBet
+//
+// Description: display bet
+//
+// Parameters:  row    - row that player is displayed on
+//              player - player to show bet
+//              bet    - bet amount
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::displayBet(int row, int player, long long bet)
 {
   mpBetAmounts.push_back(new TextUITextWidget("Bet", std::to_string(bet)));
   addWidget(0, (row * 3) + 1, mpBetAmounts[player]);
 }
-
+//***************************************************************************
+// Function:    addBet
+//
+// Description: Add player's bet
+//
+// Parameters:  bet - amount of Bet
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::addBet (Money bet) 
 {
   mpcBlackjackPresenter->addBet(mpcBlackjackPresenter->getTurn(), bet);
 }
-
+//***************************************************************************
+// Function:    getCurrentTurn
+//
+// Description: Get current Turn
+//
+// Parameters:  NONE
+//
+// Returned:    NONE
+//***************************************************************************
 float TextView::getCurrentTurn () 
 {
   mCurrentTurn = mpcBlackjackPresenter->getTurn();
   return mpcBlackjackPresenter->getTurn();
 }
-
+//***************************************************************************
+// Function:    addPlayer
+//
+// Description: add player
+//
+// Parameters:  playertype - human or computer
+//              playerName - Player's name
+//              cBank      - Player's bank
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::addPlayer(char playerType, std::string playerName, Money cBank) 
 {
   mCardCounter.push_back(0);
@@ -410,17 +576,42 @@ void TextView::addPlayer(char playerType, std::string playerName, Money cBank)
 
   onDraw();
 }
-
+//***************************************************************************
+// Function:    addBank
+//
+// Description: sets player's bank
+//
+// Parameters:  player - player's bank to add
+//              cBank  - bank account to add
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::addBank(int player, Money cBank)
 {
   mpBankAmounts[player]->setData(std::to_string(cBank.getAmount()));
 }
-
+//***************************************************************************
+// Function:    removeBank
+//
+// Description: removes player's bank
+//
+// Parameters:  player - player's bank to remove
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::removeBank(int player)
 {
   mpBankAmounts[player - 1]->setData("NOT IN USE");
 }
-
+//***************************************************************************
+// Function:    removePlayer
+//
+// Description: remove Player
+//
+// Parameters:  player - player to remove
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::removePlayer (int player) 
 {
 
@@ -462,21 +653,53 @@ void TextView::removePlayer (int player)
 
     numPlayers--;
 }
-
+//***************************************************************************
+// Function:    setNumPlayer
+//
+// Description: sets Number of players
+//
+// Parameters:  players - number of players
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::setNumPlayer (int players) 
 {
   mpcBlackjackPresenter->setNumPlayers(players);
 }
-
+//***************************************************************************
+// Function:    resetGame
+//
+// Description: Resets the Game
+//
+// Parameters:  NONE
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::resetGame () 
 {
   mpcBlackjackPresenter->resetGame();
 }
-
+//***************************************************************************
+// Function:    quitGame
+//
+// Description: Quits the game
+//
+// Parameters:  NONE
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::quitGame() 
 {
 }
-
+//***************************************************************************
+// Function:    getCardSuit
+//
+// Description: Get the Card Suit
+//
+// Parameters:  cardSuit - suit of card
+//
+// Returned:    Card suit
+//***************************************************************************
 std::string TextView::getCardSuit(Suit cardSuit)
 {
   std::string toReturn;
@@ -500,7 +723,15 @@ std::string TextView::getCardSuit(Suit cardSuit)
 
   return toReturn;
 }
-
+//***************************************************************************
+// Function:    getCardName
+//
+// Description: get the Card Name
+//
+// Parameters:  cardName - card Name 
+//
+// Returned:    String of card name
+//***************************************************************************
 std::string TextView::getCardName(CardName cardName)
 {
   std::string toReturn;
@@ -560,7 +791,15 @@ std::string TextView::getCardName(CardName cardName)
 
   return toReturn;
 }
-
+//***************************************************************************
+// Function:    clearTable
+//
+// Description: Clears widgets after round is finished
+//
+// Parameters:  None
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::clearTable()
 {
   int row = 1;
@@ -595,7 +834,15 @@ void TextView::clearTable()
   }
   mpBetAmounts.clear();
 }
-
+//***************************************************************************
+// Function:    updateBank
+//
+// Description: Updates bank amount
+//
+// Parameters:  player - player's bank that needs to be updated
+//
+// Returned:    NONE
+//***************************************************************************
 void TextView::updateBank(int player)
 {
   mpBankAmounts[player]->setData(std::to_string
