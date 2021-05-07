@@ -58,6 +58,11 @@ void TextUI::addWidget (int x, int y, ITextUIWidget * pcWidget)
   mWidgets.insert ({ std::make_pair(y, x), pcWidget });
 }
 
+void TextUI::removeWidget(int x, int y)
+{
+  mWidgets.erase(std::make_pair(y, x));
+}
+
 //***************************************************************************
 // Function:    drawScreen
 //
