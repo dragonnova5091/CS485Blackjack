@@ -17,6 +17,8 @@
 TextView::TextView() : TextUI(std::cout, std::cin)
 {
   numPlayers = 1;
+  numHumanPlayers = 1;
+  mCurrentTurn = 0;
 
   //TextUITextWidget* pcWidget;
   mpcBlackjackPresenter = new BlackjackPresenter(this);
@@ -25,7 +27,7 @@ TextView::TextView() : TextUI(std::cout, std::cin)
   mpPlayerNames.push_back(new TextUITextWidget("Player1", ""));
 
   Money tempMon(100, "USD");
-  mpcBlackjackPresenter->addPlayer("Computer 1", tempMon, 0, 'C');
+  mpcBlackjackPresenter->addPlayer("Doug", tempMon, 0, 'C');
 
   mpBankAmounts.push_back(new TextUITextWidget("Bank: ", std::to_string (tempMon.getAmount())));
 
@@ -69,7 +71,8 @@ TextView::TextView() : TextUI(std::cout, std::cin)
     std::bind
     (&TextView::onSetPlayer1Name, this, std::placeholders::_1));
 
-
+  onSetPlayer1Name("Player 1");
+  mpcBlackjackPresenter->addPlayer("Player 1", tempMon, 0, 'H');
 }
 
 

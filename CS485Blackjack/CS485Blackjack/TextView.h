@@ -67,5 +67,6 @@ private:
   std::vector<std::vector<TextUITextWidget*>> mpHandWidget;
 
   int numPlayers;
+  int numHumanPlayers;
   int mCurrentTurn;
 };

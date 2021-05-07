@@ -293,7 +293,7 @@ std::vector<Hand> SDLView::getHand(int player)
     return mpcBlackjackPresenter->getHand(player);
 }
 
-void SDLView::displayHand()
+void SDLView::displayHands()
 {
     //yay
 }
