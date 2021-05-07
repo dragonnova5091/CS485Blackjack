@@ -3,12 +3,7 @@
 
 int BaseComputerBehavior::doTurn(Hand hand, bool isSplit)
 {
-	if (hand.getHand().size() == 2 && !isSplit)
-	{
-		//split
-		return 2;
-	}
-	else if (hand.getSum() < 16)
+	if (hand.getSum() < 16)
 	{
 		//hit	
 		return 1;

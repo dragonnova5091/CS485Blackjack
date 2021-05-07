@@ -18,24 +18,16 @@ BlackjackModel::BlackjackModel()
 {
 	mPlayerCount = 0;
 	mCurrentTurn = 0.0;
-	mTotalRounds = 1;
+	mTotalRounds = 0;
 
-	PlayerBehavior* behavior = new DealerBehavior();
-	Money mon(0, "USD");
-	Player* pdealer = new ComputerPlayer(behavior, mon);
-	mcvPlayers.push_back(pdealer);
 }
 
 BlackjackModel::BlackjackModel(int numPlayers)
 {
 	mPlayerCount = numPlayers;
 	mCurrentTurn = 0.0;
-	mTotalRounds = 1;
+	mTotalRounds = 0;
 
-	PlayerBehavior* behavior = new DealerBehavior();
-	Money mon(0, "USD");
-	Player* pdealer = new ComputerPlayer(behavior, mon);
-	mcvPlayers.push_back(pdealer);
 }
 
 BlackjackModel::BlackjackModel(const BlackjackModel& cBJ)
@@ -43,7 +35,7 @@ BlackjackModel::BlackjackModel(const BlackjackModel& cBJ)
 	mPlayerCount = (int)cBJ.mcvPlayers.size();
 	mcDeck = cBJ.mcDeck;
 	mcvPlayers = cBJ.mcvPlayers;
-	mCurrentTurn = 0.0;
+	mCurrentTurn = 1.0f;
 	mTotalRounds = 1;
 }
 
@@ -71,8 +63,14 @@ void BlackjackModel::addPlayer(std::string name, Money cBank, int seat, char cpl
 	{
 		ptemp = new HumanPlayer(name, cBank);
 	}
+	else if (cplayerType == 'D')
+	{
+		ptemp = new ComputerPlayer( new DealerBehavior(), cBank);
+	}
+
 
 	mcvPlayers.push_back(ptemp);
+	mPlayerCount++;
 }
 void BlackjackModel::removePlayer(int seat)
 {
@@ -104,11 +102,15 @@ void BlackjackModel::doTurn(float seat, int move, float hands)
 		{
 			mTotalRounds += 1.0f;
 		}
+		if (mTotalRounds > mPlayerCount + 0.5f)
+		{
+			mTotalRounds = 0.0f;
+		}
 	}
 	else if (request == 1)
 	{
 		Card c = getCard();
-		for (size_t j = 0; j < mcvPlayers.size() * 2; j++)
+		for (size_t j = 0; j < mcvPlayers.size(); j++)
 		{
 			mcvPlayers[j]->seeCard(c);
 		}

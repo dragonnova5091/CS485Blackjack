@@ -61,6 +61,7 @@ private:
   std::vector<TextUITextWidget*>mpPlayerNames;
   std::vector<TextUITextWidget*>mpBankAmounts;
   std::vector<TextUITextWidget*>mpBetAmounts;
+  std::vector<int>mCardCounter;
 
   std::vector<Hand> mvHand;
   std::vector<Card> mvCards;
