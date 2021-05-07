@@ -137,8 +137,79 @@ void BlackjackModel::doTurn(float seat, int move, float hands)
 		mcvPlayers[seat]->split();
 	}
 	
+
+	bool tempBool = true;
+	for (int i = 0; i < mcvPlayers.size(); i++)
+	{
+		if (! mcvPlayers[i]->getSettled())
+		{
+			tempBool = false;
+		}
+	}
+
+	if (tempBool)
+	{
+		finishRound();
+	}
 	
 	//mTotalRounds += hands;
+}
+
+void BlackjackModel::finishRound()
+{
+	int dealerSum = mcvPlayers[0]->getHand()[0].getSum();
+	for (int i = 0; i < mcvPlayers.size(); i++)
+	{
+		if (!mcvPlayers[i]->isSplit())
+		{
+			if (mcvPlayers[i]->getHand()[0].getSum() > dealerSum)
+			{
+				mcvPlayers[i]->finishTurn(true, false);
+			}
+			else if (mcvPlayers[i]->getHand()[0].getSum() < dealerSum)
+			{
+				mcvPlayers[i]->finishTurn(false, false);
+			}
+			else
+			{
+				Money mon(0, "USD");
+				mcvPlayers[i]->setBet(mon);
+				mcvPlayers[i]->finishTurn(false, false);
+			}
+		}
+		else
+		{
+			if (mcvPlayers[i]->getHand()[0].getSum() > dealerSum)
+			{
+				mcvPlayers[i]->finishTurn(true, false);
+			}
+			else if (mcvPlayers[i]->getHand()[0].getSum() < dealerSum)
+			{
+				mcvPlayers[i]->finishTurn(false, false);
+			}
+			else
+			{
+				Money mon(0, "USD");
+				mcvPlayers[i]->setBet(mon);
+				mcvPlayers[i]->finishTurn(false, false);
+			}
+
+			if (mcvPlayers[i]->getHand()[1].getSum() > dealerSum)
+			{
+				mcvPlayers[i]->finishTurn(true, false, 1);
+			}
+			else if (mcvPlayers[i]->getHand()[1].getSum() < dealerSum)
+			{
+				mcvPlayers[i]->finishTurn(false, false, 1);
+			}
+			else
+			{
+				Money mon(0, "USD");
+				mcvPlayers[i]->setBet(mon);
+				mcvPlayers[i]->finishTurn(false, false);
+			}
+		}
+	}
 }
 
 float BlackjackModel::getTurn()
