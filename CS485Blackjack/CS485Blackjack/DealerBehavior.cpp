@@ -1,4 +1,11 @@
-
+//***************************************************************************
+// File name:  DealerBehavior.cpp
+// Author:     Ethan Hunter
+// Date:       5-6-2021
+// Class:      CS485
+// Assignment: BlackJack
+// Purpose:    subclass for player behavior for the dealer
+//***************************************************************************
 
 #include "DealerBehavior.h"
 

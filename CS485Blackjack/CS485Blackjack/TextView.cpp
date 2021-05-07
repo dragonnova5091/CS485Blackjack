@@ -19,6 +19,7 @@ TextView::TextView() : TextUI(std::cout, std::cin)
   numPlayers = 1;
   numHumanPlayers = 1;
   mCurrentTurn = 0;
+  mFirstRun = true;
 
   //TextUITextWidget* pcWidget;
   mpcBlackjackPresenter = new BlackjackPresenter(this);
@@ -27,7 +28,10 @@ TextView::TextView() : TextUI(std::cout, std::cin)
   mpPlayerNames.push_back(new TextUITextWidget("Player1", ""));
 
   Money tempMon(100, "USD");
-  mpcBlackjackPresenter->addPlayer("Doug", tempMon, 0, 'C');
+  mpcBlackjackPresenter->addPlayer("Doug", tempMon, 0, 'D');
+  mCardCounter.push_back(0);
+  mbShow.push_back(false);
+
 
   mpBankAmounts.push_back(new TextUITextWidget("Bank: ", std::to_string (tempMon.getAmount())));
 
@@ -72,7 +76,9 @@ TextView::TextView() : TextUI(std::cout, std::cin)
     (&TextView::onSetPlayer1Name, this, std::placeholders::_1));
 
   onSetPlayer1Name("Player 1");
-  mpcBlackjackPresenter->addPlayer("Player 1", tempMon, 0, 'H');
+  mpcBlackjackPresenter->addPlayer("Player 1", tempMon, 1, 'H');
+  mCardCounter.push_back(0);
+  mbShow.push_back(false);
 }
 
 
@@ -199,7 +205,8 @@ void TextView::onClickHit (std::string yes)
 {
   float turn;
   turn = mpcBlackjackPresenter->getTurn();
-  mpcBlackjackPresenter->doTurn((int)turn, 0, 0.0f);
+  mpcBlackjackPresenter->doTurn((int)turn, 1, 1.0f);
+  displayHands();
 }
 
 void TextView::onClickStay(std::string yes) 
@@ -207,7 +214,8 @@ void TextView::onClickStay(std::string yes)
   float turn;
   turn = mpcBlackjackPresenter->getTurn();
 
-  mpcBlackjackPresenter->doTurn((int) turn, 2, 0.0f);
+  mpcBlackjackPresenter->doTurn((int) turn, 0, 1.0f);
+  displayHands();
 }
 
 void TextView::onClickSplit(std::string yes) 
@@ -215,7 +223,8 @@ void TextView::onClickSplit(std::string yes)
   float turn;
   turn = mpcBlackjackPresenter->getTurn();
 
-  mpcBlackjackPresenter->doTurn((int ) turn, 1, 0.5f);
+  mpcBlackjackPresenter->doTurn((int ) turn, 2, 0.5f);
+  displayHands();
 }
 
 void TextView::onSetBet(std::string yes) 
@@ -247,7 +256,34 @@ std::vector<Hand> TextView::getHand(int player)
 
 void TextView::displayHands()
 {
+  const int BASE = 2;
   int row = 1;
+
+  if (mbShow[numPlayers] == true && static_cast<int>(getCurrentTurn()) == 0)
+  {
+
+    mbShow[numPlayers] = false;
+    mbShow[0] = true;
+    mpHandWidget[numPlayers][0]->setVisible(false);
+    mpHandWidget[0][0]->setVisible(true);
+  }
+  if (mFirstRun == false)
+  {
+    for (int i = 1; i <= numPlayers; i++)
+    {
+      if (static_cast<int>(getCurrentTurn()) == i)
+      {
+        if (mbShow[i - 1] == true)
+        {
+          mbShow[i - 1] = false;
+          mbShow[i] = true;
+          mpHandWidget[i - 1][0]->setVisible(false);
+          mpHandWidget[i][0]->setVisible(true);
+          i = numPlayers + 1;
+        }
+      }
+    }
+  }
   
   mpHandWidget.resize(numPlayers + 1);
   for (int i = 0; i < numPlayers + 1; i++)
@@ -256,17 +292,43 @@ void TextView::displayHands()
     //player split
     mvHand = getHand(i);
     mvCards = mvHand[0].getHand();
-    for (int k = 0; k < mvCards.size(); k++)
+    
+    if (static_cast<int>(mvCards.size()) == BASE && mCardCounter[i] != BASE)
     {
-      Suit cardSuit = mvCards[k].getSuit();
-      CardName cardName = mvCards[k].getCardName();
+      for (int k = 0; k < mvCards.size(); k++)
+      {
+        //First two cards
+        Suit cardSuit = mvCards[k].getSuit();
+        CardName cardName = mvCards[k].getCardName();
+        mpHandWidget[i].push_back(new TextUITextWidget(getCardSuit(cardSuit),
+          getCardName(cardName)));
+        addWidget((17 * col), (row * 3) + 1, mpHandWidget[i][k]);
+        col++;
+        if (k == 0 && static_cast<int>(getCurrentTurn() != i))
+        {
+          mpHandWidget[i][k]->setVisible(false);
+          mbShow[i] = false;
+        }
+        else
+        {
+          mbShow[i] = true;
+        }
+      }
+    }
+    else
+    {
+      //After hit and added card
+      int nextIndex = static_cast<int>(mvCards.size() - 1);
+      Suit cardSuit = mvCards[nextIndex].getSuit();
+      CardName cardName = mvCards[nextIndex].getCardName();
       mpHandWidget[i].push_back(new TextUITextWidget(getCardSuit(cardSuit),
         getCardName(cardName)));
-      addWidget((17 * col), (row * 3) + 1, mpHandWidget[i][k]);
-      col++;
+      addWidget((17 * (nextIndex + 1)), (row * 3) + 1, mpHandWidget[i][nextIndex]);
     }
+    mCardCounter[i] = static_cast<int>(mvCards.size());
     row++;
   }
+  mFirstRun = false;
 }
 
 void TextView::displayBet(int row, int player, long long bet)
@@ -282,11 +344,14 @@ void TextView::addBet (Money bet)
 
 float TextView::getCurrentTurn () 
 {
+  mCurrentTurn = mpcBlackjackPresenter->getTurn();
   return mpcBlackjackPresenter->getTurn();
 }
 
 void TextView::addPlayer(char playerType, std::string playerName, Money cBank) 
 {
+  mCardCounter.push_back(0);
+  mbShow.push_back(false);
   addBank(numPlayers, cBank);
   numPlayers++;
   mpcBlackjackPresenter->addPlayer(playerName, cBank, numPlayers, playerType);

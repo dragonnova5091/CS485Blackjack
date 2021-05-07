@@ -1,6 +1,24 @@
+//***************************************************************************
+// File name:  Player.cpp
+// Author:     Ethan Hunter
+// Date:       5-6-2021
+// Class:      CS485
+// Assignment: BlackJack
+// Purpose:    player abstract class implementation
+//***************************************************************************
+
 
 #include "Player.h"
 
+//***************************************************************************
+// Function:    Player ctor
+//
+// Description: ctor init private variables to defaultsk
+//
+// Parameters:  None
+//
+// Returned:    None
+//***************************************************************************
 Player::Player()
 {
 	mbIsSplit = false;
@@ -9,12 +27,29 @@ Player::Player()
 	mHands.push_back(baseHand);
 }
 
+//***************************************************************************
+// Function:    Player dtor
+//
+// Description: empty dtor
+//
+// Parameters:  None
+//
+// Returned:    None
+//***************************************************************************
 Player::~Player()
 {
 	//lol
 }
 
-
+//***************************************************************************
+// Function:    updateMoney
+//
+// Description: updates the bank
+//
+// Parameters:  Money mon - the balance to set to
+//
+// Returned:    None
+//***************************************************************************
 void Player::updateMoney(Money mon)
 {
 	//if the balance is the same
@@ -31,6 +66,17 @@ void Player::updateMoney(Money mon)
 	}
 }
 
+
+//***************************************************************************
+// Function:    addCard
+//
+// Description: adds a card to the specified hand
+//
+// Parameters:  Card c - the card to add
+//				int hand - the hand to add to. default 0
+//
+// Returned:    None
+//***************************************************************************
 void Player::addCard(Card c, int hand )
 {
 	//check that the hand int is within range
@@ -43,9 +89,28 @@ void Player::addCard(Card c, int hand )
 	{
 		//add to hand
 		mHands[hand].addCard(c);
+		if (mHands[hand].getSum() > 21)
+		{
+			finishTurn(false, false, hand);
+		}
+		else if (mHands[hand].getSum() == 21)
+		{
+			finishTurn(true, true, hand);
+		}
 	}
 }
 
+//***************************************************************************
+// Function:    finish turn
+//
+// Description: finishes the players turn. updates betting, banks, and hands
+//
+// Parameters:  bool bWin - if the player won
+//				bool b21 - if the player got blackjack
+//				int hand - the hand to apply to
+//
+// Returned:    None
+//***************************************************************************
 void Player::finishTurn(bool bWin, bool b21, int hand )
 {
 	mbSettled = true;
@@ -99,6 +164,15 @@ void Player::finishTurn(bool bWin, bool b21, int hand )
 	}
 }
 
+//***************************************************************************
+// Function:    split
+//
+// Description: splits the player's hand
+//
+// Parameters:  None
+//
+// Returned:    None
+//***************************************************************************
 void Player::split()
 {
 	if (mHands.size() == 1)
@@ -123,12 +197,29 @@ void Player::split()
 	}
 }
 
+//***************************************************************************
+// Function:    clear hand
+//
+// Description: clears all cards from the player
+//
+// Parameters:  None
+//
+// Returned:    None
+//***************************************************************************
 void Player::clearHand()
 {
 	mHands.clear();
 }
 
-
+//***************************************************************************
+// Function:    setBet
+//
+// Description: sets the bet
+//
+// Parameters:  Money mon -  the bet to set to
+//
+// Returned:    None
+//***************************************************************************
 void Player::setBet(Money mon)
 {
 	mBet = mon;

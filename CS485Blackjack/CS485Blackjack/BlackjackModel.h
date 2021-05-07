@@ -1,3 +1,11 @@
+//***************************************************************************
+// File name:  BlackjackModel.h
+// Author:     hung Huynh
+// Date:       5-6-2021
+// Class:      CS485
+// Assignment: BlackJack
+// Purpose:    model header
+//***************************************************************************
 
 #pragma once
 
@@ -27,6 +35,7 @@ public:
 	void addPlayer(std::string name, Money cBank, int seat, char cplayerType);
 	void removePlayer(int seat);
 	void setNumPlayers(int seats);
+	void finishRound();
 
 	void addBet(int seat, Money cBank);
 
@@ -37,4 +46,5 @@ public:
 	void deal();
 	std::vector<Hand> getHand(int seat);
 	bool isPlayerSplit(int player);
+	char getPlayerType(int player);
 };

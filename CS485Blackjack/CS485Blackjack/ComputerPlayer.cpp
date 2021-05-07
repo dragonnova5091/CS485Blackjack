@@ -21,7 +21,7 @@
 //
 // Returned:    None
 //***************************************************************************
-ComputerPlayer::ComputerPlayer(PlayerBehavior* newBehavior, Money mon)
+ComputerPlayer::ComputerPlayer(PlayerBehavior* newBehavior, Money mon) : Player()
 {
 	mpBehavior = newBehavior;
 	mBank = mon;
@@ -64,16 +64,21 @@ int ComputerPlayer::doTurn(int action, int hand)
 		throw std::out_of_range("hand num out of range, should be 0 unless split");
 	}
 	//returns the behavior choice
-	return mpBehavior->doTurn(mHands[hand], mbIsSplit);
+	int request = mpBehavior->doTurn(mHands[hand], mbIsSplit);
+	if (request == 0)
+	{
+		mbSettled = true;
+	}
+	return request;
 }
 
 
 //***************************************************************************
-// Function:    clear
+// Function:    seeCard
 //
-// Description: Clear the board
+// Description: allows the behaviors to see what card is drawn, and store it
 //
-// Parameters:  None
+// Parameters:  Card c - teh card drawn
 //
 // Returned:    None
 //***************************************************************************
@@ -82,11 +87,29 @@ void ComputerPlayer::seeCard(Card c)
 	mpBehavior->seeCard(c);
 }
 
+//***************************************************************************
+// Function:    returnBet
+//
+// Description: returns the bet through the behavior
+//
+// Parameters:  None
+//
+// Returned:    Money - the bet used;
+//***************************************************************************
 Money ComputerPlayer::returnBet()
 {
 	return mpBehavior->returnBet(mBank);
 }
 
+//***************************************************************************
+// Function:    setBet
+//
+// Description: sets the Bet in the player
+//
+// Parameters:  Money mon -  the bet to set to
+//
+// Returned:    None
+//***************************************************************************
 void ComputerPlayer::setBet(Money mon)
 {
 	mBet = mon;

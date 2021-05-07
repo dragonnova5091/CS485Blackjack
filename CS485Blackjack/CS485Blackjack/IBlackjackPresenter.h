@@ -22,4 +22,5 @@ public:
 	virtual void deal() = 0;
 	virtual std::vector<Hand> getHand(int seat) = 0;
 	virtual bool isPlayerSplit(int player) = 0;
+	virtual char getPlayerType(int player) = 0;
 };
