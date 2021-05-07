@@ -71,3 +71,8 @@ std::vector<Hand> BlackjackPresenter::getHand(int seat)
 {
 	return mcBJModel.getHand(seat);
 }
+
+bool BlackjackPresenter::isPlayerSplit(int player)
+{
+	return mcBJModel.isPlayerSplit(player);
+}

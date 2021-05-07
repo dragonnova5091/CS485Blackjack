@@ -32,4 +32,6 @@ public:
 	void resetGame();
 	void deal();
 	std::vector<Hand> getHand(int seat);
+	bool isPlayerSplit(int player)
+	
 };

@@ -141,3 +141,8 @@ std::vector<Hand> BlackjackModel::getHand(int seat)
 {
 	return mcvPlayers[seat]->getHand();
 }
+
+bool BlackjackModel::isPlayerSplit(int player)
+{
+	return mcvPlayers[player]->isSplit();
+}

@@ -21,4 +21,5 @@ public:
 	virtual void resetGame() = 0;
 	virtual void deal() = 0;
 	virtual std::vector<Hand> getHand(int seat) = 0;
+	virtual bool isPlayerSplit(int player);
 };
