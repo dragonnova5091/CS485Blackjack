@@ -243,6 +243,7 @@ void Player::split()
 void Player::clearHand()
 {
 	mHands.clear();
+	mHands.push_back(Hand());
 }
 
 //***************************************************************************
