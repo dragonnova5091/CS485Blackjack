@@ -23,5 +23,7 @@ public:
 	void shuffleDeck();
 	void stackDeck();
 	Card drawCard();
+	int getSize() { return mCards.size(); }
+	int getNumSets() { return mNumOfSets; }
 
 };

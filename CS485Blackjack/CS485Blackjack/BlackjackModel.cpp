@@ -477,7 +477,33 @@ char BlackjackModel::getPlayerType(int player)
 	return mcvPlayers[player]->returnType();
 }
 
+//***************************************************************************
+// Function:    getBank
+//
+// Description: gets a specified player's bank
+//
+// Parameters:  int player - the player to check
+//
+// Returned:    Money - the player's bank
+//***************************************************************************
 Money BlackjackModel::getBank(int player)
 {
 	return mcvPlayers[player]->getMoney();
+}
+
+
+//***************************************************************************
+// Function:    reshuffle
+//
+// Description: reshuffle if not enough cards
+//
+// Parameters:  None
+//
+// Returned:    None
+//***************************************************************************
+void BlackjackModel::reshuffle() {
+	if (mcDeck.getSize() < 10 * mPlayerCount + 1) {
+		Deck newDeck(mcDeck.getNumSets());
+		mcDeck = newDeck;
+	}
 }

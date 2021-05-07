@@ -48,4 +48,5 @@ public:
 	bool isPlayerSplit(int player);
 	char getPlayerType(int player);
 	Money getBank(int player);
+	void reshuffle();
 };
