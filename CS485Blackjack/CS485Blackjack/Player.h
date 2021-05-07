@@ -28,7 +28,7 @@ public:
 
 	void updateMoney(Money mon);
 	void addCard(Card c, int hand = 0);
-	void finishTurn(bool bWin, int hand = 0);
+	void finishTurn(bool bWin, bool b21, int hand = 0);
 	void split();
 
 	void clearHand();

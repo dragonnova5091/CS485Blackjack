@@ -16,6 +16,6 @@ int DealerBehavior::doTurn(Hand hand, bool isSplit)
 
 Money DealerBehavior::returnBet(Money totalBank)
 {
-	Money m(0, "USD");
-	return m;
+	totalBank.setAmount(totalBank.getAmount() / 5);
+	return totalBank;
 }

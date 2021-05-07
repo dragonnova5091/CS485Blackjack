@@ -46,7 +46,7 @@ void Player::addCard(Card c, int hand )
 	}
 }
 
-void Player::finishTurn(bool bWin, int hand )
+void Player::finishTurn(bool bWin, bool b21, int hand )
 {
 	mbSettled = true;
 	if (bWin)
@@ -64,7 +64,16 @@ void Player::finishTurn(bool bWin, int hand )
 			{
 				//clear the hand and 
 				mHands[hand].clear();
-				mBank + mBet;
+				if (!b21)
+				{
+					mBank = mBank + mBet;
+				}
+				else
+				{
+					mBank.setAmount(mBank.getAmount() + 
+						(long long) (mBet.getAmount() * 1.5));
+				}
+				
 			}
 			else 
 			{
