@@ -1,5 +1,7 @@
 
 #pragma once
+#include <vector>
+#include "Hand.h"
 
 class IBlackjackPresenter
 {
@@ -18,4 +20,5 @@ public:
 	virtual Card getCard() = 0;
 	virtual void resetGame() = 0;
 	virtual void deal() = 0;
+	virtual std::vector<Hand> getHand(int seat) = 0;
 };

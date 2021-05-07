@@ -23,6 +23,7 @@ BlackjackModel::BlackjackModel()
 	PlayerBehavior* behavior = new DealerBehavior();
 	Money mon(0, "USD");
 	Player* pdealer = new ComputerPlayer(behavior, mon);
+	mcvPlayers.push_back(pdealer);
 }
 
 BlackjackModel::BlackjackModel(int numPlayers)
@@ -34,6 +35,7 @@ BlackjackModel::BlackjackModel(int numPlayers)
 	PlayerBehavior* behavior = new DealerBehavior();
 	Money mon(0, "USD");
 	Player* pdealer = new ComputerPlayer(behavior, mon);
+	mcvPlayers.push_back(pdealer);
 }
 
 BlackjackModel::BlackjackModel(const BlackjackModel& cBJ)
@@ -133,4 +135,9 @@ void BlackjackModel::deal()
 		mcvPlayers[i % mcvPlayers.size()]->addCard(c);
 
 	}
+}
+
+std::vector<Hand> BlackjackModel::getHand(int seat)
+{
+	return mcvPlayers[seat]->getHand();
 }

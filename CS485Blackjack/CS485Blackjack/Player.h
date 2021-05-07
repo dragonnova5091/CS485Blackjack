@@ -24,6 +24,7 @@ public:
 	Money getMoney() { return mBank; }
 	bool getSettled() { return mbSettled; }
 	bool isSplit() { return mbIsSplit; }
+	std::vector<Hand> getHand() { return mHands; }
 
 	void updateMoney(Money mon);
 	void addCard(Card c, int hand = 0);
@@ -35,7 +36,7 @@ public:
 	virtual Money returnBet() = 0;
 	virtual void seeCard(Card c) {}
 	virtual void setBet(Money mon);
-
+	
 
 
 

@@ -66,3 +66,8 @@ void BlackjackPresenter::deal()
 {
 	mcBJModel.deal();
 }
+
+std::vector<Hand> BlackjackPresenter::getHand(int seat)
+{
+	return mcBJModel.getHand(seat);
+}
