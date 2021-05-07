@@ -20,8 +20,8 @@ TextView::TextView() : TextUI(std::cout, std::cin)
   numHumanPlayers = 1;
   mCurrentTurn = 0;
   mFirstRun = true;
+  mAfterHit = false;
 
-  //TextUITextWidget* pcWidget;
   mpcBlackjackPresenter = new BlackjackPresenter(this);
 
   mpPlayerNames.push_back(new TextUITextWidget("Dealer", "Doug"));
@@ -33,19 +33,19 @@ TextView::TextView() : TextUI(std::cout, std::cin)
   mbShow.push_back(false);
 
 
-  mpBankAmounts.push_back(new TextUITextWidget("Bank: ", std::to_string (tempMon.getAmount())));
+  mpBankAmounts.push_back(new TextUITextWidget("Bank ", std::to_string (tempMon.getAmount())));
 
   mpPlayerNames.push_back(new TextUITextWidget("Player2", "NOT IN USE"));
-  mpBankAmounts.push_back(new TextUITextWidget("Bank: ", "NOT IN USE"));
+  mpBankAmounts.push_back(new TextUITextWidget("Bank ", "NOT IN USE"));
 
   mpPlayerNames.push_back(new TextUITextWidget("Player3", "NOT IN USE"));
-  mpBankAmounts.push_back(new TextUITextWidget("Bank: ", "NOT IN USE"));
+  mpBankAmounts.push_back(new TextUITextWidget("Bank ", "NOT IN USE"));
 
   mpPlayerNames.push_back(new TextUITextWidget("Player4", "NOT IN USE"));
-  mpBankAmounts.push_back(new TextUITextWidget("Bank: ", "NOT IN USE"));
+  mpBankAmounts.push_back(new TextUITextWidget("Bank ", "NOT IN USE"));
 
   mpPlayerNames.push_back(new TextUITextWidget("Player5", "NOT IN USE"));
-  mpBankAmounts.push_back(new TextUITextWidget("Bank: ", "NOT IN USE"));
+  mpBankAmounts.push_back(new TextUITextWidget("Bank ", "NOT IN USE"));
   
   addWidget(0, 3, mpPlayerNames[0]);
   addWidget(0, 6, mpPlayerNames[1]);
@@ -206,7 +206,14 @@ void TextView::onClickHit (std::string yes)
   float turn;
   turn = mpcBlackjackPresenter->getTurn();
   mpcBlackjackPresenter->doTurn((int)turn, 1, 1.0f);
+  mAfterHit = true;
   displayHands();
+
+  if (mpcBlackjackPresenter->getTurn() == -1)
+  {
+    clearTable();
+    resetGame();
+  }
 }
 
 void TextView::onClickStay(std::string yes) 
@@ -216,6 +223,12 @@ void TextView::onClickStay(std::string yes)
 
   mpcBlackjackPresenter->doTurn((int) turn, 0, 1.0f);
   displayHands();
+  turn = mpcBlackjackPresenter->getTurn();
+  if (turn == -1)
+  {
+    clearTable();
+    resetGame();
+  }
 }
 
 void TextView::onClickSplit(std::string yes) 
@@ -232,12 +245,12 @@ void TextView::onSetBet(std::string yes)
   Money cMoney;
   long long bet;
   int row = 1;
-  for (int i = 0; i < numPlayers; i++) {
+  for (int i = 1; i <= numPlayers; i++) {
     std::cout << "Enter Bet: ";
     std::cin >> bet;
     cMoney.setAmount(bet);
     mpcBlackjackPresenter->addBet(i, cMoney);
-    displayBet(row + 1, i, bet);
+    displayBet(row + 1, i -1, bet);
     row++;
   }
   registerEvent("DEAL",
@@ -315,15 +328,17 @@ void TextView::displayHands()
         }
       }
     }
-    else
+    else if (i == static_cast<int>(getCurrentTurn()) && mAfterHit)
     {
-      //After hit and added card
-      int nextIndex = static_cast<int>(mvCards.size() - 1);
-      Suit cardSuit = mvCards[nextIndex].getSuit();
-      CardName cardName = mvCards[nextIndex].getCardName();
-      mpHandWidget[i].push_back(new TextUITextWidget(getCardSuit(cardSuit),
+      //After hit
+      int Index = static_cast<int>(getCurrentTurn());
+      int prevIndex = static_cast<int>(mvCards.size() - 1);
+      Suit cardSuit = mvCards[prevIndex].getSuit();
+      CardName cardName = mvCards[prevIndex].getCardName();
+      mpHandWidget[Index].push_back(new TextUITextWidget(getCardSuit(cardSuit),
         getCardName(cardName)));
-      addWidget((17 * (nextIndex + 1)), (row * 3) + 1, mpHandWidget[i][nextIndex]);
+      addWidget((17 * (prevIndex + 1)), (row * 3) + 1, mpHandWidget[Index][prevIndex]);
+      mAfterHit = false;
     }
     mCardCounter[i] = static_cast<int>(mvCards.size());
     row++;
@@ -544,4 +559,45 @@ std::string TextView::getCardName(CardName cardName)
   }
 
   return toReturn;
+}
+
+void TextView::clearTable()
+{
+  int row = 1;
+  auto it = mpBetAmounts.begin();
+  for (int i = 0; i < numPlayers + 1; i++)
+  {
+    int col = 1;
+    mvHand = getHand(i);
+    mvCards = mvHand[0].getHand();
+    for (int k = 0; k < mvCards.size(); k++)
+    {
+      removeWidget(17 * col, (row * 3) + 1);
+      delete mpHandWidget[i][k];
+      col++;
+    }
+    mpHandWidget[i].clear();
+    row++;
+  }
+
+  for (int i = 0; i < numPlayers; i++)
+  {
+    updateBank(i);
+  }
+  
+  row = 2;
+  for (int i = 0; i < mpBetAmounts.size(); i++)
+  {
+    removeWidget(0, (row * 3) + 1);
+    delete mpBetAmounts[i];
+    
+    row++;
+  }
+  mpBetAmounts.clear();
+}
+
+void TextView::updateBank(int player)
+{
+  mpBankAmounts[player]->setData(std::to_string
+  (mpcBlackjackPresenter->getBank(player + 1).getAmount()));
 }

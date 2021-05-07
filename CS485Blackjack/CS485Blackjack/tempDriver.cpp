@@ -18,16 +18,16 @@ int main(int argc, char* argv[])
   cTheDisplay.gameLoop();
 
   cTheDisplay.cleanup();*/
-  /*TextView cView;
+  TextView cView;
 
-  cView.UIEventLoop();*/
+  cView.UIEventLoop();
 
-  SDLView view;
+  /*SDLView view;
   view.createWindow("Blackjack",
     100, 100, 640, 640);;
   view.setWindowBackgroundColor({ 0,0,0,255 });
   view.gameLoop();
-  view.cleanup();
+  view.cleanup();*/
 
   return EXIT_SUCCESS;
 }

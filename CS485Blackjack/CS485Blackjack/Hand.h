@@ -19,9 +19,14 @@ public:
 	void clear() { mHand.clear(); }
 	int getSum() 
 	{
+		mSum = 0;
 		for (int i = 0; i < static_cast<int>(mHand.size()); i++)
 		{
 			mSum += mHand[i].getValue();
+		}
+		if (mSum > 21)
+		{
+			return 0;
 		}
 		return mSum;
 	}

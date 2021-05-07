@@ -35,7 +35,8 @@ BlackjackModel::BlackjackModel()
 {
 	mPlayerCount = 0;
 	mCurrentTurn = 0.0;
-	mTotalRounds = 0;
+	mTotalRounds = 1;
+	mcDeck.stackDeck();
 
 }
 
@@ -52,7 +53,7 @@ BlackjackModel::BlackjackModel(int numPlayers)
 {
 	mPlayerCount = numPlayers;
 	mCurrentTurn = 0.0;
-	mTotalRounds = 0;
+	mTotalRounds = 1;
 
 }
 
@@ -71,7 +72,7 @@ BlackjackModel::BlackjackModel(const BlackjackModel& cBJ)
 	mcDeck = cBJ.mcDeck;
 	mcvPlayers = cBJ.mcvPlayers;
 	mCurrentTurn = 1.0f;
-	mTotalRounds = 0;
+	mTotalRounds = 1;
 }
 
 //***************************************************************************
@@ -248,13 +249,23 @@ void BlackjackModel::doTurn(float seat, int move, float hands)
 		mcvPlayers[seat]->split();
 	}
 	
+	int num = 0;
+	for (int i = 0; i < mcvPlayers.size(); i++)
+	{
+		if (mcvPlayers[i]->getSettled())
+		{
+			num++;
+		}
+	}
 
-	if(mTotalRounds > mPlayerCount + 0.5f)
+	if (num == mcvPlayers.size())
 	{
 		finishRound();
 	}
 	
 	//mTotalRounds += hands;
+
+
 }
 
 //***************************************************************************
@@ -335,6 +346,20 @@ void BlackjackModel::finishRound()
 float BlackjackModel::getTurn()
 {
 
+	int num = 0;
+	for (int i = 0; i < mcvPlayers.size(); i++)
+	{
+		if (mcvPlayers[i]->getSettled())
+		{
+			num++;
+		}
+	}
+
+	if (num == mcvPlayers.size())
+	{
+		return -1;
+	}
+
 	const float SPLIT = 0.5;
 	float halfTurn = std::floor(mTotalRounds);
 	if (SPLIT == (mTotalRounds - halfTurn))
@@ -374,7 +399,12 @@ Card BlackjackModel::getCard()
 //***************************************************************************
 void BlackjackModel::resetGame()
 {
-
+	for (auto player : mcvPlayers)
+	{
+		player->clearHand();
+		Money mon(0, "USD");
+		player->setBet(mon);
+	}
 }
 
 //***************************************************************************
@@ -445,4 +475,9 @@ bool BlackjackModel::isPlayerSplit(int player)
 char BlackjackModel::getPlayerType(int player)
 {
 	return mcvPlayers[player]->returnType();
+}
+
+Money BlackjackModel::getBank(int player)
+{
+	return mcvPlayers[player]->getMoney();
 }

@@ -52,8 +52,12 @@ public:
   virtual std::vector<Hand> getHand(int player);
   virtual void displayHands();
   void displayBet(int row, int player, long long bet);
+
+
   std::string getCardSuit(Suit cardSuit);
   std::string getCardName(CardName cardName);
+  void clearTable();
+  void updateBank(int player);
 
 private:
   IBlackjackPresenter* mpcBlackjackPresenter;
@@ -72,4 +76,5 @@ private:
   int numHumanPlayers;
   int mCurrentTurn;
   bool mFirstRun;
+  bool mAfterHit;
 };

@@ -47,4 +47,5 @@ public:
 	std::vector<Hand> getHand(int seat);
 	bool isPlayerSplit(int player);
 	char getPlayerType(int player);
+	Money getBank(int player);
 };

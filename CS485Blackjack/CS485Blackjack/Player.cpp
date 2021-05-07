@@ -95,9 +95,17 @@ void Player::addCard(Card c, int hand )
 			int i = 0;
 			do
 			{
-				if (mHands[hand].getHand()[i].getCardName() == CardName::Ace)
+				if (mHands[hand].getHand()[i].getCardName() == CardName::Ace 
+					&& mHands[hand].getHand()[i].getValue() == 11)
 				{
-					mHands[hand].getHand()[i].setValue(1);
+					
+					auto v = mHands[hand].getHand();
+					v[i].setValue(1);
+					mHands[hand].clear();
+					for (int i = 0; i <v.size(); i++)
+					{
+						mHands[hand].addCard(v[i]);
+					}
 				}
 				i++;
 			} while (mHands[hand].getSum() > 21 && i < mHands[hand].getHand().size());
@@ -105,15 +113,21 @@ void Player::addCard(Card c, int hand )
 			if (i >= mHands[hand].getHand().size())
 			{
 				finishTurn(false, false, hand);
+				return;
 			}
 
 		}
 		else if (mHands[hand].getSum() == 21)
 		{
 			finishTurn(true, true, hand);
+			return;
+		}
+		else
+		{
+			mbSettled = false;
 		}
 	}
-	mbSettled = true;
+	
 }
 
 //***************************************************************************
@@ -144,10 +158,10 @@ void Player::finishTurn(bool bWin, bool b21, int hand )
 			if (mHands[hand].getHand().size() > 0)
 			{
 				//clear the hand and 
-				mHands[hand].clear();
+				//mHands[hand].clear();
 				if (!b21)
 				{
-					mBank = mBank + mBet;
+					mBank.setAmount(mBank.getAmount() + mBet.getAmount());
 				}
 				else
 				{
@@ -172,11 +186,15 @@ void Player::finishTurn(bool bWin, bool b21, int hand )
 		}
 		if (!tempbool)
 		{
-			Hand h;
+			//Hand h;
 			mBet.setAmount(0);
-			mHands.clear();
-			mHands.push_back(h);
+			//mHands.clear();
+			//mHands.push_back(h);
 		}
+	}
+	else
+	{
+		mBank.setAmount(mBank.getAmount() - mBet.getAmount());
 	}
 }
 

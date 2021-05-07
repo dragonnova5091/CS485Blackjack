@@ -233,3 +233,8 @@ char BlackjackPresenter::getPlayerType(int player)
 {
 	return mcBJModel.getPlayerType(player);
 }
+
+Money BlackjackPresenter::getBank(int player)
+{
+	return mcBJModel.getBank(player);
+}
