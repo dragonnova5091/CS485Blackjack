@@ -26,4 +26,5 @@ public:
 	virtual Money returnBet();
 	virtual void setBet(Money mon);
 	void seeCard(Card c);
+	char returnType() { return 'C'; }
 };

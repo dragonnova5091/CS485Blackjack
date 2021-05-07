@@ -58,11 +58,6 @@ ComputerPlayer::~ComputerPlayer()
 //***************************************************************************
 int ComputerPlayer::doTurn(int action, int hand)
 {
-	if (action != -1)
-	{
-		//computer take action -1, this is what tells them to use their behaviors
-		throw std::exception::exception("computer player must take action -1", 69);
-	}
 	if (hand >= mHands.size())
 	{
 		//throw an error if is out of range

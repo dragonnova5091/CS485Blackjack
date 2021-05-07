@@ -50,9 +50,8 @@ public:
   virtual void resetGame();
   virtual void quitGame();
   virtual std::vector<Hand> getHand(int player);
-  virtual void displayHand();
-  void displayDeal();
-  void displayBet();
+  virtual void displayHands();
+  void displayBet(int row, int player, long long bet);
   std::string getCardSuit(Suit cardSuit);
   std::string getCardName(CardName cardName);
 

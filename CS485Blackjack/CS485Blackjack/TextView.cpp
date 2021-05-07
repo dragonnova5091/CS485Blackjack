@@ -68,11 +68,7 @@ TextView::TextView() : TextUI(std::cout, std::cin)
   registerEvent("SETPLAYER1NAME",
     std::bind
     (&TextView::onSetPlayer1Name, this, std::placeholders::_1));
-  
-  registerEvent("DEAL",
-    std::bind(&TextView::onDeal, this, std::placeholders::_1));
 
-  onSetPlayer1Name("Computer 1");
 
 }
 
@@ -193,17 +189,13 @@ void TextView::onDeal(std::string notused)
     (&TextView::onClickStay, this, std::placeholders::_1));
 
     mpcBlackjackPresenter->deal();
-    displayDeal();
+    displayHands();
 }
 
 void TextView::onClickHit (std::string yes) 
 {
   float turn;
   turn = mpcBlackjackPresenter->getTurn();
-
-  /*Hung"Sorry i realized i names the params bad. the arguments should go 
-  int seat- which plays(index 0-5), int move(stay, split, hit I think), 
-  float hands(if they have one hand then 0.0 if they have 2 then pass 0.5."*/
   mpcBlackjackPresenter->doTurn((int)turn, 0, 0.0f);
 }
 
@@ -227,13 +219,17 @@ void TextView::onSetBet(std::string yes)
 {
   Money cMoney;
   long long bet;
-
+  int row = 1;
   for (int i = 0; i < numPlayers; i++) {
     std::cout << "Enter Bet: ";
     std::cin >> bet;
     cMoney.setAmount(bet);
     mpcBlackjackPresenter->addBet(i, cMoney);
+    displayBet(row + 1, i, bet);
+    row++;
   }
+  registerEvent("DEAL",
+    std::bind(&TextView::onDeal, this, std::placeholders::_1));
 }
 
 Card TextView::getCard () 
@@ -246,32 +242,34 @@ std::vector<Hand> TextView::getHand(int player)
   return mpcBlackjackPresenter->getHand(player);
 }
 
-void TextView::displayHand()
+void TextView::displayHands()
 {
-
-}
-
-void TextView::displayBet()
-{
-
-}
-
-void TextView::displayDeal()
-{
+  int row = 1;
+  
+  mpHandWidget.resize(numPlayers + 1);
   for (int i = 0; i < numPlayers + 1; i++)
   {
-    //if (mpPlayerNames[i])
+    int col = 1;
+    //player split
     mvHand = getHand(i);
-    mvCards = mvHand[i].getHand();
+    mvCards = mvHand[0].getHand();
     for (int k = 0; k < mvCards.size(); k++)
     {
       Suit cardSuit = mvCards[k].getSuit();
-      //if ()
       CardName cardName = mvCards[k].getCardName();
-      mpHandWidget[i].push_back(new TextUITextWidget(getCardSuit(cardSuit), 
+      mpHandWidget[i].push_back(new TextUITextWidget(getCardSuit(cardSuit),
         getCardName(cardName)));
+      addWidget((17 * col), (row * 3) + 1, mpHandWidget[i][k]);
+      col++;
     }
+    row++;
   }
+}
+
+void TextView::displayBet(int row, int player, long long bet)
+{
+  mpBetAmounts.push_back(new TextUITextWidget("Bet", std::to_string(bet)));
+  addWidget(0, (row * 3) + 1, mpBetAmounts[player]);
 }
 
 void TextView::addBet (Money bet) 

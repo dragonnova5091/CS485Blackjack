@@ -23,5 +23,6 @@ public:
 	virtual int doTurn(int action, int hand = 0 );
 	virtual Money returnBet();
 	virtual void setBet(Money mon);
+	char returnType() { return 'H'; }
 
 };

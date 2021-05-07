@@ -41,7 +41,7 @@ public:
 	virtual void resetGame() = 0;
 	virtual void quitGame() = 0;
 	virtual std::vector<Hand> getHand(int player) = 0;
-	virtual void displayHand() = 0;
+	virtual void displayHands() = 0;
 
 	/*We cant have a private member here because then it isnt an interface <3. So I put in the subclasses. -Hung*/
 };

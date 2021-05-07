@@ -18,7 +18,7 @@ BlackjackModel::BlackjackModel()
 {
 	mPlayerCount = 0;
 	mCurrentTurn = 0.0;
-	mTotalRounds = 0;
+	mTotalRounds = 1;
 
 	PlayerBehavior* behavior = new DealerBehavior();
 	Money mon(0, "USD");
@@ -30,7 +30,7 @@ BlackjackModel::BlackjackModel(int numPlayers)
 {
 	mPlayerCount = numPlayers;
 	mCurrentTurn = 0.0;
-	mTotalRounds = 0;
+	mTotalRounds = 1;
 
 	PlayerBehavior* behavior = new DealerBehavior();
 	Money mon(0, "USD");
@@ -44,7 +44,7 @@ BlackjackModel::BlackjackModel(const BlackjackModel& cBJ)
 	mcDeck = cBJ.mcDeck;
 	mcvPlayers = cBJ.mcvPlayers;
 	mCurrentTurn = 0.0;
-	mTotalRounds = 0;
+	mTotalRounds = 1;
 }
 
 BlackjackModel::~BlackjackModel()
