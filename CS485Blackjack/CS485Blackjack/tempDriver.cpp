@@ -18,12 +18,12 @@ int main(int argc, char* argv[])
   cTheDisplay.gameLoop();
 
   cTheDisplay.cleanup();*/
-  /*TextView cView;
+  TextView cView;
 
-  cView.UIEventLoop();*/
+  cView.UIEventLoop();
 
-    SDLView view;
-    view.initGame   ();
+    /*SDLView view;
+    view.initGame   ();*/
 
   return EXIT_SUCCESS;
 }

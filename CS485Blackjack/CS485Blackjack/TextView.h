@@ -53,6 +53,8 @@ public:
   virtual void displayHand();
   void displayDeal();
   void displayBet();
+  std::string getCardSuit(Suit cardSuit);
+  std::string getCardName(CardName cardName);
 
 private:
   IBlackjackPresenter* mpcBlackjackPresenter;
@@ -61,7 +63,8 @@ private:
   std::vector<TextUITextWidget*>mpBankAmounts;
   std::vector<TextUITextWidget*>mpBetAmounts;
 
-  std::vector<Hand> mvHands;
+  std::vector<Hand> mvHand;
+  std::vector<Card> mvCards;
   std::vector<std::vector<TextUITextWidget*>> mpHandWidget;
 
   int numPlayers;

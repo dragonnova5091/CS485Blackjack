@@ -179,7 +179,7 @@ void TextView::onSetPlayer5Name(std::string name)
 
 void TextView::onDeal(std::string notused)
 {
-
+  
   registerEvent("HIT",
     std::bind
     (&TextView::onClickHit, this, std::placeholders::_1));
@@ -193,6 +193,7 @@ void TextView::onDeal(std::string notused)
     (&TextView::onClickStay, this, std::placeholders::_1));
 
     mpcBlackjackPresenter->deal();
+    displayDeal();
 }
 
 void TextView::onClickHit (std::string yes) 
@@ -257,7 +258,20 @@ void TextView::displayBet()
 
 void TextView::displayDeal()
 {
-  //for (int i = 0; i < numPlayers;)
+  for (int i = 0; i < numPlayers + 1; i++)
+  {
+    //if (mpPlayerNames[i])
+    mvHand = getHand(i);
+    mvCards = mvHand[i].getHand();
+    for (int k = 0; k < mvCards.size(); k++)
+    {
+      Suit cardSuit = mvCards[k].getSuit();
+      //if ()
+      CardName cardName = mvCards[k].getCardName();
+      mpHandWidget[i].push_back(new TextUITextWidget(getCardSuit(cardSuit), 
+        getCardName(cardName)));
+    }
+  }
 }
 
 void TextView::addBet (Money bet) 
@@ -380,4 +394,88 @@ void TextView::resetGame ()
 
 void TextView::quitGame() 
 {
+}
+
+std::string TextView::getCardSuit(Suit cardSuit)
+{
+  std::string toReturn;
+  if (cardSuit == Suit::Clubs)
+  {
+    toReturn = "Clubs";
+    
+  }
+  else if (cardSuit == Suit::Diamonds)
+  {
+    toReturn = "Diamonds";
+  }
+  else if (cardSuit == Suit::Hearts)
+  { 
+    toReturn = "Hearts";
+  }
+  else
+  {
+    toReturn = "Spades";
+  }
+
+  return toReturn;
+}
+
+std::string TextView::getCardName(CardName cardName)
+{
+  std::string toReturn;
+  if (cardName == CardName::Ace)
+  {
+    toReturn = "Ace";
+
+  }
+  else if (cardName == CardName::Two)
+  {
+    toReturn = "Two";
+  }
+  else if (cardName == CardName::Three)
+  {
+    toReturn = "Three";
+  }
+  else if (cardName == CardName::Four)
+  {
+    toReturn = "Four";
+  }
+  else if (cardName == CardName::Five)
+  {
+    toReturn = "Five";
+  }
+  else if (cardName == CardName::Six)
+  {
+    toReturn = "Six";
+  }
+  else if (cardName == CardName::Seven)
+  {
+    toReturn = "Seven";
+  }
+  else if (cardName == CardName::Eight)
+  {
+    toReturn = "Eight";
+  }
+  else if (cardName == CardName::Nine)
+  {
+    toReturn = "Nine";
+  }
+  else if (cardName == CardName::Ten)
+  {
+    toReturn = "Ten";
+  }
+  else if (cardName == CardName::Jack)
+  {
+    toReturn = "Jack";
+  }
+  else if (cardName == CardName::Queen)
+  {
+    toReturn = "Queen";
+  }
+  else
+  {
+    toReturn = "King";
+  }
+
+  return toReturn;
 }
