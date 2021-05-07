@@ -76,3 +76,8 @@ bool BlackjackPresenter::isPlayerSplit(int player)
 {
 	return mcBJModel.isPlayerSplit(player);
 }
+
+char BlackjackPresenter::getPlayerType(int player)
+{
+	return mcBJModel.getPlayerType(player);
+}

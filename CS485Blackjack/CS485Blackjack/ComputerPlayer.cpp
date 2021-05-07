@@ -69,11 +69,11 @@ int ComputerPlayer::doTurn(int action, int hand)
 
 
 //***************************************************************************
-// Function:    clear
+// Function:    seeCard
 //
-// Description: Clear the board
+// Description: allows the behaviors to see what card is drawn, and store it
 //
-// Parameters:  None
+// Parameters:  Card c - teh card drawn
 //
 // Returned:    None
 //***************************************************************************
@@ -82,11 +82,29 @@ void ComputerPlayer::seeCard(Card c)
 	mpBehavior->seeCard(c);
 }
 
+//***************************************************************************
+// Function:    returnBet
+//
+// Description: returns the bet through the behavior
+//
+// Parameters:  None
+//
+// Returned:    Money - the bet used;
+//***************************************************************************
 Money ComputerPlayer::returnBet()
 {
 	return mpBehavior->returnBet(mBank);
 }
 
+//***************************************************************************
+// Function:    setBet
+//
+// Description: sets the Bet in the player
+//
+// Parameters:  Money mon -  the bet to set to
+//
+// Returned:    None
+//***************************************************************************
 void ComputerPlayer::setBet(Money mon)
 {
 	mBet = mon;

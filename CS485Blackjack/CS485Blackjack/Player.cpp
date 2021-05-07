@@ -1,6 +1,24 @@
+//***************************************************************************
+// File name:  Player.cpp
+// Author:     Ethan Hunter
+// Date:       5-6-2021
+// Class:      CS485
+// Assignment: BlackJack
+// Purpose:    player abstract class implementation
+//***************************************************************************
+
 
 #include "Player.h"
 
+//***************************************************************************
+// Function:    Player ctor
+//
+// Description: ctor init private variables to defaultsk
+//
+// Parameters:  None
+//
+// Returned:    None
+//***************************************************************************
 Player::Player()
 {
 	mbIsSplit = false;
@@ -9,6 +27,15 @@ Player::Player()
 	mHands.push_back(baseHand);
 }
 
+//***************************************************************************
+// Function:    HumanPlayer ctor
+//
+// Description: empty ctor
+//
+// Parameters:  None
+//
+// Returned:    None
+//***************************************************************************
 Player::~Player()
 {
 	//lol

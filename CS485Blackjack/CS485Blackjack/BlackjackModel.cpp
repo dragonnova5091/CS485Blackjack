@@ -193,3 +193,8 @@ bool BlackjackModel::isPlayerSplit(int player)
 {
 	return mcvPlayers[player]->isSplit();
 }
+
+char BlackjackModel::getPlayerType(int player)
+{
+	return mcvPlayers[player]->returnType();
+}
