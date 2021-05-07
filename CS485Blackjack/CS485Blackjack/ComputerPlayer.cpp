@@ -21,7 +21,7 @@
 //
 // Returned:    None
 //***************************************************************************
-ComputerPlayer::ComputerPlayer(PlayerBehavior* newBehavior, Money mon)
+ComputerPlayer::ComputerPlayer(PlayerBehavior* newBehavior, Money mon) : Player()
 {
 	mpBehavior = newBehavior;
 	mBank = mon;
@@ -69,6 +69,7 @@ int ComputerPlayer::doTurn(int action, int hand)
 	{
 		mbSettled = true;
 	}
+	return request;
 }
 
 

@@ -249,16 +249,7 @@ void BlackjackModel::doTurn(float seat, int move, float hands)
 	}
 	
 
-	bool tempBool = true;
-	for (int i = 0; i < mcvPlayers.size(); i++)
-	{
-		if (! mcvPlayers[i]->getSettled())
-		{
-			tempBool = false;
-		}
-	}
-
-	if (tempBool)
+	if(mTotalRounds > mPlayerCount + 0.5f)
 	{
 		finishRound();
 	}

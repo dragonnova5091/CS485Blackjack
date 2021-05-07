@@ -34,7 +34,7 @@ HumanPlayer::HumanPlayer() : Player()
 //
 // Returned:    None
 //***************************************************************************
-HumanPlayer::HumanPlayer(std::string name, Money mon)
+HumanPlayer::HumanPlayer(std::string name, Money mon) : Player()
 {
 	mName = name;
 	mBank = mon;
