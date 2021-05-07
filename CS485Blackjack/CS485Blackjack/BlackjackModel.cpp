@@ -93,14 +93,15 @@ void BlackjackModel::doTurn(float seat, int move, float hands)
 {
 
 	mcvPlayers[static_cast<int>(seat)]->doTurn(move);
+	mTotalRounds += hands;
 }
 
 float BlackjackModel::getTurn()
 {
 
 	const float SPLIT = 0.5;
-	float halfTurn = std::floor(mCurrentTurn);
-	if (SPLIT == (mCurrentTurn - halfTurn))
+	float halfTurn = std::floor(mTotalRounds);
+	if (SPLIT == (mTotalRounds - halfTurn))
 	{
 		return (static_cast<int>(mTotalRounds - SPLIT) % mPlayerCount) + SPLIT;
 	}
