@@ -96,7 +96,7 @@ void BlackjackModel::doTurn(float seat, int move, float hands)
 	
 	if (request == 0)
 	{
-		if (mcvPlayers[seat]->isSplit)
+		if (mcvPlayers[seat]->isSplit())
 		{
 			mTotalRounds += 0.5f;
 		}
@@ -110,7 +110,7 @@ void BlackjackModel::doTurn(float seat, int move, float hands)
 		Card c = getCard();
 		for (size_t j = 0; j < mcvPlayers.size() * 2; j++)
 		{
-			mcvPlayers[i]->seeCard(c);
+			mcvPlayers[j]->seeCard(c);
 		}
 
 		if (mcvPlayers[seat]->isSplit())
@@ -176,9 +176,9 @@ void BlackjackModel::deal()
 		c = getCard();
 
 		mcvPlayers[i % mcvPlayers.size()]->addCard(c);
-		for (size_t j = 0; j < mcvPlayers.size() * 2; j++)
+		for (size_t j = 0; j < mcvPlayers.size(); j++)
 		{
-			mcvPlayers[i]->seeCard(c);
+			mcvPlayers[j]->seeCard(c);
 		}
 
 	}
