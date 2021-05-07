@@ -46,4 +46,5 @@ public:
 	CardName getCardName() { return mCardName; }
 	Suit getSuit() { return mSuit; }
 	int getValue() { return mValue; }
+	void setValue(int);
 };

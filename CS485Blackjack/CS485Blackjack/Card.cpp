@@ -41,3 +41,16 @@ Card::Card(int value, Suit suit, CardName cardName) {
 	mCardName = cardName;
 }
 
+//***************************************************************************
+// Constructor:   setValue
+//
+// Description:		sets the card value
+//
+// Parameters:		value	- value to change the card to
+//								
+//
+// Returned:			None
+//***************************************************************************
+void Card::setValue(int value) {
+	mValue = value;
+}
