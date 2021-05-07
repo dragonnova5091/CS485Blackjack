@@ -21,7 +21,7 @@ public:
 	{
 		for (int i = 0; i < static_cast<int>(mHand.size()); i++)
 		{
-			mSum += mHand[i].returnValue();
+			mSum += mHand[i].getValue();
 		}
 		return mSum;
 	}
