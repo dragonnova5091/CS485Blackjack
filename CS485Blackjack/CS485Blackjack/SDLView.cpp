@@ -18,18 +18,73 @@
 
 SDLView::SDLView() {
   mpcBlackjackPresenter = new BlackjackPresenter(this);
-  mpPlayerNames.push_back(new SDLTextWidget("Player1", "", 10, 20, 1, 
+
+  Money tempMon(100, "USD");
+  std::string startBank = std::to_string(tempMon.getAmount());
+
+  mpPlayerNames.push_back(new SDLTextWidget("Player1", "Player1", 10, 85, 1,
     { 255,255,255,255 }));
-  mpDealerWidget = new SDLTextWidget("Dealer", "", 10, 120, 1,
+  mpDealerWidget = new SDLTextWidget("Dealer", "Doug", 10, 5, 1,
     { 255,255,255,255 });
 
-  //enableTextInput();
+  mpcBlackjackPresenter->addPlayer("Doug", tempMon, 0, 'C');
+
+  mpBankAmounts.push_back(new SDLTextWidget("Bank", startBank, 310, 85, 1,
+    { 255, 255, 255, 255 }));
+
+  mpPlayerNames.push_back(new SDLTextWidget("Player2", "Not Used", 10, 165, 1,
+    { 255,255,255,255 }));
+  mpBankAmounts.push_back(new SDLTextWidget("Bank", "Not Used", 310, 165, 1,
+    { 255,255,255,255 }));
+
+  mpPlayerNames.push_back(new SDLTextWidget("Player3", "Not Used", 10, 245, 1,
+    { 255,255,255,255 }));
+  mpBankAmounts.push_back(new SDLTextWidget("Bank", "Not Used", 310, 245, 1,
+    { 255,255,255,255 }));
+
+  mpPlayerNames.push_back(new SDLTextWidget("Player4", "Not Used", 10, 325, 1,
+    { 255,255,255,255 }));
+  mpBankAmounts.push_back(new SDLTextWidget("Bank", "Not Used", 310, 325, 1,
+    { 255,255,255,255 }));
+
+  mpPlayerNames.push_back(new SDLTextWidget("Player5", "Not Used", 10, 405, 1,
+    { 255,255,255,255 }));
+  mpBankAmounts.push_back(new SDLTextWidget("Bank", "Not Used", 310, 405, 1,
+    { 255,255,255,255 }));
+
+
+  mpMenu.push_back(new SDLTextWidget("ADD PLAYER", "", 10, 485, 1, { 255,255,255,255 }));
+  mpMenu[0]->registerStateChangeEventHandler(std::bind(&SDLView::onAddPlayerWidget, this, mpMenu[0]));
+  mpMenu.push_back(new SDLTextWidget("REMOVE PLAYER", "", 10, 525, 1, { 255,255,255,255 }));
+  mpMenu[1]->registerStateChangeEventHandler(std::bind(&SDLView::onRemovePlayerWidget, this, mpMenu[1]));
+  mpMenu.push_back(new SDLTextWidget("SET BET", "", 10, 565, 1, { 255,255,255,255 }));
+  mpMenu[2]->registerStateChangeEventHandler(std::bind(&SDLView::onSetBetWidget, this, mpMenu[2]));
+
+
+
+  loadFont("c:/Windows/Fonts/Cour.ttf", 20);
+
+  enableTextInput();
 
   registerTextWidget(mpPlayerNames[0]);
   registerTextWidget(mpDealerWidget);
+  registerTextWidget(mpBankAmounts[0]);
 
-  mcDrawableWidgets.push_back(mpPlayerNames[0]);
   mcDrawableWidgets.push_back(mpDealerWidget);
+  mcDrawableWidgets.push_back(mpPlayerNames[0]);
+  mcDrawableWidgets.push_back(mpBankAmounts[0]);
+  mcDrawableWidgets.push_back(mpPlayerNames[1]);
+  mcDrawableWidgets.push_back(mpBankAmounts[1]);
+  mcDrawableWidgets.push_back(mpPlayerNames[2]);
+  mcDrawableWidgets.push_back(mpBankAmounts[2]);
+  mcDrawableWidgets.push_back(mpPlayerNames[3]);
+  mcDrawableWidgets.push_back(mpBankAmounts[3]);
+  mcDrawableWidgets.push_back(mpPlayerNames[4]);
+  mcDrawableWidgets.push_back(mpBankAmounts[4]);
+  mcDrawableWidgets.push_back(mpMenu[0]);
+  mcDrawableWidgets.push_back(mpMenu[1]);
+  mcDrawableWidgets.push_back(mpMenu[2]);
+
   mCurrentTurn = 0;
   mNumPlayers = 0;
 }
@@ -243,6 +298,12 @@ void SDLView::resetGame() {
 
 void SDLView::quitGame() {}
 
+void SDLView::onAddPlayerWidget(SDLTextWidget* pcWidget) {
+  onAddPlayer(pcWidget->getData());
+}
+void SDLView::onRemovePlayerWidget(SDLTextWidget* pcWidget) {
+  onRemovePlayer(pcWidget->getData());
+}
 void SDLView::onSetPlayer1NameWidget (SDLTextWidget* pcWidget) {
   onSetPlayer1Name(pcWidget->getData());
 }
@@ -257,6 +318,21 @@ void SDLView::onSetPlayer4NameWidget (SDLTextWidget* pcWidget) {
 }
 void SDLView::onSetPlayer5NameWidget (SDLTextWidget* pcWidget) {
   onSetPlayer5Name(pcWidget->getData());
+}
+void SDLView::onSetBetWidget(SDLTextWidget* pcWidget) {
+  onSetBet(pcWidget->getData());
+}
+void SDLView::onDealWidget(SDLTextWidget* pcWidget) {
+  onDeal(pcWidget->getData());
+}
+void SDLView::onClickHitWidget(SDLTextWidget* pcWidget) {
+  onClickHit(pcWidget->getData());
+}
+void SDLView::onClickStayWidget(SDLTextWidget* pcWidget) {
+  onClickStay(pcWidget->getData());
+}
+void SDLView::onClickSplitWidget(SDLTextWidget* pcWidget) {
+  onClickSplit(pcWidget->getData());
 }
 
 void SDLView::handleEvent(SDL_Event event) {
