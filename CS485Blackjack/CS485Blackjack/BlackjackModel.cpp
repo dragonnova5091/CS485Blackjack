@@ -92,8 +92,51 @@ void BlackjackModel::addBet(int seat, Money cBank)
 void BlackjackModel::doTurn(float seat, int move, float hands)
 {
 
-	mcvPlayers[static_cast<int>(seat)]->doTurn(move);
-	mTotalRounds += hands;
+	int request = mcvPlayers[static_cast<int>(seat)]->doTurn(move);
+	
+	if (request == 0)
+	{
+		if (mcvPlayers[seat]->isSplit)
+		{
+			mTotalRounds += 0.5f;
+		}
+		else
+		{
+			mTotalRounds += 1.0f;
+		}
+	}
+	else if (request == 1)
+	{
+		Card c = getCard();
+		for (size_t j = 0; j < mcvPlayers.size() * 2; j++)
+		{
+			mcvPlayers[i]->seeCard(c);
+		}
+
+		if (mcvPlayers[seat]->isSplit())
+		{
+			if (hands == 0.5f)
+			{
+				mcvPlayers[seat]->addCard(c, 1);
+			}
+			else
+			{
+				mcvPlayers[seat]->addCard(c);
+			}
+		}
+		else
+		{
+			mcvPlayers[seat]->addCard(c);
+		}
+		
+	}
+	else if (request == 2)
+	{
+		mcvPlayers[seat]->split();
+	}
+	
+	
+	//mTotalRounds += hands;
 }
 
 float BlackjackModel::getTurn()
@@ -116,6 +159,8 @@ Card BlackjackModel::getCard()
 {
 	return mcDeck.drawCard();
 }
+
+
 void BlackjackModel::resetGame()
 {
 
@@ -129,7 +174,12 @@ void BlackjackModel::deal()
 	for (size_t i = 0; i < mcvPlayers.size() * 2; i++)
 	{
 		c = getCard();
+
 		mcvPlayers[i % mcvPlayers.size()]->addCard(c);
+		for (size_t j = 0; j < mcvPlayers.size() * 2; j++)
+		{
+			mcvPlayers[i]->seeCard(c);
+		}
 
 	}
 }
