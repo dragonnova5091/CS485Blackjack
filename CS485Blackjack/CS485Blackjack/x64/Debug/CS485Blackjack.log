@@ -1,17 +1,40 @@
-﻿  BlackjackModel.cpp
-  BlackjackPresenter.cpp
+﻿  BaseComputerBehavior.cpp
+  BlackjackModel.cpp
   ComputerPlayer.cpp
+  DealerBehavior.cpp
+  Deck.cpp
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\CS485Blackjack\Deck.cpp(54,22): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\CS485Blackjack\Deck.cpp(55,2): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  DrunkPlayerBehavior.cpp
   HumanPlayer.cpp
+  Player.cpp
   SDLView.cpp
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\SDLView.cpp(136,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\SDLView.cpp(148,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\SDLView.cpp(157,27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\SDLView.cpp(171,28): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   TextView.cpp
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(19,21): warning C4101: 'pcWidget': unreferenced local variable
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(144,33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(152,33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(160,33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(185,63): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\CS485Blackjack\TextView.cpp(265,63): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Generating Code...
-LINK : fatal error LNK1104: cannot open file 'SDL2.lib'
+x64\Debug\DrunkPlayerBehavior.obj : warning LNK4042: object specified more than once; extras ignored
+BlackjackModel.obj : error LNK2019: unresolved external symbol "public: __cdecl Card::Card(void)" (??0Card@@QEAA@XZ) referenced in function "public: void __cdecl BlackjackModel::deal(void)" (?deal@BlackjackModel@@QEAAXXZ)
+SDLView.obj : error LNK2001: unresolved external symbol "public: __cdecl Card::Card(void)" (??0Card@@QEAA@XZ)
+BlackjackPresenter.obj : error LNK2019: unresolved external symbol "public: void __cdecl BlackjackModel::addPlayer(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class Money,int)" (?addPlayer@BlackjackModel@@QEAAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VMoney@@H@Z) referenced in function "public: virtual void __cdecl BlackjackPresenter::addPlayer(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class Money,int)" (?addPlayer@BlackjackPresenter@@UEAAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@VMoney@@H@Z)
+SDLView.obj : error LNK2019: unresolved external symbol "public: __cdecl Color::Color(unsigned char,unsigned char,unsigned char,unsigned char)" (??0Color@@QEAA@EEEE@Z) referenced in function "public: __cdecl SDLView::SDLView(void)" (??0SDLView@@QEAA@XZ)
+tempDriver.obj : error LNK2001: unresolved external symbol "public: __cdecl Color::Color(unsigned char,unsigned char,unsigned char,unsigned char)" (??0Color@@QEAA@EEEE@Z)
+SDLView.obj : error LNK2019: unresolved external symbol "public: __cdecl SDLApp::SDLApp(void)" (??0SDLApp@@QEAA@XZ) referenced in function "public: __cdecl SDLView::SDLView(void)" (??0SDLView@@QEAA@XZ)
+SDLView.obj : error LNK2019: unresolved external symbol "public: virtual __cdecl SDLApp::~SDLApp(void)" (??1SDLApp@@UEAA@XZ) referenced in function "int `public: __cdecl SDLView::SDLView(void)'::`1'::dtor$0" (?dtor$0@?0???0SDLView@@QEAA@XZ@4HA)
+SDLView.obj : error LNK2019: unresolved external symbol "public: void __cdecl SDLApp::registerTextWidget(class ISDLWidgetTextable *)" (?registerTextWidget@SDLApp@@QEAAXPEAVISDLWidgetTextable@@@Z) referenced in function "public: __cdecl SDLView::SDLView(void)" (??0SDLView@@QEAA@XZ)
+SDLView.obj : error LNK2001: unresolved external symbol "public: virtual void __cdecl SDLApp::update(void)" (?update@SDLApp@@UEAAXXZ)
+SDLView.obj : error LNK2019: unresolved external symbol "public: __cdecl SDLTextWidget::SDLTextWidget(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,int,int,int,class Color)" (??0SDLTextWidget@@QEAA@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0HHHVColor@@@Z) referenced in function "public: __cdecl SDLView::SDLView(void)" (??0SDLView@@QEAA@XZ)
+SDLView.obj : error LNK2019: unresolved external symbol "public: bool __cdecl SDLSprite::loadSprite(class SDLApp *,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,int,int)" (?loadSprite@SDLSprite@@QEAA_NPEAVSDLApp@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HH@Z) referenced in function "public: virtual void __cdecl SDLView::onDeal(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?onDeal@SDLView@@UEAAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+tempDriver.obj : error LNK2019: unresolved external symbol "public: bool __cdecl SDLApp::createWindow(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,int,int,int,int)" (?createWindow@SDLApp@@QEAA_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HHHH@Z) referenced in function "int __cdecl SDL_main(void)" (?SDL_main@@YAHXZ)
+tempDriver.obj : error LNK2019: unresolved external symbol "public: void __cdecl SDLApp::setWindowBackgroundColor(class Color)" (?setWindowBackgroundColor@SDLApp@@QEAAXVColor@@@Z) referenced in function "int __cdecl SDL_main(void)" (?SDL_main@@YAHXZ)
+tempDriver.obj : error LNK2019: unresolved external symbol "public: void __cdecl SDLApp::cleanup(void)" (?cleanup@SDLApp@@QEAAXXZ) referenced in function "int __cdecl SDL_main(void)" (?SDL_main@@YAHXZ)
+tempDriver.obj : error LNK2019: unresolved external symbol "public: void __cdecl SDLApp::gameLoop(unsigned int)" (?gameLoop@SDLApp@@QEAAXI@Z) referenced in function "int __cdecl SDL_main(void)" (?SDL_main@@YAHXZ)
+TextView.obj : error LNK2019: unresolved external symbol "public: __cdecl TextUI::TextUI(class std::basic_ostream<char,struct std::char_traits<char> > &,class std::basic_istream<char,struct std::char_traits<char> > &)" (??0TextUI@@QEAA@AEAV?$basic_ostream@DU?$char_traits@D@std@@@std@@AEAV?$basic_istream@DU?$char_traits@D@std@@@2@@Z) referenced in function "public: __cdecl TextView::TextView(void)" (??0TextView@@QEAA@XZ)
+TextView.obj : error LNK2019: unresolved external symbol "public: __cdecl TextUI::~TextUI(void)" (??1TextUI@@QEAA@XZ) referenced in function "int `public: __cdecl TextView::TextView(void)'::`1'::dtor$0" (?dtor$0@?0???0TextView@@QEAA@XZ@4HA)
+TextView.obj : error LNK2019: unresolved external symbol "public: void __cdecl TextUI::addWidget(int,int,class ITextUIWidget *)" (?addWidget@TextUI@@QEAAXHHPEAVITextUIWidget@@@Z) referenced in function "public: __cdecl TextView::TextView(void)" (??0TextView@@QEAA@XZ)
+TextView.obj : error LNK2019: unresolved external symbol "public: void __cdecl TextUI::drawScreen(void)" (?drawScreen@TextUI@@QEAAXXZ) referenced in function "public: virtual void __cdecl TextView::onDraw(void)" (?onDraw@TextView@@UEAAXXZ)
+TextView.obj : error LNK2019: unresolved external symbol "public: void __cdecl TextUI::registerEvent(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::function<void __cdecl(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)>)" (?registerEvent@TextUI@@QEAAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$function@$$A6AXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z@3@@Z) referenced in function "public: __cdecl TextView::TextView(void)" (??0TextView@@QEAA@XZ)
+TextView.obj : error LNK2019: unresolved external symbol "public: __cdecl TextUITextWidget::TextUITextWidget(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (??0TextUITextWidget@@QEAA@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z) referenced in function "public: __cdecl TextView::TextView(void)" (??0TextView@@QEAA@XZ)
+MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\\Debug\TextUI.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\\Debug\SDLApp2.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\x64\Debug\CS485Blackjack.exe : fatal error LNK1120: 20 unresolved externals

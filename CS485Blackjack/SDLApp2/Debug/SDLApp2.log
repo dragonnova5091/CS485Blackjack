@@ -1,9 +1,1 @@
-﻿  Color.cpp
-  SDLApp.cpp
-  SDLSprite.cpp
-  SDLTextWidget.cpp
-  Generating Code...
-SDL2_gfx.lib(SDL2_gfx.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
-SDL2_ttf.lib(SDL2_ttf.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
-SDL2_image.lib(SDL2_image.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
-  SDLApp2.vcxproj -> C:\Users\hunt0991\Documents\Visual Studio 2019\CS485Blackjack\CS485Blackjack\Debug\SDLApp2.lib
+﻿  SDLApp2.vcxproj -> C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\Debug\SDLApp2.lib

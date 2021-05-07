@@ -8,3 +8,4 @@ C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\x64\Debug\SDLApp2.pdb
 C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\SDLApp2\x64\Debug\SDLApp2.pdb
 C:\Users\kibah\CS485Blackjack\CS485Blackjack\x64\Debug\SDLApp2.pdb
 C:\Users\kibah\CS485Blackjack\CS485Blackjack\SDLApp2\x64\Debug\SDLApp2.pdb
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\SDLApp2\x64\Debug\SDLApp2.lib

@@ -14,7 +14,7 @@ BlackjackPresenter::BlackjackPresenter(IBlackjackView* theView)
 
 BlackjackPresenter::~BlackjackPresenter()
 {
-	delete mpcBJView;
+
 }
 
 void BlackjackPresenter::setPlayerName(int seat, std::string& name)
