@@ -1,3 +1,11 @@
+//***************************************************************************
+// File name:  BlackjackModel.h
+// Author:     hung Huynh
+// Date:       5-6-2021
+// Class:      CS485
+// Assignment: BlackJack
+// Purpose:    model header
+//***************************************************************************
 
 #pragma once
 
