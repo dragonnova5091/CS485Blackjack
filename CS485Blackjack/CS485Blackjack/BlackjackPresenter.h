@@ -1,3 +1,11 @@
+//***************************************************************************
+// File name:  BlackjackPresenter.h
+// Author:     Hung Huynh
+// Date:       5-6-2021
+// Class:      CS485
+// Assignment: BlackJack
+// Purpose:    concrete class for the presenter
+//***************************************************************************
 
 #pragma once
 
