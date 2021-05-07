@@ -62,6 +62,7 @@ private:
   std::vector<TextUITextWidget*>mpBankAmounts;
   std::vector<TextUITextWidget*>mpBetAmounts;
   std::vector<int>mCardCounter;
+  std::vector<bool>mbShow;
 
   std::vector<Hand> mvHand;
   std::vector<Card> mvCards;
@@ -70,4 +71,5 @@ private:
   int numPlayers;
   int numHumanPlayers;
   int mCurrentTurn;
+  bool mFirstRun;
 };
