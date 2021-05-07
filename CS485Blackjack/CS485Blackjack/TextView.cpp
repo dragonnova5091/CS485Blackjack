@@ -215,6 +215,7 @@ void TextView::onClickStay(std::string yes)
   turn = mpcBlackjackPresenter->getTurn();
 
   mpcBlackjackPresenter->doTurn((int) turn, 0, 1.0f);
+  displayHands();
 }
 
 void TextView::onClickSplit(std::string yes) 
@@ -223,6 +224,7 @@ void TextView::onClickSplit(std::string yes)
   turn = mpcBlackjackPresenter->getTurn();
 
   mpcBlackjackPresenter->doTurn((int ) turn, 2, 0.5f);
+  displayHands();
 }
 
 void TextView::onSetBet(std::string yes) 
@@ -257,17 +259,28 @@ void TextView::displayHands()
   const int BASE = 2;
   int row = 1;
 
+  if (mbShow[numPlayers] == true && static_cast<int>(getCurrentTurn()) == 0)
+  {
+
+    mbShow[numPlayers] = false;
+    mbShow[0] = true;
+    mpHandWidget[numPlayers][0]->setVisible(false);
+    mpHandWidget[0][0]->setVisible(true);
+  }
   if (mFirstRun == false)
   {
-    for (int i = 1; i < numPlayers - 1; i++)
+    for (int i = 1; i <= numPlayers; i++)
     {
-      if (mbShow[i - 1] == true)
+      if (static_cast<int>(getCurrentTurn()) == i)
       {
-        mbShow[i - 1] = false;
-        mbShow[i] = true;
-        mpHandWidget[i - 1][0]->setVisible(false);
-        mpHandWidget[i][0]->setVisible(true);
-        i = numPlayers;
+        if (mbShow[i - 1] == true)
+        {
+          mbShow[i - 1] = false;
+          mbShow[i] = true;
+          mpHandWidget[i - 1][0]->setVisible(false);
+          mpHandWidget[i][0]->setVisible(true);
+          i = numPlayers + 1;
+        }
       }
     }
   }
