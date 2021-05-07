@@ -100,6 +100,7 @@ void Deck::shuffleDeck() {
 // Returned:    None
 //***************************************************************************
 void Deck::stackDeck() {
+	mCards.clear();
 	mCards.push_back(Card(10, Suit::Clubs, CardName::Queen));
 	mCards.push_back(Card(10, Suit::Spades, CardName::Five));
 	mCards.push_back(Card(6, Suit::Spades, CardName::Six));
