@@ -41,6 +41,7 @@ public:
   virtual void setNumPlayer(int);
   virtual void resetGame();
   virtual void quitGame();
+  virtual Card getCard();
 
   virtual void onSetPlayer1NameWidget(SDLTextWidget* pcWidget);
   virtual void onSetPlayer2NameWidget(SDLTextWidget* pcWidget);
@@ -51,6 +52,9 @@ public:
   virtual void handleEvent(SDL_Event event);
   virtual void render();
   virtual void initGame();
+
+  virtual std::vector<Hand> getHand(int player);
+  virtual void displayHand();
 
 private:
 

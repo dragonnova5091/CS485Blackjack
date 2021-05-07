@@ -282,3 +282,18 @@ void SDLView::render() {
 }
 
 void SDLView::initGame() {}
+
+Card SDLView::getCard()
+{
+    return mpcBlackjackPresenter->getCard();
+}
+
+std::vector<Hand> SDLView::getHand(int player)
+{
+    return mpcBlackjackPresenter->getHand(player);
+}
+
+void SDLView::displayHand()
+{
+    //yay
+}
