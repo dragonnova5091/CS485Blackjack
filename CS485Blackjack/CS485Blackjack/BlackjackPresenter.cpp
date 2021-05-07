@@ -42,9 +42,9 @@ void BlackjackPresenter::addBet(int seat, Money cBank)
 	mcBJModel.addBet(seat, cBank);
 }
 
-void BlackjackPresenter::doTurn(int seat, int move, float hands)
+void BlackjackPresenter::doTurn(float seat, int move, float hands)
 {
-	mcBJModel.doTurn(seat, move, hands);
+	mcBJModel.doTurn(static_cast<int>(seat), move, hands);
 }
 
 float BlackjackPresenter::getTurn()

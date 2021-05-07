@@ -89,30 +89,26 @@ void BlackjackModel::addBet(int seat, Money cBank)
 	mcvPlayers[seat]->setBet(cBank);
 }
 
-void BlackjackModel::doTurn(int seat, int move, float hands)
+void BlackjackModel::doTurn(float seat, int move, float hands)
 {
 
-	mcvPlayers[seat]->doTurn(move);
-
-	if (mTotalRounds == mCurrentTurn)
-	{
-		mTotalRounds++;
-	}
-	mCurrentTurn += hands;
+	mcvPlayers[static_cast<int>(seat)]->doTurn(move);
 }
 
 float BlackjackModel::getTurn()
 {
+
 	const float SPLIT = 0.5;
 	float halfTurn = std::floor(mCurrentTurn);
 	if (SPLIT == (mCurrentTurn - halfTurn))
 	{
-		return (halfTurn / mTotalRounds) + SPLIT;
+		return (static_cast<int>(mTotalRounds - SPLIT) % mPlayerCount) + SPLIT;
 	}
 	else
 	{
-		return (mCurrentTurn / mTotalRounds);
+		return (static_cast<int>(mTotalRounds) % mPlayerCount);
 	}
+
 }
 
 Card BlackjackModel::getCard()

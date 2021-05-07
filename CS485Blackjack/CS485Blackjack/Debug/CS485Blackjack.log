@@ -1,4 +1,27 @@
-﻿  tempDriver.cpp
-C:\Users\naka8177\source\repos\CS485Blackjack\CS485Blackjack\CS485Blackjack\tempDriver.cpp(27,20): error C2228: left of '.shuffleDeck' must have class/struct/union
-C:\Users\naka8177\source\repos\CS485Blackjack\CS485Blackjack\CS485Blackjack\tempDriver.cpp(27,20): message : type is 'Deck *'
-C:\Users\naka8177\source\repos\CS485Blackjack\CS485Blackjack\CS485Blackjack\tempDriver.cpp(27,20): message : did you intend to use '->' instead?
+﻿  BaseComputerBehavior.cpp
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\CS485Blackjack\Hand.h(24,21): error C2039: 'returnValue': is not a member of 'Card'
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\CS485Blackjack\Card.h(36): message : see declaration of 'Card'
+  ComputerPlayer.cpp
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\CS485Blackjack\Hand.h(24,21): error C2039: 'returnValue': is not a member of 'Card'
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\CS485Blackjack\Card.h(36): message : see declaration of 'Card'
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\CS485Blackjack\ComputerPlayer.cpp(61,11): warning C4018: '>=': signed/unsigned mismatch
+  DealerBehavior.cpp
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\CS485Blackjack\Hand.h(24,21): error C2039: 'returnValue': is not a member of 'Card'
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\CS485Blackjack\Card.h(36): message : see declaration of 'Card'
+  DrunkPlayerBehavior.cpp
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\CS485Blackjack\Hand.h(24,21): error C2039: 'returnValue': is not a member of 'Card'
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\CS485Blackjack\Card.h(36): message : see declaration of 'Card'
+  DrunkPlayerBehavior.h
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\CS485Blackjack\Hand.h(24,21): error C2039: 'returnValue': is not a member of 'Card'
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\CS485Blackjack\Card.h(36): message : see declaration of 'Card'
+  HumanPlayer.cpp
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\CS485Blackjack\Hand.h(24,21): error C2039: 'returnValue': is not a member of 'Card'
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\CS485Blackjack\Card.h(36): message : see declaration of 'Card'
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\CS485Blackjack\HumanPlayer.cpp(35,11): warning C4018: '>=': signed/unsigned mismatch
+  Player.cpp
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\CS485Blackjack\Hand.h(24,21): error C2039: 'returnValue': is not a member of 'Card'
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\CS485Blackjack\Card.h(36): message : see declaration of 'Card'
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\CS485Blackjack\Player.cpp(37,11): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\CS485Blackjack\Player.cpp(55,12): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\CS485Blackjack\Player.cpp(76,21): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
