@@ -64,7 +64,11 @@ int ComputerPlayer::doTurn(int action, int hand)
 		throw std::out_of_range("hand num out of range, should be 0 unless split");
 	}
 	//returns the behavior choice
-	return mpBehavior->doTurn(mHands[hand], mbIsSplit);
+	int request = mpBehavior->doTurn(mHands[hand], mbIsSplit);
+	if (request == 0)
+	{
+		mbSettled = true;
+	}
 }
 
 

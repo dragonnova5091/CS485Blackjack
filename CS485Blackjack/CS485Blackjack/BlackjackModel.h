@@ -27,6 +27,7 @@ public:
 	void addPlayer(std::string name, Money cBank, int seat, char cplayerType);
 	void removePlayer(int seat);
 	void setNumPlayers(int seats);
+	void finishRound();
 
 	void addBet(int seat, Money cBank);
 
