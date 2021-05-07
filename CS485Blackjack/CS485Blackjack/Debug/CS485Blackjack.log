@@ -1,2 +1,4 @@
-﻿  BlackjackPresenter.cpp
-  CS485Blackjack.vcxproj -> C:\Users\huyn7539\CS485Blackjack\CS485Blackjack\Debug\CS485Blackjack.exe
+﻿  tempDriver.cpp
+C:\Users\naka8177\source\repos\CS485Blackjack\CS485Blackjack\CS485Blackjack\tempDriver.cpp(27,20): error C2228: left of '.shuffleDeck' must have class/struct/union
+C:\Users\naka8177\source\repos\CS485Blackjack\CS485Blackjack\CS485Blackjack\tempDriver.cpp(27,20): message : type is 'Deck *'
+C:\Users\naka8177\source\repos\CS485Blackjack\CS485Blackjack\CS485Blackjack\tempDriver.cpp(27,20): message : did you intend to use '->' instead?

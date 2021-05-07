@@ -15,7 +15,7 @@ Deck::Deck() {
 				mCards.push_back(Card(11, (Suit)i, (CardName)j));
 			}
 			else {
-				mCards.push_back(Card(j + 1, (Suit)i, (CardName)j));
+				mCards.push_back(Card(j + 2, (Suit)i, (CardName)j));
 			}
 		}
 	}
